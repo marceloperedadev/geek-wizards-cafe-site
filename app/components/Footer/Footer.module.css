@@ -9,7 +9,7 @@
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
-  padding: 2.5rem max(2rem, calc((100% - 1320px) / 2));
+  padding: 2.5rem max(1.5rem, calc((100% - 1320px) / 2));
   background: #142033;
   color: #94a3b8;
   font-size: 0.8rem;
@@ -38,16 +38,17 @@
    BRAND / LOGO
    ========================================================= */
 
-.dentalFooter .dentalBrand {
+.dentalBrand {
   display: flex;
   align-items: center;
   gap: 0.9rem;
   text-decoration: none;
   color: #ffffff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Símbolo Monograma Estruturado */
-.dentalFooter .brandSymbol {
+.brandSymbol {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
@@ -67,12 +68,12 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.dentalFooter .dentalBrand:hover .brandSymbol {
+.dentalBrand:hover .brandSymbol {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(184, 138, 69, 0.35);
 }
 
-.dentalFooter .dentalBrand strong {
+.dentalBrand strong {
   display: block;
   color: #f8fafc;
   font-size: 0.95rem;
@@ -81,7 +82,7 @@
   letter-spacing: -0.01em;
 }
 
-.dentalFooter .dentalBrand small {
+.dentalBrand small {
   display: block;
   margin-top: 3px;
   color: #b88a45;
@@ -128,7 +129,9 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.03);
+  box-sizing: border-box;
   transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .instagramLink:hover {
@@ -146,11 +149,11 @@
   .dentalFooter {
     flex-direction: column;
     gap: 1.5rem;
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 1rem;
     text-align: center;
   }
 
-  .dentalFooter .dentalBrand {
+  .dentalBrand {
     flex-direction: column;
     gap: 0.65rem;
   }
@@ -162,17 +165,17 @@
 
 @media (max-width: 380px) {
   .dentalFooter {
-    padding: 2rem 1.25rem;
+    padding: 2rem 0.75rem;
   }
 
-  .dentalFooter .brandSymbol {
+  .brandSymbol {
     width: 36px;
     height: 36px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dentalFooter .brandSymbol,
+  .brandSymbol,
   .instagramLink {
     transition: none;
   }

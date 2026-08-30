@@ -11,9 +11,9 @@ export function WhatsAppFloat() {
       target="_blank" 
       rel="noreferrer" 
       className={styles.whatsappFloat} 
-      aria-label="Agendar Consulta pelo WhatsApp"
+      aria-label="Falar pelo WhatsApp com a Dra. Bárbara Glayris"
     >
-      <MessageCircle size={22} />
+      <MessageCircle size={22} aria-hidden="true" />
     </a>
   )
 }

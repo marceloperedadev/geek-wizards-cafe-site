@@ -6,7 +6,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: calc(100% - 48px);
+  width: calc(100% - 32px);
   max-width: 1320px;
   margin: 0 auto;
   padding: 2rem 0;
@@ -22,16 +22,16 @@
 }
 
 /* =========================================================
-   DIVISÃO ENTRE OS ITENS
+   DIVISÃO ENTRE OS ITENS DESKTOP
    ========================================================= */
 
 .trustStrip > div {
   position: relative;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
   transition: transform 0.3s ease;
+  box-sizing: border-box;
 }
 
-/* Linha vertical divisória em tom Ouro Velho */
 .trustStrip > div:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -69,7 +69,6 @@
   letter-spacing: -0.02em;
 }
 
-/* Símbolos e sufixos numéricos em bronze */
 .trustStrip strong small {
   color: #c5a059;
   font-size: 0.9rem;
@@ -91,22 +90,31 @@
 }
 
 /* =========================================================
-   TABLET
+   RESPONSIVO (TABLET & MOBILE)
    ========================================================= */
 
 @media (max-width: 800px) {
   .trustStrip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
+    width: calc(100% - 32px);
   }
 
   .trustStrip > div {
-    padding: 1.25rem 1rem;
+    padding: 1.25rem 0.75rem;
   }
 
-  /* Oculta a linha vertical no segundo item em telas de 2 colunas */
-  .trustStrip > div:nth-child(2)::after {
+  /* Remove divisória padrão e ajusta grade 2x2 */
+  .trustStrip > div:not(:last-child)::after {
     display: none;
+  }
+
+  .trustStrip > div:nth-child(1)::after {
+    display: block;
+  }
+
+  .trustStrip > div:nth-child(3)::after {
+    display: block;
   }
 
   .trustStrip > div:nth-child(-n + 2) {
@@ -114,40 +122,36 @@
   }
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
 @media (max-width: 640px) {
   .trustStrip {
-    width: calc(100% - 32px);
-    padding: 1rem 0;
+    width: calc(100% - 24px);
+    padding: 0.75rem 0;
   }
 
   .trustStrip > div {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.35rem;
   }
 
   .trustStrip strong {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .trustStrip span {
     font-size: 0.62rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
   }
 }
 
 @media (max-width: 380px) {
   .trustStrip {
-    width: calc(100% - 24px);
+    width: calc(100% - 16px);
   }
 
   .trustStrip strong {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .trustStrip span {
-    font-size: 0.58rem;
+    font-size: 0.56rem;
   }
 }

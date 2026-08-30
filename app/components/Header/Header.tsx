@@ -23,12 +23,11 @@ export function Header() {
         href="#inicio" 
         onClick={handleLogoClick} 
         className={styles.dentalBrand} 
-        aria-label="Dra. Bárbara Glayris início"
+        aria-label="Ir para o início"
       >
-        <span className={styles.brandSymbol}>B</span>
-        <span>
+        <span className={styles.brandText}>
           <strong>{Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}</strong>
-          <small>Cirurgiã-Dentista | Taubaté</small>
+          <small>Cirurgiã-Dentista</small>
         </span>
       </a>
 
@@ -47,6 +46,7 @@ export function Header() {
         type="button"
         className={styles.menuToggle} 
         aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} 
+        aria-expanded={menuOpen}
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <X size={20} /> : <Menu size={20} />}

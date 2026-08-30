@@ -5,10 +5,11 @@
 .experience {
   position: relative;
   width: 100%;
-  padding: 7rem 2rem;
+  padding: 6rem 1rem;
   text-align: center;
   background: #f1f5f9;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* =========================================================
@@ -35,8 +36,8 @@
    EYEBROW
    ========================================================= */
 
-.experience .dentalEyebrow {
-  display: flex;
+.dentalEyebrow {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
@@ -48,7 +49,7 @@
   letter-spacing: 0.22em;
 }
 
-.experience .dentalEyebrow span {
+.dentalEyebrow span {
   width: 12px;
   height: 2px;
   background: #b88a45;
@@ -62,10 +63,11 @@
   max-width: 720px;
   margin: 0 auto 3.5rem;
   color: #142033;
-  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 
 .experience h2 em {
@@ -84,14 +86,16 @@
   gap: 1.5rem;
   max-width: 1180px;
   margin: 0 auto;
+  padding: 0;
+  list-style: none;
   text-align: left;
 }
 
 /* =========================================================
-   CARD ESTRUTURADO
+   CARD ESTRUTURADO (LI)
    ========================================================= */
 
-.experienceList > div {
+.experienceList > li {
   position: relative;
   min-height: 160px;
   display: flex;
@@ -102,11 +106,13 @@
   border: 1px solid rgba(20, 32, 51, 0.08);
   border-radius: 6px;
   box-shadow: 0 4px 20px rgba(20, 32, 51, 0.03);
+  box-sizing: border-box;
+  overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 /* Linha de progresso em bronze na base do card */
-.experienceList > div::before {
+.experienceList > li::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -117,13 +123,13 @@
   transition: width 0.35s ease;
 }
 
-.experienceList > div:hover {
+.experienceList > li:hover {
   transform: translateY(-4px);
   border-color: rgba(184, 138, 69, 0.4);
   box-shadow: 0 12px 30px rgba(20, 32, 51, 0.08);
 }
 
-.experienceList > div:hover::before {
+.experienceList > li:hover::before {
   width: 100%;
 }
 
@@ -147,7 +153,7 @@
   transition: background 0.25s ease, color 0.25s ease;
 }
 
-.experienceList > div:hover b {
+.experienceList > li:hover b {
   background: #142033;
   color: #b88a45;
   border-color: #142033;
@@ -183,29 +189,44 @@
     max-width: 600px;
   }
 
-  .experienceList > div {
+  .experienceList > li {
     min-height: auto;
   }
 }
 
 @media (max-width: 768px) {
   .experience {
-    padding: 5rem 1.25rem;
+    padding: 4rem 1rem;
   }
 
   .experience h2 {
-    font-size: 2.2rem;
     margin-bottom: 2.5rem;
   }
 
-  .experienceList > div {
-    padding: 1.6rem;
+  .experienceList > li {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience {
+    padding: 3rem 0.75rem;
+  }
+
+  .experienceList > li {
+    gap: 1rem;
+  }
+
+  .experienceList b {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .experienceList > div,
-  .experienceList > div::before,
+  .experienceList > li,
+  .experienceList > li::before,
   .experienceList b {
     transition: none;
   }

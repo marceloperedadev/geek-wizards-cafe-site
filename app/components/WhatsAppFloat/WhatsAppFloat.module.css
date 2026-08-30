@@ -12,14 +12,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px; /* Geometria estruturada com bordas suaves */
+  border-radius: 6px;
   background: linear-gradient(135deg, #128c7e, #075e54);
   color: #f8fafc;
   text-decoration: none;
-  border: 1px solid rgba(197, 160, 89, 0.4); /* Borda sutil Ouro Velho */
+  border: 1px solid rgba(197, 160, 89, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
               0 0 15px rgba(18, 140, 126, 0.2);
+  box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================================================
@@ -52,7 +54,7 @@
 }
 
 /* =========================================================
-   HOVER
+   HOVER & FOCUS
    ========================================================= */
 
 .whatsappFloat:hover {
@@ -62,6 +64,11 @@
               0 0 20px rgba(197, 160, 89, 0.3);
 }
 
+.whatsappFloat:focus-visible {
+  outline: 2px solid #c5a059;
+  outline-offset: 4px;
+}
+
 /* =========================================================
    ÍCONE
    ========================================================= */
@@ -69,6 +76,7 @@
 .whatsappFloat svg {
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
   stroke-width: 2.2px;
 }
 
@@ -96,5 +104,13 @@
     bottom: 1rem;
     width: 44px;
     height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsappFloat,
+  .whatsappFloat::before {
+    animation: none;
+    transition: none;
   }
 }

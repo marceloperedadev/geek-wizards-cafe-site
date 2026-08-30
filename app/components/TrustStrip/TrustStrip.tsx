@@ -20,7 +20,7 @@ export function TrustStrip() {
       </div>
       <div>
         <strong>
-          4.9 <Star size={16} fill="currentColor" color="#c5a059" />
+          4.9 <Star size={16} fill="currentColor" color="#c5a059" aria-hidden="true" />
         </strong>
         <span>Avaliação dos Pacientes</span>
       </div>

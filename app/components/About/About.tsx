@@ -1,16 +1,19 @@
 'use client'
 
+import Image from 'next/image'
 import styles from './About.module.css'
 
 export function About() {
   return (
     <section id="sobre" className={styles.aboutDental}>
       <div className={styles.aboutImage}>
-        <img 
-          src="./images/consultorio.jpg" 
-          alt="Dra. Bárbara Glayris em seu consultório em Taubaté" 
+        <Image 
+          src="/images/consultorio.jpg" 
+          alt="Dra. Bárbara Glayris em seu consultório em Taubaté"
+          width={600}
+          height={450}
+          style={{ width: '100%', height: 'auto', display: 'block' }}
         />
-        {/* Badge flutuante com dado de precisão/experiência */}
         <div className={styles.experienceBadge}>
           <strong>+10</strong>
           <span>Anos de precisão & estética</span>
@@ -18,9 +21,9 @@ export function About() {
       </div>
 
       <div className={styles.aboutText}>
-        <p className={styles.dentalEyebrow}>
-          <span /> Alta Precisão Odontológica
-        </p>
+        <div className={styles.dentalEyebrow}>
+          <span aria-hidden="true" /> Alta Precisão Odontológica
+        </div>
 
         <h2>
           Esculpindo sorrisos.<br />

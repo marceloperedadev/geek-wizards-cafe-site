@@ -5,9 +5,9 @@ import styles from './Experience.module.css'
 export function Experience() {
   return (
     <section id="experiencia" className={styles.experience}>
-      <p className={styles.dentalEyebrow}>
-        <span /> Protocolo Clínico
-      </p>
+      <div className={styles.dentalEyebrow}>
+        <span aria-hidden="true" /> Protocolo Clínico
+      </div>
 
       <h2>
         Metodologia pautada em<br />
@@ -17,26 +17,26 @@ export function Experience() {
       <ol className={styles.experienceList}>
         <li>
           <b>01</b>
-          <span>
+          <div>
             <strong>Mapeamento Digital 3D</strong>
             <small>Escaneamento intraoral de alta definição para diagnóstico funcional e anatômico exato.</small>
-          </span>
+          </div>
         </li>
 
         <li>
           <b>02</b>
-          <span>
+          <div>
             <strong>Planejamento Guiado</strong>
             <small>Simulação computadorizada da arquitetura do sorriso antes de qualquer procedimento.</small>
-          </span>
+          </div>
         </li>
 
         <li>
           <b>03</b>
-          <span>
+          <div>
             <strong>Execução de Alta Performance</strong>
             <small>Procedimentos minimamente invasivos com foco em durabilidade e estética natural.</small>
-          </span>
+          </div>
         </li>
       </ol>
     </section>

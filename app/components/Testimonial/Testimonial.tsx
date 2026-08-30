@@ -9,7 +9,7 @@ export function Testimonial() {
       {/* Coluna Esquerda: Manifesto / Filosofia */}
       <div className={styles.testimonialQuoteWrapper}>
         <div className={styles.eyebrow}>
-          <ShieldCheck size={16} />
+          <ShieldCheck size={16} aria-hidden="true" />
           Filosofia de Atendimento
         </div>
         
@@ -33,7 +33,7 @@ export function Testimonial() {
         </div>
 
         <div className={styles.verifiedBadge}>
-          <Award size={14} />
+          <Award size={14} aria-hidden="true" />
           Compromisso com a Excelência
         </div>
       </div>

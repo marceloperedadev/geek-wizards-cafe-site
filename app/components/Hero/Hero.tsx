@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { ArrowUpRight, Award, ShieldCheck } from 'lucide-react'
 import { Config } from '@/app/constants/config'
 import styles from './Hero.module.css'
@@ -9,7 +10,7 @@ export function Hero() {
     <section id="inicio" className={styles.dentalHero}>
       <div className={styles.heroContent}>
         <div className={styles.dentalEyebrow}>
-          <span /> Reabilitação Oral & Estética
+          <span aria-hidden="true" /> Reabilitação Oral & Estética
         </div>
         
         <h1>
@@ -43,9 +44,13 @@ export function Hero() {
 
       <div className={styles.heroPortrait}>
         <div className={styles.portraitFrame}>
-          <img 
-            src="./images/proprietaria.png" 
-            alt="Dra. Bárbara Glayris - Cirurgiã-Dentista em Taubaté" 
+          <Image 
+            src="/images/proprietaria.png" 
+            alt="Dra. Bárbara Glayris - Cirurgiã-Dentista em Taubaté"
+            width={580}
+            height={680}
+            priority
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
 

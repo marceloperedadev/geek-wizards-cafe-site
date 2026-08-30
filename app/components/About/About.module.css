@@ -6,12 +6,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 5.5rem;
-  width: calc(100% - 48px);
+  width: calc(100% - 32px);
   max-width: 1320px;
   margin: 0 auto;
-  padding: 7rem 0;
+  padding: 6rem 0;
   align-items: center;
-  
+  box-sizing: border-box;
 }
 
 /* =========================================================
@@ -21,22 +21,21 @@
 .aboutImage {
   position: relative;
   width: 100%;
-  
+  box-sizing: border-box;
 }
 
-/* Moldura traseira estilo titânio/grafite com ângulos retos */
+/* Moldura traseira alinhada sem vazar a viewport */
 .aboutImage::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 16px;
-  left: -16px;
+  top: 12px;
+  left: -12px;
   border: 1px solid rgba(15, 23, 42, 0.15);
   border-radius: 6px;
   z-index: 0;
   pointer-events: none;
-  
 }
 
 .aboutImage img {
@@ -46,35 +45,35 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
-  
-  border-radius: 6px; /* Design mais reto e estruturado */
+  border-radius: 6px;
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
 
-/* Badge flutuante sobre a imagem */
+/* Badge flutuante contida na lateral da imagem */
 .experienceBadge {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
+  bottom: -16px;
+  right: 0;
   z-index: 2;
-  background: #0f172a; /* Slate 900 */
+  background: #0f172a;
   color: #ffffff;
-  padding: 1.2rem 1.6rem;
+  padding: 1rem 1.4rem;
   border-radius: 4px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  box-sizing: border-box;
 }
 
 .experienceBadge strong {
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   line-height: 1;
-  color: #c5a059; /* Bronze industrial */
+  color: #c5a059;
 }
 
 .experienceBadge span {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94a3b8;
@@ -89,7 +88,7 @@
 }
 
 .dentalEyebrow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.65rem;
   margin-bottom: 1rem;
@@ -100,7 +99,6 @@
   letter-spacing: 0.22em;
 }
 
-/* Marcador retangular ao invés de circular */
 .dentalEyebrow span {
   width: 12px;
   height: 2px;
@@ -110,14 +108,15 @@
 .aboutText h2 {
   margin: 0 0 1.5rem;
   color: #0f172a;
-  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.03em;
+  word-break: break-word;
 }
 
 .aboutText h2 em {
-  font-style: normal; /* Sem itálico fluido, focado em força */
+  font-style: normal;
   color: #c5a059;
   font-weight: 600;
 }
@@ -127,7 +126,7 @@
   margin: 0 0 1.2rem;
   color: #475569;
   font-size: 0.98rem;
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
 /* =========================================================
@@ -136,7 +135,7 @@
 
 .signature {
   position: relative;
-  margin-top: 2.5rem;
+  margin-top: 2.25rem;
   padding-left: 1.2rem;
   color: #0f172a;
   font-size: 1.05rem;
@@ -168,22 +167,47 @@
    RESPONSIVO
    ========================================================= */
 
+@media (max-width: 1024px) {
+  .aboutDental {
+    gap: 3.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .aboutDental {
     grid-template-columns: 1fr;
     width: calc(100% - 32px);
-    gap: 3.5rem;
-    padding: 4.5rem 0;
+    gap: 3rem;
+    padding: 3.5rem 0;
   }
 
-  .experienceBadge {
-    right: 10px;
-    bottom: -15px;
-    padding: 0.9rem 1.2rem;
+  .aboutText {
+    max-width: 100%;
   }
 
   .aboutImage::before {
-    top: 10px;
-    left: -10px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .experienceBadge {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 1rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutDental {
+    width: calc(100% - 24px);
+    padding: 2.5rem 0;
+  }
+
+  .aboutImage::before {
+    display: none;
   }
 }

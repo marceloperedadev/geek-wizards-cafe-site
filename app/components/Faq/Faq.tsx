@@ -25,9 +25,9 @@ export function Faq() {
   return (
     <section id="faq" className={styles.faqSection}>
       <div className={styles.faqIntro}>
-        <p className={styles.dentalEyebrow}>
-          <span /> TIRE SUAS DÚVIDAS
-        </p>
+        <div className={styles.dentalEyebrow}>
+          <span aria-hidden="true" /> TIRE SUAS DÚVIDAS
+        </div>
         <h2>Perguntas Frequentes</h2>
       </div>
 
@@ -36,7 +36,7 @@ export function Faq() {
           <details key={index} className={styles.faqItem}>
             <summary className={styles.faqQuestion}>
               <strong>{item.question}</strong>
-              <span className={styles.icon}>+</span>
+              <span className={styles.icon} aria-hidden="true">+</span>
             </summary>
             <p className={styles.faqAnswer}>{item.answer}</p>
           </details>

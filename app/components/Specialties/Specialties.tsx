@@ -44,12 +44,19 @@ const SPECIALTIES_DATA = [
 ]
 
 export function Specialties() {
+  const getWhatsappLink = (title: string) => {
+    const baseUrl = Config.WHATSAPP_URL || 'https://wa.me/5512997093459'
+    const message = `Olá! Gostaria de agendar uma consulta sobre ${title} em Taubaté.`
+    const separator = baseUrl.includes('?') ? '&' : '?'
+    return `${baseUrl}${separator}text=${encodeURIComponent(message)}`
+  }
+
   return (
     <section id="especialidades" className={styles.specialties}>
       <div className={styles.sectionIntro}>
-        <p className={styles.dentalEyebrow}>
-          <span /> Alta Performance & Tecnologia
-        </p>
+        <div className={styles.dentalEyebrow}>
+          <span aria-hidden="true" /> Alta Performance & Tecnologia
+        </div>
         <h2>
           Especialidades & <br />
           <em>Protocolos Clínicos.</em>
@@ -62,25 +69,23 @@ export function Specialties() {
       <div className={styles.specialtyGrid}>
         {SPECIALTIES_DATA.map((item) => {
           const Icon = item.icon
-          const customWhatsappLink = `https://wa.me/5512997093459?text=${encodeURIComponent(
-            `Olá! Gostaria de agendar uma consulta sobre ${item.title} em Taubaté.`
-          )}`
+          const customLink = getWhatsappLink(item.title)
 
           return (
             <article key={item.number}>
               <span className={styles.specialtyNumber}>{item.number}</span>
               <div className={styles.icon}>
-                <Icon size={22} />
+                <Icon size={22} aria-hidden="true" />
               </div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <a 
-                href={customWhatsappLink} 
+                href={customLink} 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 aria-label={`Saber mais sobre o protocolo de ${item.title} pelo WhatsApp`}
               >
-                Saber mais sobre protocolo <ArrowRight size={14} />
+                Saber mais sobre protocolo <ArrowRight size={14} aria-hidden="true" />
               </a>
             </article>
           )

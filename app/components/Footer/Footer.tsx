@@ -9,12 +9,12 @@ export function Footer() {
 
   return (
     <footer className={styles.dentalFooter}>
-      <a href="#inicio" className={styles.dentalBrand}>
-        <span className={styles.brandSymbol}>B</span>
-        <span>
+      <a href="#inicio" className={styles.dentalBrand} aria-label="Voltar ao início">
+        <span className={styles.brandSymbol} aria-hidden="true">B</span>
+        <div>
           <strong>{Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}</strong>
           <small>Cirurgiã-Dentista | Taubaté</small>
-        </span>
+        </div>
       </a>
 
       <p className={styles.copyright}>
@@ -27,8 +27,9 @@ export function Footer() {
         target="_blank" 
         rel="noreferrer" 
         className={styles.instagramLink}
+        aria-label="Perfil do Instagram da Dra. Bárbara Glayris"
       >
-        <Camera size={16} />
+        <Camera size={16} aria-hidden="true" />
         <span>@dra.barbaraglayris</span>
       </a>
     </footer>
