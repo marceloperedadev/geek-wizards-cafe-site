@@ -1,0 +1,714 @@
+/* =========================================================
+   HEADER — MASCULINE PREMIUM / ARCHITECTURAL
+   ========================================================= */
+
+.dentalHeader {
+  position: sticky;
+  top: 16px;
+  z-index: 999;
+
+  width: calc(100% - 48px);
+  max-width: 1320px;
+
+  margin: 16px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 64px;
+
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17, 22, 31, 0.97),
+      rgba(9, 13, 20, 0.96)
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border-radius: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   HEADER HOVER
+   ========================================================= */
+
+.dentalHeader:hover {
+  border-color:
+    rgba(197, 160, 89, 0.16);
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.36),
+    0 2px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+
+/* =========================================================
+   LINHA SUPERIOR — BRONZE SUTIL
+   ========================================================= */
+
+.dentalHeader::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 28px;
+  right: 28px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(197, 160, 89, 0.08) 15%,
+      rgba(218, 188, 122, 0.55) 50%,
+      rgba(197, 160, 89, 0.08) 85%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MARCA / MONOGRAMA
+   ========================================================= */
+
+.dentalBrand {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SÍMBOLO DA MARCA
+   ========================================================= */
+
+.brandSymbol {
+  position: relative;
+
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  color: #0b0f17;
+
+  font-size: 0.92rem;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ead39b 0%,
+      #d6b86f 45%,
+      #b9924e 100%
+    );
+
+  box-shadow:
+    0 5px 18px rgba(197, 160, 89, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  will-change: transform;
+}
+
+
+/* brilho interno */
+
+.brandSymbol::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 1px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 4px;
+
+  pointer-events: none;
+}
+
+
+.dentalBrand:hover .brandSymbol {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 22px rgba(197, 160, 89, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   NOME DA MARCA
+   ========================================================= */
+
+.dentalBrand strong {
+  display: block;
+
+  margin: 0;
+
+  color: #f4f4f2;
+
+  font-size: 0.94rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.015em;
+
+  line-height: 1.15;
+}
+
+
+.dentalBrand small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #c5a059;
+
+  font-size: 0.56rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.19em;
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
+
+.dentalNav {
+  display: flex;
+  align-items: center;
+
+  gap: 2.1rem;
+
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.dentalNav a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.5rem 0;
+
+  color: #8f99a8;
+
+  text-decoration: none;
+
+  font-size: 0.79rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.025em;
+
+  transition:
+    color 0.25s ease;
+}
+
+
+.dentalNav a:hover {
+  color: #f2f2ef;
+}
+
+
+/* =========================================================
+   INDICADOR INFERIOR
+   ========================================================= */
+
+.dentalNav a::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -1px;
+
+  width: 0;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      #b9924e,
+      #e0c481,
+      #b9924e
+    );
+
+  transition:
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.dentalNav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   CTA — AGENDAMENTO
+   ========================================================= */
+
+.headerCta {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  padding: 0 1.3rem;
+
+  box-sizing: border-box;
+
+  border-radius: 5px;
+
+  color: #11151c;
+
+  text-decoration: none;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.065em;
+
+  text-transform: uppercase;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ead39b 0%,
+      #d5b66e 48%,
+      #bc9652 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 5px 18px rgba(197, 160, 89, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.25s ease;
+
+  will-change: transform;
+}
+
+
+/* brilho GPU-accelerated */
+
+.headerCta::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform: skewX(-20deg) translateX(-180%);
+
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.headerCta:hover::before {
+  transform: skewX(-20deg) translateX(220%);
+}
+
+
+.headerCta:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.03);
+
+  box-shadow:
+    0 8px 24px rgba(197, 160, 89, 0.27),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+.menuToggle {
+  display: none;
+
+  position: relative;
+
+  width: 43px;
+  height: 43px;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: #f8fafc;
+
+  cursor: pointer;
+
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.menuToggle:hover {
+  background:
+    rgba(197, 160, 89, 0.09);
+
+  border-color:
+    rgba(197, 160, 89, 0.32);
+
+  color: #d8bc7b;
+}
+
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .dentalHeader {
+    top: 12px;
+
+    width: calc(100% - 24px);
+
+    margin: 12px auto;
+
+    min-height: 60px;
+
+    padding:
+      0.6rem
+      0.65rem
+      0.6rem
+      0.8rem;
+
+    border-radius: 6px;
+  }
+
+
+  /* esconde CTA */
+
+  .headerCta {
+    display: none;
+  }
+
+
+  /* mostra hamburger */
+
+  .menuToggle {
+    display: flex;
+  }
+
+
+  /* =======================================================
+     NAVEGAÇÃO MOBILE
+     ======================================================= */
+
+  .dentalNav {
+    position: absolute;
+
+    top: calc(100% + 9px);
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0.65rem;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0.2rem;
+
+    box-sizing: border-box;
+
+    background:
+      linear-gradient(
+        145deg,
+        #11161f,
+        #090d14
+      );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 6px;
+
+    box-shadow:
+      0 22px 45px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  }
+
+
+  .dentalNav.open {
+    display: flex;
+  }
+
+
+  /* =======================================================
+     LINKS MOBILE
+     ======================================================= */
+
+  .dentalNav a {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding:
+      0.85rem
+      0.9rem;
+
+    border-radius: 4px;
+
+    color: #9ba5b4;
+
+    font-size: 0.82rem;
+  }
+
+
+  .dentalNav a:hover {
+    color: #d8bc7b;
+
+    background:
+      rgba(197, 160, 89, 0.07);
+  }
+
+
+  .dentalNav a::after {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .dentalHeader {
+    width: calc(100% - 20px);
+  }
+
+
+  .dentalBrand {
+    gap: 0.7rem;
+  }
+
+
+  .brandSymbol {
+    width: 41px;
+    height: 41px;
+  }
+
+
+  .dentalBrand strong {
+    font-size: 0.9rem;
+  }
+
+
+  .dentalBrand small {
+    font-size: 0.52rem;
+
+    letter-spacing: 0.16em;
+  }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .dentalHeader {
+    top: 8px;
+
+    width: calc(100% - 16px);
+
+    margin: 8px auto;
+
+    min-height: 56px;
+
+    padding:
+      0.5rem
+      0.55rem
+      0.5rem
+      0.7rem;
+  }
+
+
+  .brandSymbol {
+    width: 39px;
+    height: 39px;
+
+    font-size: 0.85rem;
+  }
+
+
+  .dentalBrand {
+    gap: 0.65rem;
+  }
+
+
+  .dentalBrand strong {
+    font-size: 0.84rem;
+  }
+
+
+  .dentalBrand small {
+    margin-top: 3px;
+
+    font-size: 0.48rem;
+
+    letter-spacing: 0.14em;
+  }
+
+
+  .menuToggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .dentalHeader {
+    width: calc(100% - 12px);
+
+    padding-left: 0.55rem;
+  }
+
+
+  .brandSymbol {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .dentalBrand strong {
+    font-size: 0.8rem;
+  }
+
+
+  .dentalBrand small {
+    font-size: 0.44rem;
+
+    letter-spacing: 0.11em;
+  }
+
+
+  .menuToggle {
+    width: 38px;
+    height: 38px;
+  }
+}

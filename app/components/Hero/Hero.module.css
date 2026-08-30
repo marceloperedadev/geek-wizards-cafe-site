@@ -1,0 +1,371 @@
+/* =========================================================
+   HERO — ARCHITECTURAL / DARK TITANIUM (SUPREME IMPACT)
+   ========================================================= */
+
+.dentalHero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 5rem;
+  width: calc(100% - 48px);
+  max-width: 1320px;
+  min-height: 720px;
+  margin: 0 auto;
+  padding: 5rem 0;
+  align-items: center;
+}
+
+/* Glow Radial de Destaque no Fundo */
+.dentalHero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, rgba(11, 15, 23, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   CONTEÚDO DA ESQUERDA
+   ========================================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+/* Eyebrow / Tag Superior */
+.dentalEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  color: #b17e20;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.dentalEyebrow span {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #c5a059;
+  box-shadow: 0 0 10px #c5a059;
+}
+
+/* Título Principal de Alto Impacto */
+.heroContent h1 {
+  margin: 0 0 1.75rem;
+  color: #031d3b;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.heroContent h1 em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff2d4 0%, #e2c285 40%, #c5a059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 15px rgba(197, 160, 89, 0.2));
+}
+
+/* Texto descritivo */
+.heroLead {
+  max-width: 540px;
+  margin: 0 0 2.75rem;
+  color: #3a4c64;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* Botão CTA Principal de Destaque */
+.dentalButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #080c14;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #f7e3b5 0%, #e2c285 50%, #c5a059 100%);
+  box-shadow: 0 8px 30px rgba(197, 160, 89, 0.35);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dentalButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.75s ease;
+}
+
+.dentalButton:hover::before {
+  transform: translateX(120%);
+}
+
+.dentalButton:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(197, 160, 89, 0.5);
+}
+
+/* Prova Social / Badge */
+.heroProof {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.proofBadge {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.2), rgba(197, 160, 89, 0.05));
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #614614c0;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.heroProof strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #214a72;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.heroProof small {
+  color: #718096;
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   RETRATO / FOTO DIREITA
+   ========================================================= */
+
+.heroPortrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 580px;
+  margin-left: auto;
+}
+
+/* Cantoneira Dourada Arquitetônica */
+.heroPortrait::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  border-top: 3px solid #c5a059;
+  border-right: 3px solid #c5a059;
+  pointer-events: none;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.5));
+}
+
+/* Frame da Imagem */
+.portraitFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  background: #0b0f17;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.85);
+  transition: border-color 0.4s ease;
+}
+
+.portraitFrame:hover {
+  border-color: rgba(197, 160, 89, 0.7);
+}
+
+.portraitFrame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(10%) contrast(108%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.portraitFrame:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* Card Flutuante Premium com Glassmorphism High-Contrast */
+.portraitCard {
+  position: absolute;
+  left: -28px;
+  bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  background: rgba(11, 15, 23, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+.portraitCard strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.portraitCard small {
+  color: #a0aec0;
+  font-size: 0.75rem;
+}
+
+/* Selo Monograma Gold Premium */
+.portraitSeal {
+  position: absolute;
+  top: 28px;
+  right: -24px;
+  min-width: 95px;
+  padding: 1rem 0.85rem;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #131a27, #0b0f17);
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+.portraitSeal span {
+  display: block;
+  margin-bottom: 2px;
+  color: #e2c285;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.portraitSeal small {
+  color: #718096;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .dentalHero {
+    gap: 3rem;
+  }
+
+  .portraitCard {
+    left: -12px;
+  }
+
+  .portraitSeal {
+    right: -12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .dentalHero {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    width: calc(100% - 32px);
+    padding: 3rem 0;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroPortrait {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .portraitCard {
+    left: 16px;
+    bottom: 20px;
+  }
+
+  .portraitSeal {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dentalHero {
+    width: calc(100% - 24px);
+  }
+
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroLead {
+    font-size: 0.98rem;
+  }
+
+  .dentalButton {
+    width: 100%;
+  }
+
+  .portraitCard {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin: -35px auto 0;
+    width: calc(100% - 32px);
+  }
+
+  .portraitSeal {
+    display: none;
+  }
+}

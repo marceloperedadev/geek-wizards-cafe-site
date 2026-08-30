@@ -1,0 +1,100 @@
+/* =========================================================
+   WHATSAPP FLOAT — ARCHITECTURAL / DARK TITANIUM
+   ========================================================= */
+
+.whatsappFloat {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 99;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px; /* Geometria estruturada com bordas suaves */
+  background: linear-gradient(135deg, #128c7e, #075e54);
+  color: #f8fafc;
+  text-decoration: none;
+  border: 1px solid rgba(197, 160, 89, 0.4); /* Borda sutil Ouro Velho */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+              0 0 15px rgba(18, 140, 126, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* =========================================================
+   ANEL DE PRESENÇA (PULSE BRONZE/VERDE)
+   ========================================================= */
+
+.whatsappFloat::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 8px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  animation: whatsappPulse 3s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.whatsappFloat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(197, 160, 89, 0.8);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 
+              0 0 20px rgba(197, 160, 89, 0.3);
+}
+
+/* =========================================================
+   ÍCONE
+   ========================================================= */
+
+.whatsappFloat svg {
+  position: relative;
+  z-index: 2;
+  stroke-width: 2.2px;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .whatsappFloat {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsappFloat svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .whatsappFloat {
+    right: 1rem;
+    bottom: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+}

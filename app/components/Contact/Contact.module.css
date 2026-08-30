@@ -1,0 +1,211 @@
+/* =========================================================
+   CONTACT CTA — MASCULINE PREMIUM / ARCHITECTURAL
+   ========================================================= */
+
+.contactCta {
+  position: relative;
+  width: 100%;
+  padding: 7rem 2rem;
+  text-align: center;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(184, 138, 69, 0.12),
+      transparent 55%
+    ),
+    #142033;
+  overflow: hidden;
+}
+
+/* Texture overlay (grid estruturado sutil) */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* =========================================================
+   DETALHES DECORATIVOS GEOMÉTRICOS
+   ========================================================= */
+
+/* Linha superior bronze com corte preciso */
+.contactCta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 160px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b88a45,
+    transparent
+  );
+}
+
+/* Moldura quadrada rotacionada no fundo */
+.contactCta::after {
+  content: '';
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid rgba(184, 138, 69, 0.08);
+  pointer-events: none;
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.contactCta .dentalEyebrow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 1.2rem;
+  color: #b88a45;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+/* Tracinho retangular */
+.contactCta .dentalEyebrow span {
+  width: 12px;
+  height: 2px;
+  background: #b88a45;
+}
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.contactCta h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 1.2rem;
+  color: #ffffff;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.contactCta h2 em {
+  font-style: normal;
+  color: #b88a45;
+  font-weight: 600;
+}
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
+
+.contactCta p {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto 2.8rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   BOTÃO DE ALTA VISIBILIDADE
+   ========================================================= */
+
+.dentalButtonLight {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 54px;
+  padding: 0 2.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #142033;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    #d9b978,
+    #b88a45
+  );
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(184, 138, 69, 0.2);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Brilho metálico no hover */
+.dentalButtonLight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.dentalButtonLight:hover::before {
+  transform: translateX(120%);
+}
+
+.dentalButtonLight:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(184, 138, 69, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .contactCta {
+    padding: 5rem 1.5rem;
+  }
+
+  .contactCta h2 {
+    font-size: 2.25rem;
+  }
+
+  .contactCta p {
+    font-size: 0.94rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .dentalButtonLight {
+    width: 100%;
+    max-width: 360px;
+    padding: 0 1.2rem;
+    font-size: 0.8rem;
+  }
+}

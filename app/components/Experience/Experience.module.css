@@ -1,0 +1,212 @@
+/* =========================================================
+   EXPERIENCE — MASCULINE PREMIUM / PROTOCOL
+   ========================================================= */
+
+.experience {
+  position: relative;
+  width: 100%;
+  padding: 7rem 2rem;
+  text-align: center;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+/* =========================================================
+   DETALHE SUPERIOR
+   ========================================================= */
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b88a45,
+    transparent
+  );
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.experience .dentalEyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  color: #142033;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.experience .dentalEyebrow span {
+  width: 12px;
+  height: 2px;
+  background: #b88a45;
+}
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.experience h2 {
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  color: #142033;
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.experience h2 em {
+  font-style: normal;
+  color: #b88a45;
+  font-weight: 600;
+}
+
+/* =========================================================
+   LISTA / GRID
+   ========================================================= */
+
+.experienceList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* =========================================================
+   CARD ESTRUTURADO
+   ========================================================= */
+
+.experienceList > div {
+  position: relative;
+  min-height: 160px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 2.2rem 1.8rem;
+  background: #ffffff;
+  border: 1px solid rgba(20, 32, 51, 0.08);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(20, 32, 51, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Linha de progresso em bronze na base do card */
+.experienceList > div::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #b88a45;
+  transition: width 0.35s ease;
+}
+
+.experienceList > div:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 138, 69, 0.4);
+  box-shadow: 0 12px 30px rgba(20, 32, 51, 0.08);
+}
+
+.experienceList > div:hover::before {
+  width: 100%;
+}
+
+/* =========================================================
+   NÚMERO / BADGE
+   ========================================================= */
+
+.experienceList b {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  color: #142033;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  border: 1px solid rgba(20, 32, 51, 0.1);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.experienceList > div:hover b {
+  background: #142033;
+  color: #b88a45;
+  border-color: #142033;
+}
+
+/* =========================================================
+   TEXTOS DO CARD
+   ========================================================= */
+
+.experienceList strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #142033;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.experienceList small {
+  display: block;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .experienceList {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .experienceList > div {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 5rem 1.25rem;
+  }
+
+  .experience h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .experienceList > div {
+    padding: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experienceList > div,
+  .experienceList > div::before,
+  .experienceList b {
+    transition: none;
+  }
+}

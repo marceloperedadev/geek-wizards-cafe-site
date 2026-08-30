@@ -1,0 +1,179 @@
+/* =========================================================
+   FOOTER — MASCULINE PREMIUM / ARCHITECTURAL
+   ========================================================= */
+
+.dentalFooter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 2.5rem max(2rem, calc((100% - 1320px) / 2));
+  background: #142033;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+/* Linha sutil em bronze centralizada no topo */
+.dentalFooter::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 120px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b88a45,
+    transparent
+  );
+}
+
+/* =========================================================
+   BRAND / LOGO
+   ========================================================= */
+
+.dentalFooter .dentalBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Símbolo Monograma Estruturado */
+.dentalFooter .brandSymbol {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #142033;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #d9b978,
+    #b88a45
+  );
+  box-shadow: 0 4px 15px rgba(184, 138, 69, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dentalFooter .dentalBrand:hover .brandSymbol {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 138, 69, 0.35);
+}
+
+.dentalFooter .dentalBrand strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.dentalFooter .dentalBrand small {
+  display: block;
+  margin-top: 3px;
+  color: #b88a45;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+/* =========================================================
+   TEXTO DE COPYRIGHT & CRO
+   ========================================================= */
+
+.copyright {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.copyright span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   INSTAGRAM LINK (BADGE)
+   ========================================================= */
+
+.instagramLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.instagramLink:hover {
+  color: #b88a45;
+  border-color: rgba(184, 138, 69, 0.4);
+  background: rgba(184, 138, 69, 0.08);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .dentalFooter {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .dentalFooter .dentalBrand {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .copyright span {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .dentalFooter {
+    padding: 2rem 1.25rem;
+  }
+
+  .dentalFooter .brandSymbol {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dentalFooter .brandSymbol,
+  .instagramLink {
+    transition: none;
+  }
+}
