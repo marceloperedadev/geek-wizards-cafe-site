@@ -1,69 +1,367 @@
+
 /* =========================================================
    CONTACT CTA — MASCULINE PREMIUM / ARCHITECTURAL
+   INTERACTIVE
    ========================================================= */
 
 .contactCta {
   position: relative;
   width: 100%;
+  min-height: 520px;
   padding: 7rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
   color: #ffffff;
+
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(184, 138, 69, 0.12),
+      rgba(184, 138, 69, 0.16),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(40, 67, 98, 0.18),
       transparent 55%
     ),
     #142033;
+
   overflow: hidden;
   box-sizing: border-box;
+  isolation: isolate;
 }
 
-/* Texture overlay (grid estruturado sutil) */
-.gridOverlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.7;
-  pointer-events: none;
-}
 
 /* =========================================================
-   DETALHES DECORATIVOS GEOMÉTRICOS
+   GRID DE FUNDO
    ========================================================= */
 
-/* Linha superior bronze com corte preciso */
-.contactCta::before {
-  content: '';
+.gridOverlay {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 160px;
-  height: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #b88a45,
-    transparent
-  );
+  inset: -80px;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  animation: gridMove 18s linear infinite;
+
+  z-index: -3;
 }
 
-/* Moldura quadrada rotacionada no fundo */
-.contactCta::after {
+
+/* =========================================================
+   MOVIMENTO DO GRID
+   ========================================================= */
+
+@keyframes gridMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(40px, 40px, 0);
+  }
+}
+
+
+/* =========================================================
+   AURA CENTRAL
+   ========================================================= */
+
+.gridOverlay::after {
   content: '';
+
   position: absolute;
-  width: 380px;
-  height: 380px;
+
+  width: 500px;
+  height: 500px;
+
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  border: 1px solid rgba(184, 138, 69, 0.08);
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(184, 138, 69, 0.09),
+      transparent 65%
+    );
+
+  border-radius: 50%;
+
+  filter: blur(20px);
+
+  animation: ambientPulse 6s ease-in-out infinite;
+
   pointer-events: none;
 }
+
+
+@keyframes ambientPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   LINHA SUPERIOR
+   ========================================================= */
+
+.contactCta::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 160px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b88a45,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(184, 138, 69, 0.35);
+
+  animation: topLinePulse 4s ease-in-out infinite;
+
+  z-index: 2;
+}
+
+
+@keyframes topLinePulse {
+  0%,
+  100% {
+    width: 120px;
+    opacity: 0.55;
+  }
+
+  50% {
+    width: 230px;
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   MOLDURA GEOMÉTRICA
+   ========================================================= */
+
+.contactCta::after {
+  content: '';
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+
+  border:
+    1px solid rgba(184, 138, 69, 0.09);
+
+  pointer-events: none;
+
+  animation: architecturalRotate 28s linear infinite;
+
+  z-index: -2;
+}
+
+
+@keyframes architecturalRotate {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(405deg);
+  }
+}
+
+
+/* =========================================================
+   ELEMENTOS GEOMÉTRICOS
+   ========================================================= */
+
+.ctaShape {
+  position: absolute;
+
+  display: block;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(184, 138, 69, 0.14);
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   FORMA 1
+   ========================================================= */
+
+.ctaShapeOne {
+  width: 90px;
+  height: 90px;
+
+  top: 18%;
+  left: 12%;
+
+  transform: rotate(45deg);
+
+  animation:
+    floatingShapeOne 8s ease-in-out infinite;
+}
+
+
+@keyframes floatingShapeOne {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(45deg);
+
+    opacity: 0.45;
+  }
+
+  50% {
+    transform:
+      translate3d(0, -18px, 0)
+      rotate(65deg);
+
+    opacity: 0.9;
+  }
+}
+
+
+/* =========================================================
+   FORMA 2
+   ========================================================= */
+
+.ctaShapeTwo {
+  width: 55px;
+  height: 55px;
+
+  right: 14%;
+  bottom: 20%;
+
+  border-radius: 50%;
+
+  animation:
+    floatingShapeTwo 7s ease-in-out infinite;
+}
+
+
+@keyframes floatingShapeTwo {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate3d(-12px, -15px, 0)
+      scale(1.12);
+
+    opacity: 0.8;
+  }
+}
+
+
+/* =========================================================
+   FORMA 3
+   ========================================================= */
+
+.ctaShapeThree {
+  width: 28px;
+  height: 28px;
+
+  top: 30%;
+  right: 20%;
+
+  transform: rotate(45deg);
+
+  border-color: rgba(184, 138, 69, 0.22);
+
+  animation:
+    floatingShapeThree 6s ease-in-out infinite;
+}
+
+
+@keyframes floatingShapeThree {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(45deg);
+  }
+
+  50% {
+    transform:
+      translate3d(0, -12px, 0)
+      rotate(135deg);
+  }
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.contactCta > * {
+  position: relative;
+  z-index: 3;
+}
+
 
 /* =========================================================
    EYEBROW
@@ -71,25 +369,94 @@
 
 .dentalEyebrow {
   position: relative;
-  z-index: 1;
+
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 0.65rem;
+
   margin-bottom: 1.2rem;
+
   color: #b88a45;
+
   font-size: 0.72rem;
+
   font-weight: 700;
+
   text-transform: uppercase;
+
   letter-spacing: 0.22em;
+
+  animation:
+    eyebrowReveal 0.9s ease both;
 }
 
-/* Tracinho retangular */
+
+@keyframes eyebrowReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    letter-spacing: 0.35em;
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    letter-spacing: 0.22em;
+  }
+}
+
+
+/* =========================================================
+   LINHAS DO EYEBROW
+   ========================================================= */
+
 .dentalEyebrow span {
+  position: relative;
+
   width: 12px;
   height: 2px;
+
   background: #b88a45;
+
+  overflow: hidden;
 }
+
+
+.dentalEyebrow span::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #ffffff;
+
+  transform: translateX(-100%);
+
+  animation:
+    eyebrowLine 2.8s ease-in-out infinite;
+}
+
+
+@keyframes eyebrowLine {
+  0%,
+  60% {
+    transform: translateX(-100%);
+  }
+
+  80%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 
 /* =========================================================
    TÍTULO
@@ -97,22 +464,111 @@
 
 .contactCta h2 {
   position: relative;
-  z-index: 1;
+
   max-width: 760px;
+
   margin: 0 auto 1.2rem;
+
   color: #ffffff;
-  font-size: clamp(2.1rem, 5vw, 3.6rem);
+
+  font-size: clamp(
+    2.1rem,
+    5vw,
+    3.6rem
+  );
+
   font-weight: 700;
+
   line-height: 1.1;
+
   letter-spacing: -0.03em;
+
   word-break: break-word;
+
+  animation:
+    titleReveal 0.9s 0.1s ease both;
+
+  transition:
+    transform 0.4s ease,
+    text-shadow 0.4s ease;
 }
 
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+.contactCta h2:hover {
+  transform: translateY(-3px);
+
+  text-shadow:
+    0 8px 30px rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   DESTAQUE DO TÍTULO
+   ========================================================= */
+
 .contactCta h2 em {
+  position: relative;
+
   font-style: normal;
+
   color: #b88a45;
+
   font-weight: 600;
 }
+
+
+.contactCta h2 em::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  bottom: -5px;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b88a45,
+      transparent
+    );
+
+  transform: scaleX(0.4);
+
+  transform-origin: center;
+
+  opacity: 0.6;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+
+.contactCta h2:hover em::after {
+  transform: scaleX(1);
+
+  opacity: 1;
+}
+
 
 /* =========================================================
    DESCRIÇÃO
@@ -120,104 +576,463 @@
 
 .contactCta p {
   position: relative;
-  z-index: 1;
+
   max-width: 540px;
+
   margin: 0 auto 2.8rem;
+
   color: #94a3b8;
+
   font-size: 1rem;
+
   line-height: 1.75;
+
+  animation:
+    paragraphReveal 0.9s 0.2s ease both;
+
+  transition:
+    color 0.3s ease;
 }
 
+
+@keyframes paragraphReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+.contactCta p:hover {
+  color: #b6c0ce;
+}
+
+
 /* =========================================================
-   BOTÃO DE ALTA VISIBILIDADE
+   BOTÃO
    ========================================================= */
 
 .dentalButtonLight {
   position: relative;
-  z-index: 2;
+
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 0.75rem;
+
   min-height: 54px;
+
   padding: 0 2.2rem;
+
   border-radius: 6px;
+
   text-decoration: none;
+
   color: #142033;
+
   font-size: 0.88rem;
+
   font-weight: 700;
+
   letter-spacing: 0.03em;
+
   text-transform: uppercase;
-  background: linear-gradient(
-    135deg,
-    #d9b978,
-    #b88a45
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9b978,
+      #b88a45
+    );
+
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(184, 138, 69, 0.2);
+
   overflow: hidden;
+
   box-sizing: border-box;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
   -webkit-tap-highlight-color: transparent;
+
+  animation:
+    buttonReveal 0.9s 0.3s ease both;
 }
 
-/* Brilho metálico no hover */
-.dentalButtonLight::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    110deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 65%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
+
+@keyframes buttonReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
 }
 
-.dentalButtonLight:hover::before {
-  transform: translateX(120%);
-}
-
-.dentalButtonLight:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(184, 138, 69, 0.35);
-}
 
 /* =========================================================
-   RESPONSIVO
+   BRILHO DO BOTÃO
+   ========================================================= */
+
+.dentalButtonLight::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -120px;
+
+  width: 80px;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation:
+    buttonShine 4.5s ease-in-out infinite;
+}
+
+
+@keyframes buttonShine {
+  0% {
+    left: -120px;
+  }
+
+  25% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+
+/* =========================================================
+   BORDA INTERNA DO BOTÃO
+   ========================================================= */
+
+.dentalButtonLight::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 1px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 5px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TEXTO DO BOTÃO
+   ========================================================= */
+
+.dentalButtonLight span {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ÍCONE DO BOTÃO
+   ========================================================= */
+
+.dentalButtonLight svg {
+  position: relative;
+
+  z-index: 2;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.dentalButtonLight:hover svg {
+  transform:
+    translate(3px, -3px);
+}
+
+
+/* =========================================================
+   HOVER DO BOTÃO
+   ========================================================= */
+
+.dentalButtonLight:hover {
+  transform:
+    translateY(-5px)
+    scale(1.025);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(184, 138, 69, 0.38);
+}
+
+
+/* =========================================================
+   CLICK
+   ========================================================= */
+
+.dentalButtonLight:active {
+  transform:
+    translateY(-1px)
+    scale(0.985);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.4),
+    0 0 18px rgba(184, 138, 69, 0.25);
+}
+
+
+/* =========================================================
+   FOCO
+   ========================================================= */
+
+.dentalButtonLight:focus-visible {
+  outline:
+    2px solid #d9b978;
+
+  outline-offset: 5px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .contactCta {
+    min-height: 480px;
+
+    padding:
+      6rem 1.5rem;
+  }
+
+
+  .contactCta::after {
+    width: 320px;
+    height: 320px;
+  }
+
+
+  .ctaShapeOne {
+    left: 5%;
+  }
+
+
+  .ctaShapeTwo {
+    right: 7%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
+
   .contactCta {
-    padding: 4.5rem 1rem;
+    min-height: 500px;
+
+    padding:
+      4.5rem 1rem;
   }
+
+
+  .gridOverlay {
+    background-size:
+      30px 30px;
+
+    animation-duration:
+      24s;
+  }
+
 
   .contactCta::after {
     width: 260px;
     height: 260px;
+
+    opacity: 0.8;
   }
 
-  .contactCta p {
-    font-size: 0.94rem;
-    margin-bottom: 2.2rem;
+
+  .gridOverlay::after {
+    width: 340px;
+    height: 340px;
   }
+
+
+  .dentalEyebrow {
+    margin-bottom: 1rem;
+
+    font-size:
+      0.65rem;
+
+    letter-spacing:
+      0.18em;
+  }
+
+
+  .contactCta h2 {
+    max-width: 100%;
+
+    margin-bottom: 1rem;
+
+    font-size:
+      clamp(
+        2rem,
+        9vw,
+        2.8rem
+      );
+
+    line-height: 1.12;
+  }
+
+
+  .contactCta p {
+    max-width: 420px;
+
+    margin-bottom: 2.2rem;
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+  }
+
 
   .dentalButtonLight {
     width: 100%;
+
     max-width: 360px;
-    padding: 0 1.2rem;
+
+    min-height: 52px;
+
+    padding:
+      0 1.2rem;
+
     font-size: 0.8rem;
   }
+
+
+  .ctaShapeOne {
+    width: 55px;
+    height: 55px;
+
+    left: -15px;
+    top: 12%;
+  }
+
+
+  .ctaShapeTwo {
+    width: 40px;
+    height: 40px;
+
+    right: -8px;
+    bottom: 14%;
+  }
+
+
+  .ctaShapeThree {
+    width: 20px;
+    height: 20px;
+
+    right: 12%;
+    top: 20%;
+  }
+
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .dentalButtonLight,
-  .dentalButtonLight::before {
-    transition: none;
+
+/* =========================================================
+   MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .contactCta {
+    padding:
+      4rem 0.9rem;
   }
+
+
+  .contactCta h2 {
+    font-size:
+      1.85rem;
+  }
+
+
+  .contactCta p {
+    font-size:
+      0.9rem;
+  }
+
+
+  .contactCta::after {
+    width: 220px;
+    height: 220px;
+  }
+
+
+  .dentalButtonLight {
+    max-width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contactCta *,
+  .contactCta::before,
+  .contactCta::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
 }

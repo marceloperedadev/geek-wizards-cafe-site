@@ -25,9 +25,10 @@ export default function Home() {
         <Faq />
         <Location />
         <Contact />
+        <WhatsAppFloat />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      
     </div>
   )
 }

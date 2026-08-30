@@ -4,7 +4,7 @@
 
 .whatsappFloat {
   position: fixed;
-  right: 2rem;
+  right: 2.5rem; /* Ajustado para mover levemente mais para a esquerda */
   bottom: 2rem;
   z-index: 99;
   width: 52px;
@@ -31,7 +31,7 @@
 .whatsappFloat::before {
   content: '';
   position: absolute;
-  inset: -6px;
+  inset: -4px; /* Reduzido levemente para evitar gerar margem de estouro */
   border-radius: 8px;
   border: 1px solid rgba(197, 160, 89, 0.35);
   animation: whatsappPulse 3s ease-out infinite;
@@ -40,15 +40,15 @@
 
 @keyframes whatsappPulse {
   0% {
-    transform: scale(0.92);
+    transform: scale(0.95);
     opacity: 0.8;
   }
   70% {
-    transform: scale(1.18);
+    transform: scale(1.12); /* Animação mais contida */
     opacity: 0;
   }
   100% {
-    transform: scale(1.18);
+    transform: scale(1.12);
     opacity: 0;
   }
 }
@@ -86,8 +86,8 @@
 
 @media (max-width: 768px) {
   .whatsappFloat {
-    right: 1.25rem;
-    bottom: 1.25rem;
+    right: 1.75rem; /* Posicionamento seguro no mobile */
+    bottom: 1.5rem;
     width: 48px;
     height: 48px;
   }
@@ -100,8 +100,8 @@
 
 @media (max-width: 380px) {
   .whatsappFloat {
-    right: 1rem;
-    bottom: 1rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
     width: 44px;
     height: 44px;
   }
