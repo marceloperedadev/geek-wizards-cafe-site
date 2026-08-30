@@ -1,135 +1,900 @@
 /* =========================================================
-   LOCATION SECTION
+   LOCATION — ARCHITECTURAL / PREMIUM
+   INTERACTIVE + MOBILE FIRST
    ========================================================= */
 
 .locationSection {
-  padding: 5rem 1rem;
-  background-color: #fafafa;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  position: relative;
+  width: 100%;
+  padding: 6rem 1rem;
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(197, 160, 89, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #f8fafc 0%,
+      #ffffff 50%,
+      #f8fafc 100%
+    );
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
 }
 
+/* =========================================================
+   GRID ARQUITETÔNICO DE FUNDO
+   ========================================================= */
+
+.locationSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(15, 23, 42, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 42px 42px;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* =========================================================
+   GLOW DOURADO
+   ========================================================= */
+
+.locationSection::after {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: -260px;
+  top: 50%;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(
+      circle,
+      rgba(197, 160, 89, 0.12),
+      transparent 70%
+    );
+  pointer-events: none;
+  z-index: -1;
+  animation: locationGlow 9s ease-in-out infinite;
+}
+
+@keyframes locationGlow {
+  0%,
+  100% {
+    transform:
+      translateY(-50%)
+      scale(1);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform:
+      translateY(-50%)
+      scale(1.12);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
 .locationContainer {
-  max-width: 1000px;
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
 }
 
+/* =========================================================
+   CARD PRINCIPAL
+   ========================================================= */
+
 .locationInfo {
-  width: calc(100% - 32px);
-  max-width: 650px;
-  background: #ffffff;
-  padding: 3rem;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding: 3.5rem;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 250, 252, 0.96)
+    );
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.08),
+    0 5px 20px rgba(15, 23, 42, 0.04);
   box-sizing: border-box;
+  overflow: hidden;
+
+  animation:
+    locationReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
 }
 
+@keyframes locationReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(30px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* Linha dourada superior */
+
+.locationInfo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 2px;
+  background:
+    linear-gradient(
+      90deg,
+      #a87922,
+      #e2c285,
+      transparent
+    );
+  transition:
+    width 0.5s ease;
+}
+
+/* Reflexo interno */
+
+.locationInfo::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -180px;
+  bottom: -180px;
+  border: 1px solid rgba(197, 160, 89, 0.08);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.locationInfo:hover {
+  transform: translateY(-5px);
+  border-color:
+    rgba(197, 160, 89, 0.22);
+  box-shadow:
+    0 35px 80px rgba(15, 23, 42, 0.12),
+    0 0 35px rgba(197, 160, 89, 0.06);
+}
+
+.locationInfo:hover::before {
+  width: 240px;
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
 .dentalEyebrow {
+  position: relative;
+  z-index: 2;
+
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
+  gap: 0.65rem;
+
+  margin-bottom: 0.85rem;
+
+  color: #a87922;
+
+  font-size: 0.7rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #c5a059;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
+  letter-spacing: 0.2em;
+
+  animation:
+    eyebrowReveal 0.7s 0.1s ease both;
+}
+
+@keyframes eyebrowReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
 }
 
 .dentalEyebrow span {
-  display: inline-block;
-  width: 14px;
+  position: relative;
+
+  width: 18px;
   height: 2px;
-  background-color: #c5a059;
+
+  flex-shrink: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a87922,
+      #d9b978
+    );
+
+  box-shadow:
+    0 0 8px rgba(197, 160, 89, 0.35);
+
+  animation:
+    eyebrowLine 2.8s ease-in-out infinite;
 }
+
+@keyframes eyebrowLine {
+  0%,
+  100% {
+    width: 18px;
+    opacity: 0.7;
+  }
+
+  50% {
+    width: 28px;
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
 
 .locationInfo h2 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 2.5rem;
+
   color: #0f172a;
-  margin: 0 0 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      2.8rem
+    );
+
+  font-weight: 750;
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+
+  animation:
+    titleReveal 0.8s 0.12s ease both;
 }
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0);
+  }
+}
+
+/* =========================================================
+   LISTA DE INFORMAÇÕES
+   ========================================================= */
 
 .infoList {
+  position: relative;
+  z-index: 2;
+
   list-style: none;
+
   padding: 0;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.8rem;
+
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+
+  gap: 0;
 }
+
+/* =========================================================
+   LINHA ENTRE OS ITENS
+   ========================================================= */
 
 .infoList li {
+  position: relative;
+
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  color: #c5a059;
+
+  gap: 1.2rem;
+
+  padding:
+    1.25rem 0;
+
+  color: #a87922;
+
+  border-bottom:
+    1px solid rgba(15, 23, 42, 0.07);
+
+  animation:
+    infoReveal 0.7s ease both;
+
+  transition:
+    transform 0.3s ease,
+    padding-left 0.3s ease;
 }
 
+.infoList li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.infoList li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.infoList li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes infoReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateX(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
+}
+
+.infoList li:last-child {
+  border-bottom: none;
+}
+
+.infoList li:hover {
+  transform: translateX(5px);
+  padding-left: 4px;
+}
+
+/* =========================================================
+   ÍCONES
+   ========================================================= */
+
 .infoList li svg {
+  position: relative;
+
+  width: 22px;
+  height: 22px;
+
   flex-shrink: 0;
+
   margin-top: 2px;
+
+  padding: 9px;
+
+  box-sizing: content-box;
+
+  color: #b58a3d;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(197, 160, 89, 0.15),
+      rgba(197, 160, 89, 0.05)
+    );
+
+  border:
+    1px solid rgba(197, 160, 89, 0.22);
+
+  border-radius: 7px;
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.infoList li:hover svg {
+  transform:
+    translateY(-2px)
+    rotate(-3deg);
+
+  background:
+    rgba(197, 160, 89, 0.16);
+
+  border-color:
+    rgba(197, 160, 89, 0.45);
+
+  box-shadow:
+    0 8px 20px rgba(197, 160, 89, 0.14);
+}
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+.infoList li div {
+  min-width: 0;
 }
 
 .infoList li div strong {
   display: block;
-  font-size: 0.95rem;
+
+  margin-bottom: 0.3rem;
+
   color: #0f172a;
-  margin-bottom: 0.2rem;
-  font-weight: 600;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  letter-spacing: -0.01em;
 }
 
 .infoList li div p {
-  font-size: 0.9rem;
-  color: #475569;
   margin: 0;
-  line-height: 1.5;
-}
 
-.locationCta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  background-color: #0f172a;
-  color: #ffffff;
-  padding: 0.9rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  box-sizing: border-box;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
+  color: #64748b;
 
-.locationCta:hover {
-  background-color: #c5a059;
-  transform: translateY(-2px);
+  font-size: 0.9rem;
+
+  line-height: 1.6;
 }
 
 /* =========================================================
-   RESPONSIVO
+   BOTÃO
+   ========================================================= */
+
+.locationCta {
+  position: relative;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  width: 100%;
+  min-height: 54px;
+
+  padding:
+    0 1.5rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #172338 55%,
+      #0f172a 100%
+    );
+
+  color: #ffffff;
+
+  border:
+    1px solid rgba(197, 160, 89, 0.15);
+
+  border-radius: 6px;
+
+  font-weight: 700;
+  font-size: 0.82rem;
+
+  letter-spacing: 0.06em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.22);
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================================
+   BRILHO DO BOTÃO
+   ========================================================= */
+
+.locationCta::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -100px;
+
+  width: 70px;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  animation:
+    buttonShine 5s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -100px;
+  }
+
+  20% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+/* =========================================================
+   ÍCONE DO BOTÃO
+   ========================================================= */
+
+.locationCta svg {
+  position: relative;
+  z-index: 2;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.locationCta:hover svg {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
+}
+
+/* =========================================================
+   HOVER BOTÃO
+   ========================================================= */
+
+.locationCta:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(197, 160, 89, 0.5);
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.28),
+    0 0 25px rgba(197, 160, 89, 0.1);
+}
+
+.locationCta:active {
+  transform:
+    translateY(-1px)
+    scale(0.99);
+}
+
+.locationCta:focus-visible {
+  outline:
+    2px solid #c5a059;
+
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   TABLET
    ========================================================= */
 
 @media (max-width: 768px) {
+
   .locationSection {
-    padding: 3.5rem 0.5rem;
+    padding:
+      4.5rem 0.75rem;
+  }
+
+  .locationContainer {
+    width: 100%;
   }
 
   .locationInfo {
-    width: calc(100% - 24px);
-    padding: 1.75rem 1.25rem;
+    width: 100%;
+    max-width: 680px;
+
+    padding:
+      2.5rem 2rem;
+
+    border-radius: 9px;
+  }
+
+  .locationInfo h2 {
+    margin-bottom: 2rem;
   }
 
   .infoList {
-    gap: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.3rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .locationSection {
+    padding:
+      3.5rem 0.65rem;
+  }
+
+  .locationSection::before {
+    background-size:
+      32px 32px;
+  }
+
+  .locationSection::after {
+    width: 360px;
+    height: 360px;
+    left: -220px;
+  }
+
+  .locationInfo {
+    padding:
+      2rem 1.25rem;
+
+    border-radius: 8px;
+
+    box-shadow:
+      0 18px 45px rgba(15, 23, 42, 0.08);
+  }
+
+  .locationInfo:hover {
+    transform: none;
+  }
+
+  .locationInfo::before {
+    width: 90px;
+  }
+
+  .locationInfo:hover::before {
+    width: 130px;
+  }
+
+  /* -----------------------------------------
+     EYEBROW
+     ----------------------------------------- */
+
+  .dentalEyebrow {
+    gap: 0.5rem;
+
+    margin-bottom:
+      0.75rem;
+
+    font-size:
+      0.6rem;
+
+    letter-spacing:
+      0.14em;
+  }
+
+  .dentalEyebrow span {
+    width: 14px;
+  }
+
+  /* -----------------------------------------
+     TÍTULO
+     ----------------------------------------- */
+
+  .locationInfo h2 {
+    margin-bottom:
+      1.6rem;
+
+    font-size:
+      clamp(
+        1.8rem,
+        8vw,
+        2.25rem
+      );
+
+    line-height:
+      1.08;
+  }
+
+  /* -----------------------------------------
+     LISTA
+     ----------------------------------------- */
+
+  .infoList {
+    margin-bottom:
+      1.8rem;
+  }
+
+  .infoList li {
+    gap:
+      0.85rem;
+
+    padding:
+      1rem 0;
+  }
+
+  .infoList li:hover {
+    transform: none;
+    padding-left: 0;
+  }
+
+  /* -----------------------------------------
+     ÍCONES
+     ----------------------------------------- */
+
+  .infoList li svg {
+    width:
+      18px;
+
+    height:
+      18px;
+
+    padding:
+      8px;
+
+    border-radius:
+      6px;
+  }
+
+  /* -----------------------------------------
+     TEXTOS
+     ----------------------------------------- */
+
+  .infoList li div strong {
+    font-size:
+      0.86rem;
+  }
+
+  .infoList li div p {
+    font-size:
+      0.78rem;
+
+    line-height:
+      1.55;
+  }
+
+  /* -----------------------------------------
+     BOTÃO
+     ----------------------------------------- */
+
+  .locationCta {
+    min-height:
+      52px;
+
+    padding:
+      0 1rem;
+
+    font-size:
+      0.73rem;
+
+    letter-spacing:
+      0.04em;
+  }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .locationSection {
+    padding:
+      3rem 0.5rem;
+  }
+
+  .locationInfo {
+    padding:
+      1.7rem 1rem;
+  }
+
+  .dentalEyebrow {
+    font-size:
+      0.56rem;
+
+    letter-spacing:
+      0.11em;
+  }
+
+  .locationInfo h2 {
+    font-size:
+      1.75rem;
+  }
+
+  .infoList li {
+    gap:
+      0.7rem;
+  }
+
+  .infoList li svg {
+    width:
+      17px;
+
+    height:
+      17px;
+
+    padding:
+      7px;
+  }
+
+  .infoList li div strong {
+    font-size:
+      0.82rem;
+  }
+
+  .infoList li div p {
+    font-size:
+      0.74rem;
+  }
+
+  .locationCta {
+    font-size:
+      0.68rem;
+  }
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .locationSection *,
+  .locationSection::before,
+  .locationSection::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
