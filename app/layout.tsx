@@ -4,8 +4,8 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// Substitua pela URL final do site
-const SITE_URL = 'https://www.drabarbaraglayris.com.br'
+// Alterne para a URL temporária da Vercel durante os testes ou use a final
+const SITE_URL = 'https://site-dentista-phi.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg', // Crie uma imagem atraente de 1200x630px na pasta /public
+        url: '/images/proprietaria.png',
         width: 1200,
         height: 630,
-        alt: 'Consultório Dra. Bárbara Glayris em Taubaté',
+        alt: 'Dra. Bárbara Glayris em Taubaté',
       },
     ],
   },
@@ -71,26 +71,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Schema.org para negócios locais (Dentist/MedicalBusiness)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Dentist',
     name: 'Dra. Bárbara Glayris - Cirurgiã-Dentista',
-    image: `${SITE_URL}/og-image.jpg`,
+    image: `${SITE_URL}/images/proprietaria.png`,
     '@id': SITE_URL,
     url: SITE_URL,
-    telephone: '+5512997093459', // Atualize para o telefone/WhatsApp correto
+    telephone: '+5512997093459',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Seu Endereço Aqui, Número', // Atualize o endereço
+      streetAddress: 'Atendimento em Taubaté',
       addressLocality: 'Taubaté',
       addressRegion: 'SP',
-      postalCode: '12000-000', // Atualize o CEP
+      postalCode: '12000-000',
       addressCountry: 'BR',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: -23.0264, // Atualize com as coordenadas exatas do Google Maps
+      latitude: -23.0264,
       longitude: -45.5552,
     },
     openingHoursSpecification: {
@@ -106,7 +105,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
-        {/* Injeção dos dados estruturados do Google */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
