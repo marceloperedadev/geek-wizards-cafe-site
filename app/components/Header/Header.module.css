@@ -1,22 +1,28 @@
+
 /* =========================================================
    HEADER — MASCULINE PREMIUM / ARCHITECTURAL
    ========================================================= */
 
 .dentalHeader {
+
   position: fixed;
 
-  top: max(12px, env(safe-area-inset-top));
+  top: 6px;
+
   left: 50%;
 
   z-index: 9999;
 
   width: calc(100% - 32px);
+
   max-width: 1320px;
 
   margin: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   min-height: 64px;
@@ -33,6 +39,7 @@
     );
 
   backdrop-filter: blur(24px);
+
   -webkit-backdrop-filter: blur(24px);
 
   border-radius: 8px;
@@ -46,8 +53,8 @@
 
   /*
     IMPORTANTE:
-    O transform controla tanto a centralização
-    quanto o movimento vertical do header.
+    O translate mantém o header centralizado
+    enquanto o segundo valor controla o movimento vertical.
   */
 
   transform:
@@ -60,13 +67,15 @@
     background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   /*
-    NÃO usar overflow:hidden aqui.
-    O menu mobile fica para fora do header.
+    IMPORTANTE:
+    overflow visible permite que o menu mobile
+    fique para fora do header.
   */
 
   overflow: visible;
 
   -webkit-font-smoothing: antialiased;
+
   -moz-osx-font-smoothing: grayscale;
 
   will-change: transform;
@@ -78,6 +87,7 @@
    ========================================================= */
 
 .dentalHeader:hover {
+
   border-color:
     rgba(197, 160, 89, 0.16);
 
@@ -93,12 +103,15 @@
    ========================================================= */
 
 .dentalHeader::before {
+
   content: '';
 
   position: absolute;
 
   top: 0;
+
   left: 28px;
+
   right: 28px;
 
   height: 1px;
@@ -124,11 +137,13 @@
    ========================================================= */
 
 .dentalBrand {
+
   position: relative;
 
   z-index: 2;
 
   display: flex;
+
   align-items: center;
 
   flex-shrink: 0;
@@ -146,12 +161,15 @@
    ========================================================= */
 
 .brandText {
+
   display: flex;
+
   flex-direction: column;
 }
 
 
 .dentalBrand strong {
+
   display: block;
 
   margin: 0;
@@ -169,6 +187,7 @@
 
 
 .dentalBrand small {
+
   display: block;
 
   margin-top: 3px;
@@ -192,6 +211,7 @@
    ========================================================= */
 
 .dentalNav {
+
   display: flex;
 
   align-items: center;
@@ -205,6 +225,7 @@
 
 
 .dentalNav a {
+
   position: relative;
 
   display: inline-flex;
@@ -229,6 +250,7 @@
 
 
 .dentalNav a:hover {
+
   color: #f2f2ef;
 }
 
@@ -238,11 +260,13 @@
    ========================================================= */
 
 .dentalNav a::after {
+
   content: '';
 
   position: absolute;
 
   left: 50%;
+
   bottom: -1px;
 
   width: 0;
@@ -266,6 +290,7 @@
 
 
 .dentalNav a:hover::after {
+
   width: 100%;
 }
 
@@ -275,6 +300,7 @@
    ========================================================= */
 
 .headerCta {
+
   position: relative;
 
   z-index: 2;
@@ -315,16 +341,12 @@
       #bc9652 100%
     );
 
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
 
   box-shadow:
     0 5px 18px rgba(197, 160, 89, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-
-  /*
-    O overflow fica somente no CTA,
-    não no header.
-  */
 
   overflow: hidden;
 
@@ -344,14 +366,17 @@
    ========================================================= */
 
 .headerCta::before {
+
   content: '';
 
   position: absolute;
 
   top: 0;
+
   left: 0;
 
   width: 80%;
+
   height: 100%;
 
   background:
@@ -374,6 +399,7 @@
 
 
 .headerCta:hover::before {
+
   transform:
     skewX(-20deg)
     translateX(220%);
@@ -381,6 +407,7 @@
 
 
 .headerCta:hover {
+
   transform:
     translateY(-2px);
 
@@ -394,12 +421,14 @@
 
 
 .headerCta:active {
+
   transform:
     translateY(0);
 }
 
 
 .headerCta svg {
+
   position: relative;
 
   z-index: 2;
@@ -410,6 +439,7 @@
 
 
 .headerCta:hover svg {
+
   transform:
     translate(2px, -2px);
 }
@@ -420,14 +450,17 @@
    ========================================================= */
 
 .menuToggle {
+
   display: none;
 
   position: relative;
 
   width: 44px;
+
   height: 44px;
 
   align-items: center;
+
   justify-content: center;
 
   flex-shrink: 0;
@@ -456,6 +489,7 @@
 
 
 .menuToggle:hover {
+
   background:
     rgba(197, 160, 89, 0.08);
 
@@ -468,12 +502,14 @@
 
 
 .menuToggle:active {
+
   background:
     rgba(197, 160, 89, 0.15);
 }
 
 
 .menuToggle:focus-visible {
+
   outline:
     2px solid #c5a059;
 
@@ -487,6 +523,7 @@
    ========================================================= */
 
 .headerVisible {
+
   transform:
     translate(-50%, 0);
 }
@@ -497,6 +534,7 @@
    ========================================================= */
 
 .headerHidden {
+
   transform:
     translate(
       -50%,
@@ -512,6 +550,7 @@
 @media (max-width: 900px) {
 
   .dentalHeader {
+
     width:
       calc(100% - 24px);
 
@@ -522,7 +561,7 @@
       0.5rem 0.8rem;
 
     top:
-      max(10px, env(safe-area-inset-top));
+      6px;
   }
 
 
@@ -531,6 +570,7 @@
      ======================================================= */
 
   .headerCta {
+
     display:
       none;
   }
@@ -541,6 +581,7 @@
      ======================================================= */
 
   .menuToggle {
+
     display:
       flex;
   }
@@ -551,6 +592,7 @@
      ======================================================= */
 
   .dentalNav {
+
     position:
       absolute;
 
@@ -610,6 +652,7 @@
 
 
   .dentalNav.open {
+
     display:
       flex;
 
@@ -622,6 +665,7 @@
 
 
   .dentalNav a {
+
     width:
       100%;
 
@@ -647,6 +691,7 @@
 
   .dentalNav a:hover,
   .dentalNav a:active {
+
     color:
       #d8bc7b;
 
@@ -656,6 +701,7 @@
 
 
   .dentalNav a::after {
+
     display:
       none;
   }
@@ -669,6 +715,7 @@
 @media (max-width: 480px) {
 
   .dentalHeader {
+
     width:
       calc(100% - 16px);
 
@@ -676,17 +723,19 @@
       0.5rem 0.7rem;
 
     top:
-      max(8px, env(safe-area-inset-top));
+      5px;
   }
 
 
   .dentalBrand strong {
+
     font-size:
       0.92rem;
   }
 
 
   .dentalBrand small {
+
     font-size:
       0.52rem;
 
@@ -696,6 +745,7 @@
 
 
   .menuToggle {
+
     width:
       42px;
 
@@ -712,6 +762,7 @@
 @keyframes fadeInDown {
 
   from {
+
     opacity:
       0;
 
@@ -720,6 +771,7 @@
   }
 
   to {
+
     opacity:
       1;
 

@@ -1,3 +1,4 @@
+
 'use client'
 
 import { Camera } from 'lucide-react'
@@ -9,29 +10,69 @@ export function Footer() {
 
   return (
     <footer className={styles.dentalFooter}>
-      <a href="#inicio" className={styles.dentalBrand} aria-label="Voltar ao início">
-        <span className={styles.brandSymbol} aria-hidden="true">B</span>
+
+      {/* =====================================================
+          BRAND / LOGO
+          ===================================================== */}
+
+      <a
+        href="#inicio"
+        className={styles.dentalBrand}
+        aria-label="Voltar ao início"
+      >
+        <span className={styles.brandSymbol}>
+          <img
+            src="/images/logo-dentista.png"
+            alt={Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}
+          />
+        </span>
+
         <div>
-          <strong>{Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}</strong>
-          <small>Cirurgiã-Dentista | Taubaté</small>
+          <strong>
+            {Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}
+          </strong>
+
+          <small>
+            Cirurgiã-Dentista | Taubaté
+          </small>
         </div>
       </a>
 
+      {/* =====================================================
+          COPYRIGHT
+          ===================================================== */}
+
       <p className={styles.copyright}>
-        © {currentYear} {Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}. Todos os direitos reservados.
-        <span>{Config.CRO_CODE || 'Cirurgiã-Dentista'}</span>
+        © {currentYear}{' '}
+        {Config.DOCTOR_NAME || 'Dra. Bárbara Glayris'}.
+        Todos os direitos reservados.
+
+        <span>
+          {Config.CRO_CODE || 'Cirurgiã-Dentista'}
+        </span>
       </p>
 
-      <a 
-        href={Config.INSTAGRAM_URL} 
-        target="_blank" 
-        rel="noreferrer" 
+      {/* =====================================================
+          INSTAGRAM
+          ===================================================== */}
+
+      <a
+        href={Config.INSTAGRAM_URL}
+        target="_blank"
+        rel="noreferrer"
         className={styles.instagramLink}
         aria-label="Perfil do Instagram da Dra. Bárbara Glayris"
       >
-        <Camera size={16} aria-hidden="true" />
-        <span>@dra.barbaraglayris</span>
+        <Camera
+          size={16}
+          aria-hidden="true"
+        />
+
+        <span>
+          @dra.barbaraglayris
+        </span>
       </a>
+
     </footer>
   )
 }

@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: 4rem;
+   top: 66px;
 
   width: calc(100% - 32px);
   max-width: 1320px;
