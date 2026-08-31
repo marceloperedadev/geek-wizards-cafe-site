@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/proprietaria.png',
+        url: `${SITE_URL}/images/logo-dentista.png`, // Usa a URL completa da imagem
         width: 1200,
         height: 630,
         alt: 'Dra. Bárbara Glayris em Taubaté',
