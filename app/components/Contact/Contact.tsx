@@ -81,7 +81,7 @@ export function Contact() {
         aria-label="Solicitar consulta em Taubaté via WhatsApp"
       >
         <span>
-          Solicitar consulta em Taubaté
+          Solicitar consulta 
         </span>
 
         <ArrowUpRight
