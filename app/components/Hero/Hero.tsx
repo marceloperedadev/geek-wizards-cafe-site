@@ -55,7 +55,7 @@ export function Hero() {
           className={styles.dentalButton}
           aria-label="Agendar consulta odontológica em Taubaté pelo WhatsApp"
         >
-          Agendar Consulta Técnica
+          Agendar Consulta 
 
           <ArrowUpRight
             size={20}
