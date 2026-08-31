@@ -75,7 +75,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Dentist',
     name: 'Dra. Bárbara Glayris - Cirurgiã-Dentista',
-    image: `${SITE_URL}/images/proprietaria.png`,
+    image: `${SITE_URL}/images/logo-dentista.png`,
     '@id': SITE_URL,
     url: SITE_URL,
     telephone: '+5512997093459',
