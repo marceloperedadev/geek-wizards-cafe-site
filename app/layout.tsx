@@ -12,9 +12,7 @@ const inter = Inter({
 // =========================================================
 
 const SITE_URL = 'https://geek-wizards-cafe.vercel.app'
-
 const SITE_NAME = 'Geek Wizards Café'
-
 const SITE_DESCRIPTION =
   'Cafeteria temática e loja geek em Taubaté. Cafés mágicos, doces, jogos de tabuleiro, RPG e experiências para toda a guilda.'
 
@@ -48,12 +46,7 @@ export const metadata: Metadata = {
     'delivery Taubaté',
   ],
 
-  authors: [
-    {
-      name: SITE_NAME,
-    },
-  ],
-
+  authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
 
@@ -68,31 +61,33 @@ export const metadata: Metadata = {
   },
 
   // =======================================================
-  // OPEN GRAPH
+  // OPEN GRAPH & TWITTER (CARD PREVIEWS)
   // =======================================================
 
   openGraph: {
     title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
-
     description:
       'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
-
     url: SITE_URL,
-
     siteName: SITE_NAME,
-
     locale: 'pt_BR',
-
     type: 'website',
-
     images: [
       {
-        url: `${SITE_URL}/images/geek-wizard.jpg`,
+        url: '/images/geek-wizard.jpg',
         width: 1200,
         height: 630,
         alt: 'Geek Wizards Café',
       },
     ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+    description:
+      'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
+    images: ['/images/geek-wizard.jpg'],
   },
 
   // =======================================================
@@ -102,7 +97,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -130,64 +124,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // =======================================================
-  // SCHEMA.ORG
-  // =======================================================
-
   const jsonLd = {
     '@context': 'https://schema.org',
-
     '@type': 'CafeOrCoffeeShop',
-
     name: SITE_NAME,
-
     description: SITE_DESCRIPTION,
-
     url: SITE_URL,
-
     image: `${SITE_URL}/images/geek-wizard.jpg`,
-
     telephone: '+5512999999999',
-
     address: {
       '@type': 'PostalAddress',
-
       streetAddress: 'Rua Silva Jardim, 97',
-
       addressLocality: 'Taubaté',
-
       addressRegion: 'SP',
-
       postalCode: '12000-000',
-
       addressCountry: 'BR',
     },
-
     geo: {
       '@type': 'GeoCoordinates',
-
       latitude: -23.0264,
-
       longitude: -45.5552,
     },
-
     sameAs: [
       'https://www.instagram.com/geekwizardscafe/',
       'https://www.facebook.com/geekwizardscafe/',
     ],
-
-    servesCuisine: [
-      'Café',
-      'Doces',
-      'Lanches',
-    ],
-
+    servesCuisine: ['Café', 'Doces', 'Lanches'],
     priceRange: '$$',
-
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-
         dayOfWeek: [
           'Monday',
           'Tuesday',
@@ -197,9 +163,7 @@ export default function RootLayout({
           'Saturday',
           'Sunday',
         ],
-
         opens: '10:00',
-
         closes: '22:00',
       },
     ],
@@ -215,10 +179,7 @@ export default function RootLayout({
           }}
         />
       </head>
-
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

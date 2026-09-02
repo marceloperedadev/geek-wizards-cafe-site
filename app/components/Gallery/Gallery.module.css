@@ -1,7 +1,6 @@
 /* =========================================================
    GALLERY — GEEK WIZARDS CAFÉ
    ARCANE PREMIUM / VITRINE MÁGICA
-   COMPANION TO BIOHERO
    ========================================================= */
 
 .gallerySection {
@@ -9,11 +8,8 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-
   padding: 3.5rem 1.25rem 4rem;
-
   overflow: hidden;
-
   background:
     radial-gradient(
       ellipse 60% 70% at 50% 0%,
@@ -31,7 +27,6 @@
       #0b090c 48%,
       #050506 100%
     );
-
   border-top: 1px solid rgba(185, 146, 85, 0.10);
 }
 
@@ -41,39 +36,15 @@
 
 .gallerySection::after {
   content: '';
-
   position: absolute;
   inset: 0;
-
   pointer-events: none;
-
   background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.011) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.011) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(255, 255, 255, 0.011) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.011) 1px, transparent 1px);
   background-size: 48px 48px;
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      transparent 86%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      transparent 86%
-    );
-
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 86%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 86%);
   z-index: 0;
 }
 
@@ -83,19 +54,13 @@
 
 .gallerySection::before {
   content: '';
-
   position: absolute;
-
   top: -150px;
   left: 50%;
-
   width: min(620px, 90vw);
   height: 300px;
-
   transform: translateX(-50%);
-
   border-radius: 50%;
-
   background:
     radial-gradient(
       ellipse at center,
@@ -104,11 +69,8 @@
       rgba(139, 92, 246, 0.015) 56%,
       transparent 76%
     );
-
   filter: blur(30px);
-
   pointer-events: none;
-
   z-index: 1;
 }
 
@@ -119,11 +81,9 @@
 .galleryContainer {
   position: relative;
   z-index: 3;
-
   width: 100%;
   max-width: 520px;
   min-width: 0;
-
   margin: 0 auto;
 }
 
@@ -133,109 +93,60 @@
 
 .sectionHeader {
   position: relative;
-
   width: 100%;
   min-width: 0;
-
   margin-bottom: 1.8rem;
-
   text-align: center;
 }
-
-/* =========================================================
-   TÍTULO
-   ========================================================= */
 
 .galleryTitle {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   min-width: 0;
-
   gap: 0.65rem;
-
   margin: 0;
-
   color: #c7a96b;
-
   font-size: 0.68rem;
   font-weight: 800;
-
   line-height: 1.4;
-
   letter-spacing: 0.24em;
-
   text-transform: uppercase;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
 }
 
 .galleryTitle::before,
 .galleryTitle::after {
   content: '';
-
   width: 24px;
   height: 1px;
-
   flex: 0 0 auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #b99255
-    );
+  background: linear-gradient(90deg, transparent, #b99255);
 }
 
 .galleryTitle::after {
-  background:
-    linear-gradient(
-      90deg,
-      #b99255,
-      transparent
-    );
+  background: linear-gradient(90deg, #b99255, transparent);
 }
-
-/* =========================================================
-   SUBTÍTULO
-   ========================================================= */
 
 .gallerySubtitle {
   width: 100%;
   max-width: 430px;
-
   margin: 0.75rem auto 0;
-
   color: #c1bac2;
-
   font-size: 0.82rem;
   font-weight: 400;
-
   line-height: 1.65;
-
   letter-spacing: 0.01em;
 }
 
-/* =========================================================
-   PEQUENO ORNAMENTO
-   ========================================================= */
-
 .sectionHeader::after {
   content: '✦';
-
   display: block;
-
   margin-top: 0.9rem;
-
   color: #806038;
-
   font-size: 0.62rem;
-
-  text-shadow:
-    0 0 10px rgba(214, 184, 120, 0.28);
+  text-shadow: 0 0 10px rgba(214, 184, 120, 0.28);
 }
 
 /* =========================================================
@@ -244,121 +155,80 @@
 
 .imageGrid {
   display: grid;
-
   width: 100%;
   max-width: 100%;
   min-width: 0;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
 /* =========================================================
-   ITEM
+   ITEM (CARD FIGURE)
    ========================================================= */
 
 .imageItem {
+  /* Elimina a margem padrão das tags <figure> do navegador */
+  margin: 0 !important;
   position: relative;
-
   width: 100%;
   min-width: 0;
   max-width: 100%;
-
   aspect-ratio: 1 / 1;
-
   box-sizing: border-box;
-
   overflow: hidden;
-
   isolation: isolate;
-
   background: #0b090c;
-
   border: 1px solid rgba(185, 146, 85, 0.22);
-
-  clip-path:
-    polygon(
-      8px 0,
-      calc(100% - 8px) 0,
-      100% 8px,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      8px 100%,
-      0 calc(100% - 8px),
-      0 8px
-    );
-
+  clip-path: polygon(
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+    0 8px
+  );
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.48),
     inset 0 0 20px rgba(139, 92, 246, 0.025);
-
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.35s ease,
     box-shadow 0.35s ease;
 }
 
-/* =========================================================
-   BORDA INTERNA
-   ========================================================= */
-
 .imageItem::before {
   content: '';
-
   position: absolute;
   inset: 1px;
-
   z-index: 2;
-
   border: 1px solid rgba(255, 255, 255, 0.035);
-
   pointer-events: none;
 }
-
-/* =========================================================
-   REFLEXO MÁGICO
-   ========================================================= */
 
 .imageItem::after {
   content: '';
-
   position: absolute;
-
   top: -30%;
   left: -120%;
-
   width: 55%;
   height: 170%;
-
   transform: rotate(20deg);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.10),
-      transparent
-    );
-
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.10),
+    transparent
+  );
   opacity: 0;
-
   z-index: 4;
-
   pointer-events: none;
 }
 
-/* =========================================================
-   HOVER DO CARD
-   ========================================================= */
-
 .imageItem:hover {
   transform: translateY(-4px);
-
-  border-color:
-    rgba(214, 184, 120, 0.58);
-
+  border-color: rgba(214, 184, 120, 0.58);
   box-shadow:
     0 16px 38px rgba(0, 0, 0, 0.58),
     0 0 22px rgba(139, 92, 246, 0.10),
@@ -367,12 +237,8 @@
 
 .imageItem:hover::after {
   left: 135%;
-
   opacity: 1;
-
-  transition:
-    left 0.75s ease,
-    opacity 0.2s ease;
+  transition: left 0.75s ease, opacity 0.2s ease;
 }
 
 /* =========================================================
@@ -381,121 +247,75 @@
 
 .imageItem img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   max-width: none;
-
   object-fit: cover;
-
-  filter:
-    brightness(0.84)
-    saturate(0.86)
-    contrast(1.06);
-
-  transition:
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.55s ease;
+  filter: brightness(0.84) saturate(0.86) contrast(1.06);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease;
 }
 
 .imageItem:hover img {
   transform: scale(1.065);
-
-  filter:
-    brightness(0.98)
-    saturate(0.96)
-    contrast(1.08);
+  filter: brightness(0.98) saturate(0.96) contrast(1.08);
 }
 
 /* =========================================================
-   OVERLAY
+   OVERLAY & BADGE DE TEXTO
    ========================================================= */
 
 .imageOverlay {
   position: absolute;
   inset: 0;
-
   z-index: 3;
-
   display: flex;
   align-items: flex-end;
-
-  padding: 0.8rem;
-
+  justify-content: center;
+  padding: 0.5rem;
   pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5, 5, 6, 0) 35%,
-      rgba(5, 5, 6, 0.12) 55%,
-      rgba(5, 5, 6, 0.88) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(5, 5, 6, 0.5) 65%,
+    rgba(5, 5, 6, 0.92) 100%
+  );
 }
 
-/* =========================================================
-   TAG
-   ========================================================= */
-
 .imageTag {
-  position: relative;
-
-  color: #e5ddd0;
-
-  font-size: 0.68rem;
-  font-weight: 600;
-
-  line-height: 1.35;
-
-  letter-spacing: 0.025em;
-
-  text-shadow:
-    0 2px 7px rgba(0, 0, 0, 0.9);
-
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  background: rgba(11, 9, 12, 0.88);
+  border: 1px solid rgba(185, 146, 85, 0.4);
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  color: #f0dfb7;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .imageTag::before {
-  content: '';
-
-  display: inline-block;
-
-  width: 12px;
-  height: 1px;
-
-  margin-right: 0.45rem;
-
-  vertical-align: middle;
-
-  background:
-    linear-gradient(
-      90deg,
-      #b99255,
-      transparent
-    );
-
-  opacity: 0.75;
+  display: none !important;
 }
 
 .imageItem:hover .imageTag {
-  color: #f0dfb7;
-
-  transform: translateX(2px);
+  color: #ffffff;
+  border-color: rgba(214, 184, 120, 0.8);
+  transform: translateY(-1px);
 }
 
 /* =========================================================
-   TABLET
+   TABLET (>= 640px)
    ========================================================= */
 
 @media (min-width: 640px) {
   .gallerySection {
-    padding:
-      4rem
-      2rem
-      4.5rem;
+    padding: 4rem 2rem 4.5rem;
   }
 
   .galleryContainer {
@@ -509,18 +329,24 @@
   .gallerySubtitle {
     font-size: 0.85rem;
   }
+
+  .imageOverlay {
+    padding: 0.8rem;
+  }
+
+  .imageTag {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.7rem;
+  }
 }
 
 /* =========================================================
-   DESKTOP
+   DESKTOP (>= 900px)
    ========================================================= */
 
 @media (min-width: 900px) {
   .gallerySection {
-    padding:
-      4.5rem
-      3rem
-      5rem;
+    padding: 4.5rem 3rem 5rem;
   }
 
   .galleryContainer {
@@ -537,26 +363,17 @@
 
   .gallerySubtitle {
     max-width: 540px;
-
     font-size: 0.88rem;
   }
 
   .imageGrid {
-    grid-template-columns:
-      repeat(4, minmax(0, 1fr));
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.15rem;
-  }
-
-  .imageItem {
-    box-shadow:
-      0 14px 34px rgba(0, 0, 0, 0.5),
-      inset 0 0 22px rgba(139, 92, 246, 0.025);
   }
 }
 
 /* =========================================================
-   DESKTOP GRANDE
+   DESKTOP GRANDE (>= 1200px)
    ========================================================= */
 
 @media (min-width: 1200px) {
@@ -574,104 +391,58 @@
 }
 
 /* =========================================================
-   MOBILE
+   MOBILE (<= 480px)
    ========================================================= */
 
 @media (max-width: 480px) {
   .gallerySection {
-    width: 100%;
-    max-width: 100%;
-
-    padding:
-      3.25rem
-      12px
-      3.75rem;
+    padding: 3.25rem 12px 3.75rem;
   }
 
   .galleryContainer {
     width: 100%;
     max-width: 100%;
-    min-width: 0;
-  }
-
-  .sectionHeader {
-    width: 100%;
-    margin-bottom: 1.6rem;
-  }
-
-  .galleryTitle {
-    width: 100%;
-
-    gap: 0.5rem;
-
-    font-size: 0.63rem;
-
-    letter-spacing: 0.17em;
-  }
-
-  .galleryTitle::before,
-  .galleryTitle::after {
-    width: 18px;
   }
 
   .gallerySubtitle {
-    width: 100%;
     max-width: 350px;
-
     font-size: 0.76rem;
-
-    line-height: 1.6;
-  }
-
-  .imageGrid {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 10px;
-  }
-
-  .imageItem {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-
-    aspect-ratio: 1 / 1;
-  }
-
-  .imageOverlay {
-    padding: 0.65rem;
-  }
-
-  .imageTag {
-    font-size: 0.61rem;
-  }
-
-  .imageTag::before {
-    width: 9px;
-    margin-right: 0.3rem;
-  }
-}
-
-/* =========================================================
-   CELULARES MUITO PEQUENOS
-   ========================================================= */
-
-@media (max-width: 360px) {
-  .gallerySection {
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   .imageGrid {
     gap: 8px;
   }
 
+  .imageItem {
+    margin: 0 !important;
+  }
+
+  .imageOverlay {
+    padding: 0.35rem;
+  }
+
   .imageTag {
-    font-size: 0.58rem;
+    font-size: 0.55rem;
+    padding: 0.18rem 0.4rem;
+  }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS (<= 360px)
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .gallerySection {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .imageGrid {
+    gap: 6px;
+  }
+
+  .imageTag {
+    font-size: 0.5rem;
   }
 }
 
@@ -683,18 +454,18 @@
   .imageItem,
   .imageItem img,
   .imageTag {
-    transition: none;
+    transition: none !important;
   }
 
   .imageItem:hover {
-    transform: none;
+    transform: none !important;
   }
 
   .imageItem:hover img {
-    transform: none;
+    transform: none !important;
   }
 
   .imageItem:hover::after {
-    display: none;
+    display: none !important;
   }
 }

@@ -70,6 +70,7 @@ export function Gallery() {
                 alt={image.alt}
                 width={500}
                 height={500}
+                quality={85}
                 sizes="
                   (max-width: 480px) 50vw,
                   (max-width: 899px) 50vw,
