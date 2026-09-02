@@ -1,0 +1,351 @@
+/* =========================================================
+   BIO HERO — PREMIUM / FAST CONVERSION
+   ========================================================= */
+
+.heroSection {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 2rem 1.25rem 3rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(196, 164, 114, 0.08),
+      transparent 38%
+    ),
+    #262728;
+
+  overflow: hidden;
+}
+
+/* detalhe superior */
+
+.heroSection::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 90px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: #c4a472;
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.heroContainer {
+  position: relative;
+
+  width: 100%;
+  max-width: 480px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+/* =========================================================
+   FOTO
+   ========================================================= */
+
+.imageCard {
+  position: relative;
+
+  width: min(100%, 330px);
+
+  padding: 4px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(196, 164, 114, 0.3);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4);
+
+  overflow: hidden;
+}
+
+.imageCard img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 4 / 4.7;
+
+  object-fit: cover;
+
+  border-radius: 4px;
+}
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
+.infoWrapper {
+  width: 100%;
+
+  margin-top: 1.75rem;
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  margin: 0 0 0.55rem;
+
+  color: #c4a472;
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   NOME
+   ========================================================= */
+
+.name {
+  margin: 0;
+
+  color: #f3f1ed;
+
+  font-size: clamp(2rem, 8vw, 2.6rem);
+
+  font-weight: 650;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   ESPECIALIDADE
+   ========================================================= */
+
+.role {
+  max-width: 360px;
+
+  margin: 0.8rem auto 1.75rem;
+
+  color: #aaabae;
+
+  font-size: 0.84rem;
+
+  line-height: 1.55;
+
+  font-weight: 400;
+}
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.actionGroup {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+   ========================================================= */
+
+.btnPrimary,
+.btnSecondary {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 50px;
+
+  box-sizing: border-box;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-size: 0.84rem;
+
+  font-weight: 650;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btnPrimary {
+  border: 1px solid #c4a472;
+
+  background: #c4a472;
+
+  color: #18191a;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.btnPrimary:hover {
+  background: #d1b37f;
+
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  border: 1px solid rgba(196, 164, 114, 0.3);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #e4e2df;
+}
+
+.btnSecondary:hover {
+  border-color: rgba(196, 164, 114, 0.65);
+
+  background: rgba(196, 164, 114, 0.05);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   LOCALIZAÇÃO
+   ========================================================= */
+
+.location {
+  margin: 1.35rem 0 0;
+
+  color: #737478;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+  .heroSection {
+    min-height: 720px;
+
+    padding: 4rem 3rem;
+  }
+
+  .heroContainer {
+    max-width: 1000px;
+
+    display: grid;
+
+    grid-template-columns: 380px 1fr;
+
+    gap: 6rem;
+
+    text-align: left;
+  }
+
+  .imageCard {
+    width: 380px;
+  }
+
+  .infoWrapper {
+    margin-top: 0;
+  }
+
+  .role {
+    margin-left: 0;
+    margin-right: 0;
+
+    font-size: 0.92rem;
+  }
+
+  .actionGroup {
+    max-width: 430px;
+
+    flex-direction: row;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    flex: 1;
+  }
+
+  .location {
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   DESKTOP GRANDE
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .heroContainer {
+    max-width: 1080px;
+
+    grid-template-columns: 400px 1fr;
+
+    gap: 7rem;
+  }
+
+  .imageCard {
+    width: 400px;
+  }
+
+  .name {
+    font-size: 3.2rem;
+  }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible {
+  outline: 2px solid #c4a472;
+
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary,
+  .btnSecondary {
+    transition: none;
+  }
+}

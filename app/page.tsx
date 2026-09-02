@@ -1,34 +1,15 @@
-import { Header } from './components/Header/Header'
-import { Hero } from './components/Hero/Hero'
-import { TrustStrip } from './components/TrustStrip/TrustStrip'
-import { Specialties } from './components/Specialties/Specialties'
-import { About } from './components/About/About'
-import { Experience } from './components/Experience/Experience'
-import { Testimonial } from './components/Testimonial/Testimonial'
-import { Faq } from './components/Faq/Faq'
-import { Location } from './components/Location/Location'
-import { Contact } from './components/Contact/Contact'
+import { BioHero } from './components/BioHero/BioHero'
+import { HubCards } from './components/HubCards/HubCards'
+import { Gallery } from './components/Gallery/Gallery'
 import { Footer } from './components/Footer/Footer'
-import { WhatsAppFloat } from './components/WhatsAppFloat/WhatsAppFloat'
 
 export default function Home() {
   return (
-    <div className="dental-site">
-      <Header />
-      <main>
-        <Hero />
-        <TrustStrip />
-        <Specialties />
-        <About />
-        <Experience />
-        <Testimonial />
-        <Faq />
-        <Location />
-        <Contact />
-        <WhatsAppFloat />
-      </main>
+    <main style={{ backgroundColor: '#262728', minHeight: '100vh' }}>
+      <BioHero />
+      <HubCards />
+      <Gallery />
       <Footer />
-      
-    </div>
+    </main>
   )
 }

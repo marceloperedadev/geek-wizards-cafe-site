@@ -1,378 +1,197 @@
-
 /* =========================================================
-   FOOTER — MASCULINE PREMIUM / ARCHITECTURAL
+   FOOTER — PREMIUM / MINIMAL
    ========================================================= */
 
-.dentalFooter {
-
+.footerSection {
   position: relative;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 2rem;
-
   width: 100%;
-
-  padding: 2.5rem max(1.5rem, calc((100% - 1320px) / 2));
-
-  background: #142033;
-
-  color: #94a3b8;
-
-  font-size: 0.8rem;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-
+  padding: 2.75rem 1.25rem 1.75rem;
   box-sizing: border-box;
 
+  background: #1b1c1d;
+
+  border-top: 1px solid rgba(196, 164, 114, 0.12);
 }
 
-
-/* =========================================================
-   LINHA SUTIL EM BRONZE
-   ========================================================= */
-
-.dentalFooter::before {
-
+.footerSection::before {
   content: '';
 
   position: absolute;
-
   top: -1px;
-
   left: 50%;
 
-  width: 120px;
-
-  height: 2px;
+  width: 36px;
+  height: 1px;
 
   transform: translateX(-50%);
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #b88a45,
-      transparent
-    );
-
+  background: #c4a472;
 }
 
+.footerContainer {
+  width: 100%;
+  max-width: 520px;
 
-/* =========================================================
-   BRAND / LOGO
-   ========================================================= */
-
-.dentalBrand {
+  margin: 0 auto;
 
   display: flex;
-
+  flex-direction: column;
   align-items: center;
 
-  gap: 0.9rem;
+  text-align: center;
+}
+
+/* =========================================================
+   REDES
+   ========================================================= */
+
+.socialGroup {
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.socialLink {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #c4a472;
+
+  border: 1px solid rgba(196, 164, 114, 0.2);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.025);
 
   text-decoration: none;
 
-  color: #ffffff;
-
-  -webkit-tap-highlight-color: transparent;
-
-}
-
-
-/* =========================================================
-   FOTO / LOGO DA DENTISTA
-   ========================================================= */
-
-.brandSymbol {
-
-  position: relative;
-
-  width: 48px;
-
-  height: 48px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 50%;
-
-  overflow: hidden;
-
-  background: #1b2a3d;
-
-  border: 1px solid rgba(217, 185, 120, 0.45);
-
-  box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.22),
-    0 0 0 3px rgba(184, 138, 69, 0.06);
-
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
+.socialLink:hover {
+  color: #f2f0eb;
 
-/* =========================================================
-   IMAGEM
-   ========================================================= */
+  background: rgba(196, 164, 114, 0.07);
 
-.brandSymbol img {
-
-  width: 100%;
-
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center;
-
-}
-
-
-/* =========================================================
-   EFEITO HOVER DA FOTO
-   ========================================================= */
-
-.dentalBrand:hover .brandSymbol {
+  border-color: rgba(196, 164, 114, 0.5);
 
   transform: translateY(-2px);
-
-  border-color:
-    rgba(217, 185, 120, 0.75);
-
-  box-shadow:
-    0 7px 20px rgba(0, 0, 0, 0.28),
-    0 0 0 3px rgba(184, 138, 69, 0.09);
-
 }
 
+.socialLink:active {
+  transform: translateY(0);
+}
 
-/* =========================================================
-   NOME
-   ========================================================= */
-
-.dentalBrand strong {
+.socialLink svg {
+  width: 18px;
+  height: 18px;
 
   display: block;
 
-  color: #f8fafc;
-
-  font-size: 0.95rem;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-
-  letter-spacing: -0.01em;
-
+  fill: currentColor;
 }
 
-
 /* =========================================================
-   SUBTÍTULO
+   LOCALIZAÇÃO
    ========================================================= */
 
-.dentalBrand small {
+.locationText {
+  display: flex;
+  align-items: center;
 
-  display: block;
-
-  margin-top: 3px;
-
-  color: #b88a45;
-
-  font-size: 0.62rem;
-
-  font-weight: 600;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.16em;
-
-  line-height: 1;
-
-}
-
-
-/* =========================================================
-   TEXTO DE COPYRIGHT & CRO
-   ========================================================= */
-
-.copyright {
+  gap: 0.45rem;
 
   margin: 0;
 
-  color: #64748b;
+  color: #b8b8bb;
 
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  font-weight: 500;
 
   line-height: 1.5;
 
-  text-align: center;
+  letter-spacing: 0.08em;
 
+  text-transform: uppercase;
 }
 
+.locationText::before {
+  content: '';
 
-.copyright span {
+  width: 4px;
+  height: 4px;
 
-  display: block;
+  flex: 0 0 auto;
 
-  color: #94a3b8;
+  border-radius: 50%;
 
-  font-size: 0.72rem;
-
-  font-weight: 500;
-
-  margin-top: 2px;
-
+  background: #c4a472;
 }
-
 
 /* =========================================================
-   INSTAGRAM LINK
+   COPYRIGHT
    ========================================================= */
 
-.instagramLink {
+.copyright {
+  margin: 1rem 0 0;
 
-  display: inline-flex;
+  color: #68696c;
 
-  align-items: center;
+  font-size: 0.67rem;
+  font-weight: 400;
 
-  gap: 0.6rem;
+  line-height: 1.5;
 
-  padding: 0.55rem 1rem;
-
-  color: #cbd5e1;
-
-  text-decoration: none;
-
-  font-size: 0.8rem;
-
-  font-weight: 600;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.1);
-
-  border-radius: 4px;
-
-  background:
-    rgba(255, 255, 255, 0.03);
-
-  box-sizing: border-box;
-
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-
-  -webkit-tap-highlight-color: transparent;
-
+  letter-spacing: 0.02em;
 }
-
-
-.instagramLink:hover {
-
-  color: #b88a45;
-
-  border-color:
-    rgba(184, 138, 69, 0.4);
-
-  background:
-    rgba(184, 138, 69, 0.08);
-
-  transform:
-    translateY(-2px);
-
-}
-
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  .dentalFooter {
-
-    flex-direction: column;
-
-    gap: 1.5rem;
-
-    padding: 2.5rem 1rem;
-
-    text-align: center;
-
-  }
-
-
-  .dentalBrand {
-
-    flex-direction: column;
-
-    gap: 0.65rem;
-
-  }
-
-
-  .copyright span {
-
-    margin-top: 4px;
-
-  }
-
-}
-
-
-/* =========================================================
-   TELAS MUITO PEQUENAS
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-  .dentalFooter {
-
-    padding:
-      2rem 0.75rem;
-
-  }
-
-
-  .brandSymbol {
-
-    width: 42px;
-
-    height: 42px;
-
-  }
-
-}
-
 
 /* =========================================================
    ACESSIBILIDADE
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.socialLink:focus-visible {
+  outline: 2px solid #c4a472;
+  outline-offset: 3px;
+}
 
-  .brandSymbol,
-  .instagramLink {
-
-    transition: none;
-
+@media (min-width: 640px) {
+  .footerSection {
+    padding: 3.25rem 2rem 2rem;
   }
 
+  .socialLink {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (min-width: 900px) {
+  .footerSection {
+    padding: 3.5rem 3rem 2.25rem;
+  }
+
+  .footerContainer {
+    max-width: 1080px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink {
+    transition: none;
+  }
+
+  .socialLink:hover,
+  .socialLink:active {
+    transform: none;
+  }
 }

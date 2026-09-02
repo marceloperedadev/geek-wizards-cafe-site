@@ -4,30 +4,30 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// Alterne para a URL temporária da Vercel durante os testes ou use a final
-const SITE_URL = 'https://site-dentista-phi.vercel.app'
+// URL temporária ou final do projeto do Dr. Rafael
+const SITE_URL = 'https://site-dr-rafael-vieira.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Dra. Bárbara Glayris | Cirurgiã-Dentista em Taubaté',
-    template: '%s | Dra. Bárbara Glayris',
+    default: 'Dr. Pedro Henrique | Estética do Sorriso & Harmonização Facial',
+    template: '%s | Dr. Pedro Henrique',
   },
   description:
-    'Atendimento odontológico especializado em Taubaté. Reabilitação oral, lâminas de porcelana, implantes e odontologia estética com planejamento 3D.',
+    'Especialista em Lentes em Resina Minimalista, Harmonização Facial e Mentorias Técnicas para Cirurgiões-Dentistas em Taubaté.',
   keywords: [
+    'dr rafael vieira',
     'dentista taubaté',
-    'implantes taubaté',
-    'facetas de porcelana taubaté',
-    'lâminas de porcelana taubaté',
-    'reabilitação oral taubaté',
-    'dra barbara glayris',
-    'odontologia estética taubaté',
-    'clinica odontologica taubaté',
+    'lentes em resina taubaté',
+    'resina minimalista',
+    'harmonização facial taubaté',
+    'mentoria resina minimalista',
+    'curso lentes em resina',
+    'estética do sorriso taubaté',
   ],
-  authors: [{ name: 'Dra. Bárbara Glayris' }],
-  creator: 'Dra. Bárbara Glayris',
-  publisher: 'Dra. Bárbara Glayris',
+  authors: [{ name: 'Dr. Rafael Vieira' }],
+  creator: 'Dr. Rafael Vieira',
+  publisher: 'Dr. Rafael Vieira',
   formatDetection: {
     email: false,
     address: false,
@@ -37,19 +37,19 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Dra. Bárbara Glayris | Cirurgiã-Dentista em Taubaté',
+    title: 'Dr. Rafael Vieira | Estética do Sorriso & Harmonização Facial',
     description:
-      'Reabilitação oral, lâminas de porcelana e odontologia estética com planejamento digital 3D em Taubaté.',
+      'Lentes em Resina Minimalista, Harmonização Facial e Cursos para Dentistas.',
     url: SITE_URL,
-    siteName: 'Dra. Bárbara Glayris - Odontologia',
+    siteName: 'Dr. Rafael Vieira',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: `${SITE_URL}/images/logo-dentista.png`, // Usa a URL completa da imagem
+        url: `${SITE_URL}/images/rafael-perfil.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Dra. Bárbara Glayris em Taubaté',
+        alt: 'Dr. Rafael Vieira - Estética do Sorriso',
       },
     ],
   },
@@ -74,11 +74,11 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Dentist',
-    name: 'Dra. Bárbara Glayris - Cirurgiã-Dentista',
-    image: `${SITE_URL}/images/logo-dentistata.png`,
+    name: 'Dr. Rafael Vieira - Estética do Sorriso & Harmonização',
+    image: `${SITE_URL}/images/rafael-perfil.jpg`,
     '@id': SITE_URL,
     url: SITE_URL,
-    telephone: '+5512997093459',
+    telephone: '+5512999999999', // Ajuste para o WhatsApp real dele
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Atendimento em Taubaté',
@@ -98,7 +98,7 @@ export default function RootLayout({
       opens: '08:00',
       closes: '18:00',
     },
-    priceRange: '$$',
+    priceRange: '$$$',
     medicalSpecialty: 'Dentistry',
   }
 

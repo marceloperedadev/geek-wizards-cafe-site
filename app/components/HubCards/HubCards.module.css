@@ -1,0 +1,539 @@
+/* =========================================================
+   HUB CARDS — PREMIUM / CONVERSION
+   ========================================================= */
+
+.hubSection {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      180deg,
+      #242526 0%,
+      #202122 100%
+    );
+
+  padding: 1.5rem 1.25rem 5rem;
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.hubContainer {
+  width: 100%;
+  max-width: 560px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.1rem;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.cardItem {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    125px
+    minmax(0, 1fr);
+
+  gap: 1.15rem;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 180px;
+
+  padding: 0.85rem;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(196, 164, 114, 0.18);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cardItem:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(196, 164, 114, 0.38);
+
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   DETALHE LATERAL
+   ========================================================= */
+
+.cardItem::before {
+  content: '';
+
+  position: absolute;
+
+  top: 20px;
+  bottom: 20px;
+  left: 0;
+
+  width: 2px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(196, 164, 114, 0.75),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.cardItem:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   IMAGEM
+   ========================================================= */
+
+.cardImage {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 7px;
+
+  background: #191a1b;
+
+  isolation: isolate;
+}
+
+.cardImage::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 5px;
+
+  z-index: 2;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 4px;
+
+  pointer-events: none;
+}
+
+.cardImage img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(0.93)
+    contrast(1.03);
+
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease;
+}
+
+.cardItem:hover .cardImage img {
+  transform: scale(1.05);
+
+  filter:
+    saturate(1)
+    contrast(1.05);
+}
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.cardContent {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.cardTitle {
+  margin: 0 0 0.55rem;
+
+  color: #f0ede7;
+
+  font-size: 1.05rem;
+
+  font-weight: 650;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.015em;
+}
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.cardText {
+  max-width: 330px;
+
+  margin: 0 0 1rem;
+
+  color: #a3a4a7;
+
+  font-size: 0.82rem;
+
+  font-weight: 400;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cardLink {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding:
+    0.55rem
+    0.85rem;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid rgba(196, 164, 114, 0.32);
+
+  border-radius: 5px;
+
+  background:
+    rgba(196, 164, 114, 0.055);
+
+  color: #d0b27f;
+
+  font-size: 0.76rem;
+
+  font-weight: 650;
+
+  line-height: 1.2;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cardLink:hover {
+  color: #171819;
+
+  background: #c4a472;
+
+  border-color: #c4a472;
+
+  transform: translateY(-1px);
+}
+
+.cardLink:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 640px) {
+  .hubSection {
+    padding:
+      1.75rem
+      2rem
+      5.5rem;
+  }
+
+  .hubContainer {
+    max-width: 620px;
+
+    gap: 1.25rem;
+  }
+
+  .cardItem {
+    grid-template-columns:
+      150px
+      minmax(0, 1fr);
+
+    min-height: 200px;
+
+    gap: 1.35rem;
+
+    padding: 0.9rem;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .cardText {
+    font-size: 0.84rem;
+
+    line-height: 1.6;
+  }
+
+  .cardLink {
+    min-height: 40px;
+
+    padding:
+      0.6rem
+      0.95rem;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+  .hubSection {
+    padding:
+      2rem
+      3rem
+      6rem;
+  }
+
+  .hubContainer {
+    max-width: 1080px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  .cardItem {
+    grid-template-columns:
+      145px
+      minmax(0, 1fr);
+
+    min-height: 205px;
+
+    gap: 1.25rem;
+
+    padding: 0.9rem;
+  }
+
+  .cardTitle {
+    font-size: 1.12rem;
+  }
+
+  .cardText {
+    max-width: 360px;
+
+    font-size: 0.82rem;
+  }
+
+  .cardLink {
+    min-height: 40px;
+
+    font-size: 0.77rem;
+  }
+}
+
+/* =========================================================
+   DESKTOP GRANDE
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .hubContainer {
+    max-width: 1120px;
+
+    gap: 1.75rem;
+  }
+
+  .cardItem {
+    grid-template-columns:
+      165px
+      minmax(0, 1fr);
+
+    min-height: 225px;
+
+    gap: 1.5rem;
+
+    padding: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 1.18rem;
+
+    margin-bottom: 0.65rem;
+  }
+
+  .cardText {
+    font-size: 0.85rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 1.15rem;
+  }
+
+  .cardLink {
+    min-height: 42px;
+
+    padding:
+      0.65rem
+      1rem;
+  }
+}
+
+/* =========================================================
+   MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .hubSection {
+    padding:
+      1.25rem
+      1rem
+      4.5rem;
+  }
+
+  .hubContainer {
+    gap: 1rem;
+  }
+
+  .cardItem {
+    grid-template-columns:
+      100px
+      minmax(0, 1fr);
+
+    min-height: 155px;
+
+    gap: 0.9rem;
+
+    padding: 0.7rem;
+
+    border-radius: 9px;
+  }
+
+  .cardImage {
+    border-radius: 6px;
+  }
+
+  .cardTitle {
+    font-size: 0.94rem;
+
+    margin-bottom: 0.45rem;
+  }
+
+  .cardText {
+    font-size: 0.74rem;
+
+    line-height: 1.48;
+
+    margin-bottom: 0.75rem;
+  }
+
+  .cardLink {
+    min-height: 34px;
+
+    padding:
+      0.45rem
+      0.7rem;
+
+    font-size: 0.7rem;
+  }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.cardLink:focus-visible {
+  outline:
+    2px solid #c4a472;
+
+  outline-offset: 4px;
+
+  border-radius: 3px;
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cardItem,
+  .cardImage img,
+  .cardLink,
+  .cardItem::before {
+    transition: none;
+  }
+
+  .cardItem:hover {
+    transform: none;
+  }
+
+  .cardItem:hover .cardImage img {
+    transform: none;
+  }
+
+  .cardLink:hover {
+    transform: none;
+  }
+}
