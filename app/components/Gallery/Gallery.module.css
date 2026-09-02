@@ -7,6 +7,7 @@
 .gallerySection {
   position: relative;
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
 
   padding: 3.5rem 1.25rem 4rem;
@@ -36,7 +37,6 @@
 
 /* =========================================================
    GRADE ATMOSFÉRICA
-   MESMA DO BIOHERO
    ========================================================= */
 
 .gallerySection::after {
@@ -122,6 +122,7 @@
 
   width: 100%;
   max-width: 520px;
+  min-width: 0;
 
   margin: 0 auto;
 }
@@ -132,6 +133,9 @@
 
 .sectionHeader {
   position: relative;
+
+  width: 100%;
+  min-width: 0;
 
   margin-bottom: 1.8rem;
 
@@ -146,6 +150,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+  min-width: 0;
 
   gap: 0.65rem;
 
@@ -197,6 +204,7 @@
    ========================================================= */
 
 .gallerySubtitle {
+  width: 100%;
   max-width: 430px;
 
   margin: 0.75rem auto 0;
@@ -237,6 +245,10 @@
 .imageGrid {
   display: grid;
 
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
@@ -251,6 +263,9 @@
   position: relative;
 
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
   aspect-ratio: 1 / 1;
 
   box-sizing: border-box;
@@ -265,14 +280,14 @@
 
   clip-path:
     polygon(
-      9px 0,
-      calc(100% - 9px) 0,
-      100% 9px,
-      100% calc(100% - 9px),
-      calc(100% - 9px) 100%,
-      9px 100%,
-      0 calc(100% - 9px),
-      0 9px
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
     );
 
   box-shadow:
@@ -369,6 +384,8 @@
 
   width: 100%;
   height: 100%;
+
+  max-width: none;
 
   object-fit: cover;
 
@@ -562,22 +579,43 @@
 
 @media (max-width: 480px) {
   .gallerySection {
+    width: 100%;
+    max-width: 100%;
+
     padding:
       3.25rem
-      1rem
+      12px
       3.75rem;
   }
 
+  .galleryContainer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .sectionHeader {
+    width: 100%;
     margin-bottom: 1.6rem;
   }
 
   .galleryTitle {
+    width: 100%;
+
+    gap: 0.5rem;
+
     font-size: 0.63rem;
-    letter-spacing: 0.19em;
+
+    letter-spacing: 0.17em;
+  }
+
+  .galleryTitle::before,
+  .galleryTitle::after {
+    width: 18px;
   }
 
   .gallerySubtitle {
+    width: 100%;
     max-width: 350px;
 
     font-size: 0.76rem;
@@ -586,7 +624,22 @@
   }
 
   .imageGrid {
-    gap: 0.7rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .imageItem {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    aspect-ratio: 1 / 1;
   }
 
   .imageOverlay {
@@ -609,12 +662,12 @@
 
 @media (max-width: 360px) {
   .gallerySection {
-    padding-left: 0.85rem;
-    padding-right: 0.85rem;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .imageGrid {
-    gap: 0.6rem;
+    gap: 8px;
   }
 
   .imageTag {
