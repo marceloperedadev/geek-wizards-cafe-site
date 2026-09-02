@@ -5,10 +5,13 @@ import { Footer } from './components/Footer/Footer'
 
 export default function Home() {
   return (
-    <main style={{ backgroundColor: '#262728', minHeight: '100vh' }}>
+    <main>
       <BioHero />
+
       <HubCards />
+
       <Gallery />
+
       <Footer />
     </main>
   )

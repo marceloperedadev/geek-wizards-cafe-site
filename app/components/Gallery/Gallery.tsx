@@ -5,13 +5,25 @@ import styles from './Gallery.module.css'
 
 const galleryImages = [
   {
-    src: '/images/dente-01.jpg',
-    alt: 'Resultado de lentes em resina com acabamento natural'
+    src: '/images/geek-wizard.jpg',
+    alt: 'Mago da Geek Wizards Café',
+    title: '🧙‍♂️ Nosso Mago',
   },
   {
-    src: '/images/dente-02.jpg',
-    alt: 'Detalhe de textura e naturalidade dental'
-  }
+    src: '/images/dia-de-jogo.jpg',
+    alt: 'Clientes jogando jogos de tabuleiro e RPG',
+    title: '🎲 Quest & Jogos',
+  },
+  {
+    src: '/images/cafe-especial.jpg',
+    alt: 'Café temático especial da Geek Wizards Café',
+    title: '☕ Poções & Cafés',
+  },
+  {
+    src: '/images/doce-artesanal.jpg',
+    alt: 'Sobremesa artesanal com marshmallow tostado',
+    title: '🍫 Doces Mágicos',
+  },
 ]
 
 export function Gallery() {
@@ -22,44 +34,56 @@ export function Gallery() {
     >
       <div className={styles.galleryContainer}>
 
-        {/* Cabeçalho */}
-        <div className={styles.sectionHeader}>
+        {/* =====================================================
+            CABEÇALHO
+            ===================================================== */}
 
+        <header className={styles.sectionHeader}>
           <h2
             id="gallery-title"
             className={styles.galleryTitle}
           >
-            Casos & Resultados
+            Aventura & Gastronomia
           </h2>
 
           <p className={styles.gallerySubtitle}>
-            Naturalidade, proporção e acabamento em cada detalhe.
+            Um vislumbre das poções, doces artesanais e
+            batalhas épicas que esperam por você.
           </p>
+        </header>
 
-        </div>
+        {/* =====================================================
+            GALERIA
+            ===================================================== */}
 
-        {/* Galeria */}
-        <div className={styles.imageGrid}>
-
-          {galleryImages.map((img) => (
-            <div
-              key={img.src}
+        <div
+          className={styles.imageGrid}
+          aria-label="Galeria de imagens da Geek Wizards Café"
+        >
+          {galleryImages.map((image) => (
+            <figure
+              key={image.src}
               className={styles.imageItem}
             >
               <Image
-                src={img.src}
-                alt={img.alt}
-                width={600}
-                height={600}
+                src={image.src}
+                alt={image.alt}
+                width={500}
+                height={500}
                 sizes="
-                  (max-width: 480px) 100vw,
+                  (max-width: 480px) 50vw,
                   (max-width: 899px) 50vw,
-                  450px
+                  230px
                 "
               />
-            </div>
-          ))}
 
+              <figcaption className={styles.imageOverlay}>
+                <span className={styles.imageTag}>
+                  {image.title}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
 
       </div>

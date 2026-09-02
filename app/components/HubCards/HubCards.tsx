@@ -8,90 +8,159 @@ export function HubCards() {
   return (
     <section
       className={styles.hubSection}
-      aria-label="Atendimento e mentorias"
+      aria-labelledby="hub-title"
     >
+      {/* =====================================================
+          ATMOSFERA
+          ===================================================== */}
+
+      <div
+        className={styles.arcaneGlow}
+        aria-hidden="true"
+      />
+
+      <div
+        className={styles.arcaneLine}
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          CONTAINER
+          ===================================================== */}
+
       <div className={styles.hubContainer}>
 
-        {/* =====================================================
-            ATENDIMENTO
-            ===================================================== */}
+        {/* ===================================================
+            CABEÇALHO
+            =================================================== */}
 
-        <article className={styles.cardItem}>
+        <header className={styles.sectionHeader}>
+          <p className={styles.sectionEyebrow}>
+            Experiências Geek Wizards
+          </p>
 
-          <div className={styles.cardImage}>
-            <Image
-              src="/images/rafael-01.jpg"
-              alt="Caso clínico de lentes em resina"
-              width={400}
-              height={400}
-              sizes="(max-width: 420px) 88px, (max-width: 899px) 125px, 125px"
-            />
-          </div>
+          <h2
+            id="hub-title"
+            className={styles.sectionTitle}
+          >
+            Escolha sua aventura
+          </h2>
 
-          <div className={styles.cardContent}>
+          <p className={styles.sectionDescription}>
+            Reúna sua guilda, reserve sua mesa ou descubra
+            as poções e sabores da Geek Wizards Café.
+          </p>
+        </header>
 
-            <h2 className={styles.cardTitle}>
-              Dúvidas & Agendamentos
-            </h2>
+        {/* ===================================================
+            CARDS
+            =================================================== */}
 
-            <p className={styles.cardText}>
-              Tire suas dúvidas e agende sua avaliação
-              de forma rápida e personalizada.
-            </p>
+        <div className={styles.cardsGrid}>
 
-            <a
-              href={SITE_CONFIG.whatsapp.appointments}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.cardLink}
-            >
-              Agendar consulta →
-            </a>
+          {/* =================================================
+              RPG
+              ================================================= */}
 
-          </div>
+          <article className={styles.cardItem}>
 
-        </article>
+            <div className={styles.cardImage}>
+              <Image
+                src="/images/mesas-rpg.jpg"
+                alt="Mesa de RPG e jogos de tabuleiro na Geek Wizards Café"
+                width={500}
+                height={500}
+                sizes="
+                  (max-width: 420px) 100px,
+                  (max-width: 639px) 125px,
+                  (max-width: 899px) 150px,
+                  165px
+                "
+              />
+            </div>
 
+            <div className={styles.cardContent}>
 
-        {/* =====================================================
-            MENTORIAS
-            ===================================================== */}
+              <p className={styles.cardEyebrow}>
+                Aventura & Estratégia
+              </p>
 
-        <article className={styles.cardItem}>
+              <h3 className={styles.cardTitle}>
+                Mesas de RPG & Jogos
+              </h3>
 
-          <div className={styles.cardImage}>
-            <Image
-              src="/images/rafael-02.jpg"
-              alt="Mentoria de lentes em resina"
-              width={400}
-              height={400}
-              sizes="(max-width: 420px) 88px, (max-width: 899px) 125px, 125px"
-            />
-          </div>
+              <p className={styles.cardText}>
+                Garanta sua mesa para campanhas épicas,
+                board games e eventos com sua guilda.
+              </p>
 
-          <div className={styles.cardContent}>
+              <a
+                href={SITE_CONFIG.whatsapp.reservations}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cardLink}
+                aria-label="Reservar uma mesa de RPG ou jogos"
+              >
+                Reservar Mesa
+                <span aria-hidden="true">→</span>
+              </a>
 
-            <h2 className={styles.cardTitle}>
-              Mentorias & Cursos
-            </h2>
+            </div>
 
-            <p className={styles.cardText}>
-              Aprenda a técnica de lentes em resina
-              minimalista e eleve seus resultados clínicos.
-            </p>
+          </article>
 
-            <a
-              href={SITE_CONFIG.whatsapp.courses}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.cardLink}
-            >
-              Conhecer mentorias →
-            </a>
+          {/* =================================================
+              CARDÁPIO
+              ================================================= */}
 
-          </div>
+          <article className={styles.cardItem}>
 
-        </article>
+            <div className={styles.cardImage}>
+              <Image
+                src="/images/cardapio-geek.jpg"
+                alt="Cafés, poções e doces temáticos da Geek Wizards Café"
+                width={500}
+                height={500}
+                sizes="
+                  (max-width: 420px) 100px,
+                  (max-width: 639px) 125px,
+                  (max-width: 899px) 150px,
+                  165px
+                "
+              />
+            </div>
+
+            <div className={styles.cardContent}>
+
+              <p className={styles.cardEyebrow}>
+                Poções & Sabores
+              </p>
+
+              <h3 className={styles.cardTitle}>
+                Menu Mágico & Delivery
+              </h3>
+
+              <p className={styles.cardText}>
+                Explore nossas poções artesanais,
+                cafés especiais e doces temáticos.
+              </p>
+
+              <a
+                href={SITE_CONFIG.whatsapp.menu}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cardLink}
+                aria-label="Ver o cardápio da Geek Wizards Café"
+              >
+                Ver Cardápio
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
 
       </div>
     </section>

@@ -1,105 +1,319 @@
 /* =========================================================
-   BIO HERO — PREMIUM / FAST CONVERSION
+   BIO HERO — GEEK WIZARDS CAFÉ
+   PREMIUM / ARCANE / REFLEXO MÁGICO
+   PERSONAGEM EMERGINDO DA ESCURIDÃO
+   ========================================================= */
+
+/* =========================================================
+   HERO
    ========================================================= */
 
 .heroSection {
   position: relative;
-
   width: 100%;
   min-height: 100svh;
-
   display: flex;
   align-items: center;
-
   box-sizing: border-box;
-
   padding: 2rem 1.25rem 3rem;
-
   background:
     radial-gradient(
-      circle at 50% 15%,
-      rgba(196, 164, 114, 0.08),
-      transparent 38%
+      ellipse 55% 70% at 82% 44%,
+      rgba(92, 57, 125, 0.13),
+      transparent 70%
     ),
-    #262728;
-
+    radial-gradient(
+      ellipse 40% 50% at 15% 82%,
+      rgba(185, 146, 85, 0.055),
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      #050506 0%,
+      #0b090c 48%,
+      #050506 100%
+    );
   overflow: hidden;
 }
 
-/* detalhe superior */
+/* =========================================================
+   LINHA SUPERIOR
+   ========================================================= */
 
 .heroSection::before {
   content: '';
-
   position: absolute;
-
   top: 0;
   left: 50%;
-
-  width: 90px;
+  width: min(220px, 55vw);
   height: 1px;
-
   transform: translateX(-50%);
-
-  background: #c4a472;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #8d6b3f,
+      #c6a866,
+      #8d6b3f,
+      transparent
+    );
+  box-shadow:
+    0 0 14px rgba(185, 146, 85, 0.28);
+  padding: 0%;
+  pointer-events: none;
+  z-index: 6;
 }
 
 /* =========================================================
-   CONTAINER
+   GRADE ATMOSFÉRICA
+   ========================================================= */
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      transparent 82%
+    );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      transparent 82%
+    );
+  z-index: 1;
+}
+
+/* =========================================================
+   PERSONAGEM DE FUNDO
+   REFLEXO / SILHUETA MÁGICA
+   ========================================================= */
+
+.characterBackground {
+  position: absolute;
+  z-index: 0;
+  right: -4%;
+  bottom: -3%;
+  width: min(900px, 100vw);
+  height: min(930px, 97vh);
+  opacity: 0.40;
+  pointer-events: none;
+  filter:
+    brightness(0.70)
+    saturate(0.78)
+    contrast(1.18);
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 61% 71% at 68% 43%,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.94) 27%,
+      rgba(0, 0, 0, 0.78) 44%,
+      rgba(0, 0, 0, 0.50) 59%,
+      rgba(0, 0, 0, 0.25) 72%,
+      rgba(0, 0, 0, 0.08) 84%,
+      transparent 100%
+    );
+  mask-image:
+    radial-gradient(
+      ellipse 61% 71% at 68% 43%,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.94) 27%,
+      rgba(0, 0, 0, 0.78) 44%,
+      rgba(0, 0, 0, 0.50) 59%,
+      rgba(0, 0, 0, 0.25) 72%,
+      rgba(0, 0, 0, 0.08) 84%,
+      transparent 100%
+    );
+}
+
+.characterBackground img {
+  object-fit: contain;
+  object-position: 69% 40%;
+}
+
+.characterBackground::after {
+  content: '';
+  position: absolute;
+  inset: -5%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 54% 62% at 68% 43%,
+      rgba(5, 5, 6, 0.00) 0%,
+      rgba(5, 5, 6, 0.04) 28%,
+      rgba(5, 5, 6, 0.15) 46%,
+      rgba(5, 5, 6, 0.38) 62%,
+      rgba(5, 5, 6, 0.68) 78%,
+      rgba(5, 5, 6, 0.92) 91%,
+      #050506 100%
+    );
+}
+
+/* =========================================================
+   REFLEXO OVAL
+   SEM MOLDURA
+   ========================================================= */
+
+.magicGlow {
+  position: absolute;
+  z-index: 0;
+  right: -4%;
+  bottom: 17%;
+  width: 620px;
+  height: 760px;
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 92, 246, 0.18) 0%,
+      rgba(139, 92, 246, 0.11) 23%,
+      rgba(139, 92, 246, 0.055) 42%,
+      rgba(139, 92, 246, 0.018) 62%,
+      transparent 78%
+    );
+  filter: blur(35px);
+  opacity: 1;
+}
+
+.magicGlow::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 27%;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(195, 151, 226, 0.15) 0%,
+      rgba(168, 85, 247, 0.10) 25%,
+      rgba(168, 85, 247, 0.045) 52%,
+      transparent 74%
+    );
+  filter: blur(28px);
+}
+
+.magicGlow::after {
+  content: '';
+  position: absolute;
+  top: 13%;
+  left: 40%;
+  width: 190px;
+  height: 250px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(224, 201, 239, 0.085) 0%,
+      rgba(168, 85, 247, 0.055) 30%,
+      transparent 72%
+    );
+  filter: blur(24px);
+  transform: rotate(-12deg);
+}
+
+/* =========================================================
+   CONTAINER PRINCIPAL
    ========================================================= */
 
 .heroContainer {
   position: relative;
-
+  z-index: 2;
   width: 100%;
   max-width: 480px;
-
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
   text-align: center;
 }
 
 /* =========================================================
-   FOTO
+   LOGO
    ========================================================= */
 
 .imageCard {
   position: relative;
-
-  width: min(100%, 330px);
-
-  padding: 4px;
-
+  width: 168px;
+  height: 168px;
+  padding: 5px;
   box-sizing: border-box;
-
-  border: 1px solid rgba(196, 164, 114, 0.3);
-
-  background: rgba(255, 255, 255, 0.025);
-
-  border-radius: 7px;
-
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      145deg,
+      #d8bc83,
+      #806038 45%,
+      #d1ad68 70%,
+      #70522d
+    );
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.4);
+    0 0 0 1px rgba(214, 184, 120, 0.35),
+    0 14px 45px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(139, 92, 246, 0.10);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
 
-  overflow: hidden;
+.imageCard::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border:
+    1px solid rgba(190, 154, 91, 0.25);
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+.imageCard::after {
+  content: '✦';
+  position: absolute;
+  top: -13px;
+  right: 12px;
+  color: #d6b878;
+  font-size: 0.8rem;
+  text-shadow:
+    0 0 12px rgba(214, 184, 120, 0.7);
+  pointer-events: none;
+}
+
+.imageCard:hover {
+  transform:
+    translateY(-5px)
+    scale(1.025);
+  box-shadow:
+    0 0 0 1px rgba(214, 184, 120, 0.5),
+    0 20px 55px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(139, 92, 246, 0.18);
 }
 
 .imageCard img {
   display: block;
-
   width: 100%;
-  height: auto;
-
-  aspect-ratio: 4 / 4.7;
-
+  height: 100%;
   object-fit: cover;
-
-  border-radius: 4px;
+  border-radius: 50%;
+  border:
+    3px solid #0b090b;
 }
 
 /* =========================================================
@@ -108,152 +322,388 @@
 
 .infoWrapper {
   width: 100%;
-
-  margin-top: 1.75rem;
+  margin-top: 2rem;
 }
 
-/* =========================================================
-   EYEBROW
-   ========================================================= */
-
 .eyebrow {
-  margin: 0 0 0.55rem;
-
-  color: #c4a472;
-
-  font-size: 0.62rem;
-
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 0.7rem;
+  color: #c7a96b;
+  font-size: 0.65rem;
   font-weight: 700;
-
-  letter-spacing: 0.22em;
-
+  letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
-/* =========================================================
-   NOME
-   ========================================================= */
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b99255
+    );
+}
+
+.eyebrow::after {
+  background:
+    linear-gradient(
+      90deg,
+      #b99255,
+      transparent
+    );
+}
 
 .name {
   margin: 0;
-
-  color: #f3f1ed;
-
-  font-size: clamp(2rem, 8vw, 2.6rem);
-
-  font-weight: 650;
-
-  line-height: 1.05;
-
+  color: #f4eee3;
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      3rem
+    );
+  font-weight: 800;
+  line-height: 1;
   letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.75);
 }
 
-/* =========================================================
-   ESPECIALIDADE
-   ========================================================= */
-
 .role {
-  max-width: 360px;
-
-  margin: 0.8rem auto 1.75rem;
-
-  color: #aaabae;
-
-  font-size: 0.84rem;
-
-  line-height: 1.55;
-
+  max-width: 390px;
+  margin: 1rem auto 1.7rem;
+  color: #c1bac2;
+  font-size: 0.9rem;
+  line-height: 1.65;
   font-weight: 400;
 }
 
+.bioBadgeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-bottom: 1.8rem;
+}
+
+.badge {
+  padding: 0.4rem 0.7rem;
+  border:
+    1px solid rgba(
+      185,
+      146,
+      85,
+      0.25
+    );
+  border-radius: 999px;
+  background:
+    rgba(255, 255, 255, 0.035);
+  color: #d0c8d0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.badge:hover {
+  border-color:
+    rgba(214, 184, 120, 0.5);
+  background:
+    rgba(185, 146, 85, 0.08);
+  transform:
+    translateY(-2px);
+}
+
 /* =========================================================
-   AÇÕES
+   BOTÕES
    ========================================================= */
 
 .actionGroup {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
-  gap: 0.65rem;
+  gap: 0.7rem;
 }
 
-/* =========================================================
-   BOTÃO PRINCIPAL
-   ========================================================= */
-
 .btnPrimary,
-.btnSecondary {
+.btnSecondary,
+.btnTertiary {
+  position: relative;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   width: 100%;
-  min-height: 50px;
-
+  min-height: 58px;
+  padding: 0 1.35rem;
   box-sizing: border-box;
-
-  border-radius: 5px;
-
   text-decoration: none;
-
-  font-size: 0.84rem;
-
-  font-weight: 650;
-
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  overflow: hidden;
+  clip-path:
+    polygon(
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
+    );
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.btnPrimary::before,
+.btnSecondary::before,
+.btnTertiary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(168, 85, 247, 0.14),
+      transparent 55%
+    );
+  opacity: 0.7;
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s ease;
+}
+
+.btnPrimary::after,
+.btnSecondary::after,
+.btnTertiary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.07) 50%,
+      transparent 80%
+    );
+  transform: skewX(-18deg);
+  transition:
+    left 0.7s ease;
 }
 
 .btnPrimary {
-  border: 1px solid #c4a472;
-
-  background: #c4a472;
-
-  color: #18191a;
-
+  color: #17120c;
+  background:
+    linear-gradient(
+      135deg,
+      #d9bd84 0%,
+      #b99457 50%,
+      #d0ad69 100%
+    );
+  border:
+    1px solid rgba(
+      231,
+      205,
+      151,
+      0.85
+    );
   box-shadow:
-    0 8px 22px rgba(0, 0, 0, 0.2);
+    0 8px 25px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(139, 92, 246, 0.08);
 }
 
 .btnPrimary:hover {
-  background: #d1b37f;
+  transform:
+    translateY(-3px);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(139, 92, 246, 0.16),
+    0 0 8px rgba(214, 184, 120, 0.25);
+  border-color:
+    rgba(236, 214, 166, 1);
+}
 
-  transform: translateY(-2px);
+.btnPrimary:hover::before {
+  opacity: 1;
+  transform:
+    scale(1.15);
+}
+
+.btnPrimary:hover::after {
+  left: 130%;
 }
 
 .btnSecondary {
-  border: 1px solid rgba(196, 164, 114, 0.3);
-
-  background: rgba(255, 255, 255, 0.025);
-
-  color: #e4e2df;
+  color: #e0d8e2;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.10),
+      rgba(255, 255, 255, 0.035)
+    );
+  border:
+    1px solid rgba(
+      168,
+      85,
+      247,
+      0.30
+    );
+  box-shadow:
+    inset 0 0 25px rgba(139, 92, 246, 0.035),
+    0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .btnSecondary:hover {
-  border-color: rgba(196, 164, 114, 0.65);
+  transform:
+    translateY(-3px);
+  color: #f4edfa;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.20),
+      rgba(168, 85, 247, 0.06)
+    );
+  border-color:
+    rgba(180, 120, 240, 0.55);
+  box-shadow:
+    inset 0 0 30px rgba(139, 92, 246, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(139, 92, 246, 0.16);
+}
 
-  background: rgba(196, 164, 114, 0.05);
+.btnSecondary:hover::before {
+  opacity: 1;
+  transform:
+    scale(1.15);
+}
 
-  transform: translateY(-2px);
+.btnSecondary:hover::after {
+  left: 130%;
+}
+
+.btnTertiary {
+  color: #c2bac3;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(139, 92, 246, 0.035)
+    );
+  border:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+.btnTertiary:hover {
+  transform:
+    translateY(-3px);
+  color: #e0d3e9;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.10),
+      rgba(255, 255, 255, 0.025)
+    );
+  border-color:
+    rgba(168, 85, 247, 0.35);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.10);
+}
+
+.btnTertiary:hover::before {
+  opacity: 1;
+  transform:
+    scale(1.15);
+}
+
+.btnTertiary:hover::after {
+  left: 130%;
 }
 
 /* =========================================================
    LOCALIZAÇÃO
    ========================================================= */
 
-.location {
-  margin: 1.35rem 0 0;
+.locationCard {
+  width: 100%;
+  max-width: 520px;
+  margin-top: 1.4rem;
+  padding: 1rem 1.15rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(139, 92, 246, 0.045)
+    );
+  border:
+    1px solid rgba(
+      214,
+      184,
+      120,
+      0.24
+    );
+  color: #d5ced5;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  text-align: center;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 20px rgba(139, 92, 246, 0.025);
+  backdrop-filter: blur(10px);
+}
 
-  color: #737478;
+.locationCard strong {
+  display: block;
+  color: #e2c886;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
 
-  font-size: 0.68rem;
+/* =========================================================
+   FOCO
+   ========================================================= */
 
-  letter-spacing: 0.08em;
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible,
+.btnTertiary:focus-visible {
+  outline:
+    2px solid #c7a96b;
+  outline-offset: 4px;
 }
 
 /* =========================================================
@@ -262,25 +712,25 @@
 
 @media (min-width: 900px) {
   .heroSection {
-    min-height: 720px;
-
+    min-height: 100vh;
     padding: 4rem 3rem;
   }
 
   .heroContainer {
-    max-width: 1000px;
-
+    max-width: 1050px;
     display: grid;
-
-    grid-template-columns: 380px 1fr;
-
-    gap: 6rem;
-
+    grid-template-columns:
+      330px
+      minmax(0, 1fr);
+    gap: 5rem;
+    align-items: center;
     text-align: left;
   }
 
   .imageCard {
-    width: 380px;
+    width: 290px;
+    height: 290px;
+    margin: 0 auto;
   }
 
   .infoWrapper {
@@ -290,23 +740,64 @@
   .role {
     margin-left: 0;
     margin-right: 0;
+  }
 
-    font-size: 0.92rem;
+  .bioBadgeList {
+    justify-content: flex-start;
   }
 
   .actionGroup {
-    max-width: 430px;
-
-    flex-direction: row;
+    max-width: 520px;
   }
 
-  .btnPrimary,
-  .btnSecondary {
-    flex: 1;
-  }
-
-  .location {
+  .locationCard {
+    max-width: 520px;
     text-align: left;
+  }
+
+  .characterBackground {
+    right: -1%;
+    bottom: -4%;
+    width: 800px;
+    height: 890px;
+    opacity: 0.43;
+    filter:
+      brightness(0.72)
+      saturate(0.80)
+      contrast(1.18);
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse 60% 71% at 68% 42%,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.94) 27%,
+        rgba(0, 0, 0, 0.78) 44%,
+        rgba(0, 0, 0, 0.50) 59%,
+        rgba(0, 0, 0, 0.25) 72%,
+        rgba(0, 0, 0, 0.08) 85%,
+        transparent 100%
+      );
+    mask-image:
+      radial-gradient(
+        ellipse 60% 71% at 68% 42%,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.94) 27%,
+        rgba(0, 0, 0, 0.78) 44%,
+        rgba(0, 0, 0, 0.50) 59%,
+        rgba(0, 0, 0, 0.25) 72%,
+        rgba(0, 0, 0, 0.08) 85%,
+        transparent 100%
+      );
+  }
+
+  .characterBackground img {
+    object-position: 70% 40%;
+  }
+
+  .magicGlow {
+    right: -2%;
+    bottom: 15%;
+    width: 650px;
+    height: 780px;
   }
 }
 
@@ -316,36 +807,324 @@
 
 @media (min-width: 1200px) {
   .heroContainer {
-    max-width: 1080px;
-
-    grid-template-columns: 400px 1fr;
-
-    gap: 7rem;
+    grid-template-columns:
+      360px
+      1fr;
+    gap: 6rem;
   }
 
   .imageCard {
-    width: 400px;
+    width: 320px;
+    height: 320px;
   }
 
   .name {
-    font-size: 3.2rem;
+    font-size: 3.4rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .characterBackground {
+    right: -2%;
+    bottom: -5%;
+    width: 900px;
+    height: 950px;
+    opacity: 0.46;
+    filter:
+      brightness(0.74)
+      saturate(0.82)
+      contrast(1.17);
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse 59% 70% at 68% 41%,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.94) 26%,
+        rgba(0, 0, 0, 0.78) 43%,
+        rgba(0, 0, 0, 0.49) 58%,
+        rgba(0, 0, 0, 0.23) 72%,
+        rgba(0, 0, 0, 0.07) 85%,
+        transparent 100%
+      );
+    mask-image:
+      radial-gradient(
+        ellipse 59% 70% at 68% 41%,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.94) 26%,
+        rgba(0, 0, 0, 0.78) 43%,
+        rgba(0, 0, 0, 0.49) 58%,
+        rgba(0, 0, 0, 0.23) 72%,
+        rgba(0, 0, 0, 0.07) 85%,
+        transparent 100%
+      );
+  }
+
+  .characterBackground img {
+    object-position: 71% 39%;
+  }
+
+  .magicGlow {
+    right: -3%;
+    bottom: 13%;
+    width: 720px;
+    height: 820px;
   }
 }
 
 /* =========================================================
-   ACESSIBILIDADE
+   MOBILE
    ========================================================= */
 
-.btnPrimary:focus-visible,
-.btnSecondary:focus-visible {
-  outline: 2px solid #c4a472;
+@media (max-width: 420px) {
+  .heroSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-  outline-offset: 3px;
+  /* LOGO MAIOR */
+  .imageCard {
+    width: 190px;
+    height: 190px;
+  }
+
+  .infoWrapper {
+    margin-top: 1.9rem;
+  }
+
+  .name {
+    font-size: 1.9rem;
+  }
+
+  .role {
+    font-size: 0.84rem;
+    margin-top: 0.9rem;
+  }
+
+  .bioBadgeList {
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge {
+    font-size: 0.63rem;
+    padding:
+      0.35rem
+      0.6rem;
+  }
+
+  .btnPrimary,
+  .btnSecondary,
+  .btnTertiary {
+    min-height: 54px;
+    padding:
+      0 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* -------------------------------------------------------
+     BRILHO AUTOMÁTICO
+     ------------------------------------------------------- */
+
+  .btnPrimary {
+    animation:
+      mobilePrimaryGlow 4s ease-in-out infinite;
+  }
+
+  .btnSecondary {
+    animation:
+      mobileSecondaryGlow 4s ease-in-out infinite;
+    animation-delay: 1.2s;
+  }
+
+  .btnTertiary {
+    animation:
+      mobileTertiaryGlow 4s ease-in-out infinite;
+    animation-delay: 2.4s;
+  }
+
+  .locationCard {
+    margin-top: 1.2rem;
+    padding:
+      0.9rem
+      0.85rem;
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  .locationCard strong {
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+  }
+
+  .characterBackground {
+    right: -24%;
+    bottom: -1%;
+    width: 135vw;
+    height: 76vh;
+    opacity: 0.28;
+    filter:
+      brightness(0.64)
+      saturate(0.74)
+      contrast(1.16);
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse 65% 72% at 71% 41%,
+        rgba(0, 0, 0, 0.96) 0%,
+        rgba(0, 0, 0, 0.82) 35%,
+        rgba(0, 0, 0, 0.46) 60%,
+        rgba(0, 0, 0, 0.14) 80%,
+        rgba(0, 0, 0, 0.03) 91%,
+        transparent 100%
+      );
+    mask-image:
+      radial-gradient(
+        ellipse 65% 72% at 71% 41%,
+        rgba(0, 0, 0, 0.96) 0%,
+        rgba(0, 0, 0, 0.82) 35%,
+        rgba(0, 0, 0, 0.46) 60%,
+        rgba(0, 0, 0, 0.14) 80%,
+        rgba(0, 0, 0, 0.03) 91%,
+        transparent 100%
+      );
+  }
+
+  .characterBackground img {
+    object-position: 73% 39%;
+  }
+
+  .characterBackground::after {
+    background:
+      radial-gradient(
+        ellipse 52% 60% at 71% 40%,
+        rgba(5, 5, 6, 0.00) 0%,
+        rgba(5, 5, 6, 0.08) 30%,
+        rgba(5, 5, 6, 0.28) 51%,
+        rgba(5, 5, 6, 0.58) 69%,
+        rgba(5, 5, 6, 0.84) 85%,
+        #050506 100%
+      );
+  }
+
+  .magicGlow {
+    right: -38%;
+    bottom: 15%;
+    width: 500px;
+    height: 590px;
+    opacity: 0.82;
+    filter: blur(30px);
+  }
+
+  .magicGlow::before {
+    top: 8%;
+    left: 24%;
+    width: 230px;
+    height: 230px;
+  }
+
+  .magicGlow::after {
+    top: 9%;
+    left: 37%;
+    width: 150px;
+    height: 210px;
+  }
 }
 
+/* =========================================================
+   CELULARES MUITO ESTREITOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .imageCard {
+    width: 178px;
+    height: 178px;
+  }
+}
+
+/* =========================================================
+   BRILHO AUTOMÁTICO — MOBILE
+   ========================================================= */
+
+/* BOTÃO PRINCIPAL — DOURADO */
+
+@keyframes mobilePrimaryGlow {
+  0%,
+  65%,
+  100% {
+    filter: brightness(1);
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.45),
+      0 0 18px rgba(139, 92, 246, 0.08);
+  }
+
+  82% {
+    filter: brightness(1.10);
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.45),
+      0 0 24px rgba(214, 184, 120, 0.28),
+      0 0 42px rgba(214, 184, 120, 0.10);
+  }
+}
+
+/* BOTÃO SECUNDÁRIO — ROXO */
+
+@keyframes mobileSecondaryGlow {
+  0%,
+  65%,
+  100% {
+    filter: brightness(1);
+    box-shadow:
+      inset 0 0 25px rgba(139, 92, 246, 0.035),
+      0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  82% {
+    filter: brightness(1.10);
+    box-shadow:
+      inset 0 0 25px rgba(139, 92, 246, 0.055),
+      0 6px 20px rgba(0, 0, 0, 0.25),
+      0 0 25px rgba(139, 92, 246, 0.20),
+      0 0 42px rgba(139, 92, 246, 0.08);
+  }
+}
+
+/* BOTÃO TERCEIRO — ROXO MUITO SUTIL */
+
+@keyframes mobileTertiaryGlow {
+  0%,
+  65%,
+  100% {
+    filter: brightness(1);
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.22);
+  }
+
+  82% {
+    filter: brightness(1.08);
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.22),
+      0 0 22px rgba(139, 92, 246, 0.15);
+  }
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+  .imageCard,
+  .badge,
   .btnPrimary,
-  .btnSecondary {
+  .btnSecondary,
+  .btnTertiary {
     transition: none;
+    animation: none;
+  }
+
+  .btnPrimary::after,
+  .btnSecondary::after,
+  .btnTertiary::after {
+    display: none;
   }
 }

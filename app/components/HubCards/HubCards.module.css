@@ -1,5 +1,9 @@
 /* =========================================================
-   HUB CARDS — PREMIUM / CONVERSION
+   HUB CARDS — GEEK WIZARDS CAFÉ
+
+   ARCANE PREMIUM
+   MOBILE FIRST
+   INTERAÇÃO TOUCH / MOBILE
    ========================================================= */
 
 .hubSection {
@@ -7,31 +11,319 @@
   width: 100%;
   box-sizing: border-box;
 
+  padding: 4rem 1.25rem 4.5rem;
+
+  overflow: hidden;
+
   background:
+    radial-gradient(
+      ellipse 65% 55% at 50% 0%,
+      rgba(92, 57, 125, 0.13),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 45% 55% at 5% 100%,
+      rgba(185, 146, 85, 0.045),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 95% 80%,
+      rgba(139, 92, 246, 0.035),
+      transparent 75%
+    ),
     linear-gradient(
       180deg,
-      #242526 0%,
-      #202122 100%
+      #050506 0%,
+      #0b090c 48%,
+      #050506 100%
     );
 
-  padding: 1.5rem 1.25rem 5rem;
+  border-top:
+    1px solid
+    rgba(185, 146, 85, 0.12);
 }
+
+
+/* =========================================================
+   GRADE ATMOSFÉRICA
+   ========================================================= */
+
+.hubSection::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.011) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.011) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55),
+      transparent 88%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55),
+      transparent 88%
+    );
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   BRILHO ARCANO
+   ========================================================= */
+
+.arcaneGlow {
+  position: absolute;
+
+  top: -180px;
+  left: 50%;
+
+  width: min(720px, 110vw);
+  height: 420px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 92, 246, 0.14) 0%,
+      rgba(139, 92, 246, 0.075) 28%,
+      rgba(139, 92, 246, 0.025) 52%,
+      transparent 75%
+    );
+
+  filter: blur(35px);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   LINHA DOURADA
+   ========================================================= */
+
+.arcaneLine {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: min(220px, 55vw);
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #8d6b3f,
+      #c6a866,
+      #8d6b3f,
+      transparent
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(185, 146, 85, 0.28);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
 
 /* =========================================================
    CONTAINER
    ========================================================= */
 
 .hubContainer {
+  position: relative;
+  z-index: 3;
+
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
 
   margin: 0 auto;
+}
 
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.sectionHeader {
+  position: relative;
+
+  margin-bottom: 2rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.sectionEyebrow {
   display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.65rem;
+
+  margin: 0 0 0.65rem;
+
+  color: #c7a96b;
+
+  font-size: 0.65rem;
+  font-weight: 800;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0, 0, 0, 0.65);
+}
+
+.sectionEyebrow::before,
+.sectionEyebrow::after {
+  content: '';
+
+  width: 24px;
+  height: 1px;
+
+  flex: 0 0 auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b99255
+    );
+}
+
+.sectionEyebrow::after {
+  background:
+    linear-gradient(
+      90deg,
+      #b99255,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.sectionTitle {
+  margin: 0;
+
+  color: #f4eee3;
+
+  font-size:
+    clamp(
+      1.65rem,
+      7vw,
+      2.35rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 20px
+    rgba(0, 0, 0, 0.75);
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
+
+.sectionDescription {
+  max-width: 450px;
+
+  margin:
+    0.85rem auto 0;
+
+  color: #c1bac2;
+
+  font-size: 0.82rem;
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ORNAMENTO
+   ========================================================= */
+
+.sectionHeader::after {
+  content: '✦';
+
+  display: block;
+
+  margin-top: 0.85rem;
+
+  color: #806038;
+
+  font-size: 0.62rem;
+
+  text-shadow:
+    0 0 10px
+    rgba(214, 184, 120, 0.3);
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.cardsGrid {
+  display: flex;
+
   flex-direction: column;
 
-  gap: 1.1rem;
+  gap: 1rem;
 }
+
 
 /* =========================================================
    CARD
@@ -43,55 +335,70 @@
   display: grid;
 
   grid-template-columns:
-    125px
+    105px
     minmax(0, 1fr);
 
-  gap: 1.15rem;
+  gap: 1rem;
 
   align-items: center;
 
   width: 100%;
 
-  min-height: 180px;
+  min-height: 165px;
 
-  padding: 0.85rem;
+  padding: 0.8rem;
 
   box-sizing: border-box;
 
-  border: 1px solid rgba(196, 164, 114, 0.18);
+  overflow: hidden;
 
-  border-radius: 10px;
+  isolation: isolate;
 
   background:
     linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.045),
-      rgba(255, 255, 255, 0.012)
+      rgba(139, 92, 246, 0.045)
     );
 
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.18);
+  border:
+    1px solid
+    rgba(185, 146, 85, 0.20);
 
-  overflow: hidden;
+  box-shadow:
+    0 14px 35px
+    rgba(0, 0, 0, 0.46),
+
+    inset 0 0 25px
+    rgba(139, 92, 246, 0.018);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  clip-path:
+    polygon(
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      10px 100%,
+      0 calc(100% - 10px),
+      0 10px
+    );
 
   transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.35s
+      cubic-bezier(0.16, 1, 0.3, 1),
+
+    border-color 0.35s ease,
+
+    box-shadow 0.35s ease;
 }
 
-.cardItem:hover {
-  transform: translateY(-3px);
-
-  border-color:
-    rgba(196, 164, 114, 0.38);
-
-  box-shadow:
-    0 20px 42px rgba(0, 0, 0, 0.25);
-}
 
 /* =========================================================
-   DETALHE LATERAL
+   LINHA LATERAL DOURADA
    ========================================================= */
 
 .cardItem::before {
@@ -99,8 +406,9 @@
 
   position: absolute;
 
-  top: 20px;
-  bottom: 20px;
+  top: 16px;
+  bottom: 16px;
+
   left: 0;
 
   width: 2px;
@@ -109,18 +417,52 @@
     linear-gradient(
       180deg,
       transparent,
-      rgba(196, 164, 114, 0.75),
+      #c7a96b,
       transparent
     );
 
   opacity: 0;
 
-  transition: opacity 0.25s ease;
+  transition:
+    opacity 0.35s ease;
+
+  z-index: 6;
 }
 
-.cardItem:hover::before {
-  opacity: 1;
+
+/* =========================================================
+   REFLEXO
+   ========================================================= */
+
+.cardItem::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 65%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.055) 50%,
+      transparent 80%
+    );
+
+  transform: skewX(-18deg);
+
+  transition:
+    left 0.75s ease;
+
+  z-index: 5;
 }
+
 
 /* =========================================================
    IMAGEM
@@ -135,29 +477,29 @@
 
   overflow: hidden;
 
-  border-radius: 7px;
-
-  background: #191a1b;
-
   isolation: isolate;
-}
 
-.cardImage::after {
-  content: '';
-
-  position: absolute;
-
-  inset: 5px;
-
-  z-index: 2;
+  background: #0b090c;
 
   border:
-    1px solid rgba(255, 255, 255, 0.1);
+    1px solid
+    rgba(185, 146, 85, 0.25);
 
-  border-radius: 4px;
-
-  pointer-events: none;
+  clip-path:
+    polygon(
+      7px 0,
+      100% 0,
+      100% calc(100% - 7px),
+      calc(100% - 7px) 100%,
+      0 100%,
+      0 7px
+    );
 }
+
+
+/* =========================================================
+   IMAGEM
+   ========================================================= */
 
 .cardImage img {
   display: block;
@@ -168,21 +510,17 @@
   object-fit: cover;
 
   filter:
-    saturate(0.93)
-    contrast(1.03);
+    brightness(0.82)
+    saturate(0.82)
+    contrast(1.08);
 
   transition:
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.5s ease;
+    transform 0.55s
+      cubic-bezier(0.16, 1, 0.3, 1),
+
+    filter 0.55s ease;
 }
 
-.cardItem:hover .cardImage img {
-  transform: scale(1.05);
-
-  filter:
-    saturate(1)
-    contrast(1.05);
-}
 
 /* =========================================================
    CONTEÚDO
@@ -192,6 +530,7 @@
   min-width: 0;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: flex-start;
@@ -199,23 +538,53 @@
   text-align: left;
 }
 
+
+/* =========================================================
+   EYEBROW DO CARD
+   ========================================================= */
+
+.cardEyebrow {
+  margin: 0 0 0.35rem;
+
+  color: #a78b65;
+
+  font-size: 0.56rem;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+
 /* =========================================================
    TÍTULO
    ========================================================= */
 
 .cardTitle {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.45rem;
 
-  color: #f0ede7;
+  color: #eee7dc;
 
-  font-size: 1.05rem;
+  font-size: 0.98rem;
 
-  font-weight: 650;
+  font-weight: 750;
 
   line-height: 1.2;
 
   letter-spacing: -0.015em;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0, 0, 0, 0.7);
+
+  transition:
+    color 0.3s ease;
 }
+
 
 /* =========================================================
    TEXTO
@@ -224,146 +593,485 @@
 .cardText {
   max-width: 330px;
 
-  margin: 0 0 1rem;
+  margin: 0 0 0.8rem;
 
-  color: #a3a4a7;
+  color: #bdb5bd;
 
-  font-size: 0.82rem;
+  font-size: 0.73rem;
 
   font-weight: 400;
 
   line-height: 1.55;
 }
 
+
 /* =========================================================
-   CTA
+   BOTÃO
    ========================================================= */
 
 .cardLink {
+  position: relative;
+
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
+
+  gap: 0.55rem;
 
   min-height: 38px;
 
-  padding:
-    0.55rem
-    0.85rem;
+  padding: 0 0.85rem;
 
   box-sizing: border-box;
 
-  border:
-    1px solid rgba(196, 164, 114, 0.32);
-
-  border-radius: 5px;
+  color: #17120c;
 
   background:
-    rgba(196, 164, 114, 0.055);
+    linear-gradient(
+      135deg,
+      #d9bd84 0%,
+      #b99457 52%,
+      #d0ad69 100%
+    );
 
-  color: #d0b27f;
-
-  font-size: 0.76rem;
-
-  font-weight: 650;
-
-  line-height: 1.2;
+  border:
+    1px solid
+    rgba(231, 205, 151, 0.85);
 
   text-decoration: none;
 
+  font-size: 0.64rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.065em;
+
+  text-transform: uppercase;
+
+  overflow: hidden;
+
+  clip-path:
+    polygon(
+      5px 0,
+      calc(100% - 5px) 0,
+      100% 5px,
+      100% calc(100% - 5px),
+      calc(100% - 5px) 100%,
+      5px 100%,
+      0 calc(100% - 5px),
+      0 5px
+    );
+
+  box-shadow:
+    0 7px 20px
+    rgba(0, 0, 0, 0.35);
+
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.3s
+      cubic-bezier(0.16, 1, 0.3, 1),
+
+    box-shadow 0.3s ease,
+
+    filter 0.3s ease;
 }
 
-.cardLink:hover {
-  color: #171819;
 
-  background: #c4a472;
+/* =========================================================
+   BRILHO DO BOTÃO
+   ========================================================= */
 
-  border-color: #c4a472;
+.cardLink::after {
+  content: '';
 
-  transform: translateY(-1px);
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 75%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 80%
+    );
+
+  transform: skewX(-18deg);
+
+  transition:
+    left 0.7s ease;
+
+  pointer-events: none;
 }
 
-.cardLink:active {
-  transform: translateY(0);
+
+/* =========================================================
+   SETA
+   ========================================================= */
+
+.cardLink span {
+  font-size: 0.85rem;
+
+  transition:
+    transform 0.3s
+      cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+
+/* =========================================================
+   DESKTOP HOVER
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .cardItem:hover {
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(214, 184, 120, 0.48);
+
+    box-shadow:
+      0 18px 42px
+      rgba(0, 0, 0, 0.58),
+
+      0 0 22px
+      rgba(139, 92, 246, 0.08),
+
+      0 0 8px
+      rgba(214, 184, 120, 0.08);
+  }
+
+  .cardItem:hover::before {
+    opacity: 1;
+  }
+
+  .cardItem:hover::after {
+    left: 130%;
+  }
+
+  .cardItem:hover .cardImage img {
+    transform: scale(1.07);
+
+    filter:
+      brightness(0.98)
+      saturate(0.95)
+      contrast(1.08);
+  }
+
+  .cardItem:hover .cardTitle {
+    color: #f0dfb7;
+  }
+
+  .cardLink:hover {
+    transform:
+      translateY(-3px);
+
+    box-shadow:
+      0 11px 28px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 20px
+      rgba(214, 184, 120, 0.14);
+  }
+
+  .cardLink:hover::after {
+    left: 130%;
+  }
+
+  .cardLink:hover span {
+    transform:
+      translateX(3px);
+  }
+}
+
+
+/* =========================================================
+   INTERAÇÃO TOUCH
+   CELULAR
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .cardItem {
+    animation:
+      mobileCardBreath
+      6s
+      ease-in-out
+      infinite;
+  }
+
+  .cardItem:nth-child(2) {
+    animation-delay: 2.8s;
+  }
+
+  .cardItem::before {
+    animation:
+      mobileCardEdge
+      6s
+      ease-in-out
+      infinite;
+  }
+
+  .cardItem:nth-child(2)::before {
+    animation-delay: 2.8s;
+  }
+
+  .cardLink {
+    animation:
+      mobileButtonGlow
+      6s
+      ease-in-out
+      infinite;
+  }
+
+  .cardItem:nth-child(2) .cardLink {
+    animation-delay: 2.8s;
+  }
+
+  /*
+   * Resposta imediata ao toque
+   */
+
+  .cardItem:active {
+    transform:
+      scale(0.985);
+
+    border-color:
+      rgba(214, 184, 120, 0.62);
+
+    box-shadow:
+      0 10px 28px
+      rgba(0, 0, 0, 0.55),
+
+      0 0 25px
+      rgba(139, 92, 246, 0.12);
+  }
+
+  .cardItem:active::before {
+    opacity: 1;
+  }
+
+  .cardItem:active .cardImage img {
+    transform:
+      scale(1.045);
+
+    filter:
+      brightness(0.96)
+      saturate(0.94);
+  }
+
+  .cardLink:active {
+    transform:
+      scale(0.96);
+
+    filter:
+      brightness(1.08);
+
+    box-shadow:
+      0 5px 16px
+      rgba(0, 0, 0, 0.45),
+
+      0 0 22px
+      rgba(214, 184, 120, 0.20);
+  }
+}
+
+
+/* =========================================================
+   ANIMAÇÃO — RESPIRAÇÃO DO CARD
+   ========================================================= */
+
+@keyframes mobileCardBreath {
+
+  0%,
+  58%,
+  100% {
+    border-color:
+      rgba(185, 146, 85, 0.20);
+
+    box-shadow:
+      0 14px 35px
+      rgba(0, 0, 0, 0.46),
+
+      inset 0 0 25px
+      rgba(139, 92, 246, 0.018);
+  }
+
+  68% {
+    border-color:
+      rgba(214, 184, 120, 0.38);
+
+    box-shadow:
+      0 14px 35px
+      rgba(0, 0, 0, 0.46),
+
+      0 0 22px
+      rgba(139, 92, 246, 0.075),
+
+      inset 0 0 25px
+      rgba(139, 92, 246, 0.035);
+  }
+}
+
+
+/* =========================================================
+   ANIMAÇÃO — LINHA LATERAL
+   ========================================================= */
+
+@keyframes mobileCardEdge {
+
+  0%,
+  58%,
+  100% {
+    opacity: 0;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  76% {
+    opacity: 0.2;
+  }
+}
+
+
+/* =========================================================
+   ANIMAÇÃO — BOTÃO
+   ========================================================= */
+
+@keyframes mobileButtonGlow {
+
+  0%,
+  58%,
+  100% {
+    filter:
+      brightness(1);
+
+    box-shadow:
+      0 7px 20px
+      rgba(0, 0, 0, 0.35);
+  }
+
+  68% {
+    filter:
+      brightness(1.08);
+
+    box-shadow:
+      0 7px 20px
+      rgba(0, 0, 0, 0.35),
+
+      0 0 20px
+      rgba(214, 184, 120, 0.18);
+  }
+}
+
 
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (min-width: 640px) {
+
   .hubSection {
     padding:
-      1.75rem
+      4.5rem
       2rem
-      5.5rem;
+      5rem;
   }
 
   .hubContainer {
     max-width: 620px;
+  }
 
-    gap: 1.25rem;
+  .sectionHeader {
+    margin-bottom: 2.25rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.85rem;
+  }
+
+  .cardsGrid {
+    gap: 1.2rem;
   }
 
   .cardItem {
     grid-template-columns:
-      150px
+      145px
       minmax(0, 1fr);
 
-    min-height: 200px;
+    min-height: 195px;
 
-    gap: 1.35rem;
+    gap: 1.25rem;
 
     padding: 0.9rem;
   }
 
+  .cardEyebrow {
+    font-size: 0.58rem;
+  }
+
   .cardTitle {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
   .cardText {
-    font-size: 0.84rem;
-
-    line-height: 1.6;
+    font-size: 0.8rem;
   }
 
   .cardLink {
     min-height: 40px;
 
-    padding:
-      0.6rem
-      0.95rem;
-
-    font-size: 0.78rem;
+    font-size: 0.67rem;
   }
 }
+
 
 /* =========================================================
    DESKTOP
    ========================================================= */
 
 @media (min-width: 900px) {
+
   .hubSection {
     padding:
-      2rem
+      5rem
       3rem
-      6rem;
+      5.5rem;
   }
 
   .hubContainer {
     max-width: 1080px;
+  }
 
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionDescription {
+    max-width: 560px;
+    font-size: 0.88rem;
+  }
+
+  .cardsGrid {
     display: grid;
 
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
 
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
 
   .cardItem {
@@ -373,37 +1081,30 @@
 
     min-height: 205px;
 
-    gap: 1.25rem;
-
-    padding: 0.9rem;
-  }
-
-  .cardTitle {
-    font-size: 1.12rem;
-  }
-
-  .cardText {
-    max-width: 360px;
-
-    font-size: 0.82rem;
-  }
-
-  .cardLink {
-    min-height: 40px;
-
-    font-size: 0.77rem;
+    gap: 1.2rem;
   }
 }
+
 
 /* =========================================================
    DESKTOP GRANDE
    ========================================================= */
 
 @media (min-width: 1200px) {
+
+  .hubSection {
+    padding:
+      5.5rem
+      3rem
+      6rem;
+  }
+
   .hubContainer {
     max-width: 1120px;
+  }
 
-    gap: 1.75rem;
+  .cardsGrid {
+    gap: 1.6rem;
   }
 
   .cardItem {
@@ -413,7 +1114,7 @@
 
     min-height: 225px;
 
-    gap: 1.5rem;
+    gap: 1.45rem;
 
     padding: 1rem;
   }
@@ -421,84 +1122,135 @@
   .cardTitle {
     font-size: 1.18rem;
 
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
   }
 
   .cardText {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
 
-    line-height: 1.6;
-
-    margin-bottom: 1.15rem;
+    margin-bottom: 1rem;
   }
 
   .cardLink {
     min-height: 42px;
 
     padding:
-      0.65rem
-      1rem;
+      0 1rem;
+
+    font-size: 0.68rem;
   }
 }
 
+
 /* =========================================================
-   MOBILE PEQUENO
+   MOBILE
    ========================================================= */
 
 @media (max-width: 420px) {
+
   .hubSection {
     padding:
-      1.25rem
+      3.5rem
       1rem
-      4.5rem;
+      4rem;
   }
 
-  .hubContainer {
-    gap: 1rem;
+  .sectionEyebrow {
+    font-size: 0.6rem;
+
+    letter-spacing: 0.19em;
+  }
+
+  .sectionTitle {
+    font-size: 1.55rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.76rem;
+  }
+
+  .cardsGrid {
+    gap: 0.8rem;
   }
 
   .cardItem {
     grid-template-columns:
-      100px
+      92px
       minmax(0, 1fr);
 
-    min-height: 155px;
+    min-height: 150px;
 
-    gap: 0.9rem;
+    gap: 0.85rem;
 
     padding: 0.7rem;
-
-    border-radius: 9px;
   }
 
-  .cardImage {
-    border-radius: 6px;
+  .cardEyebrow {
+    font-size: 0.52rem;
+
+    letter-spacing: 0.1em;
   }
 
   .cardTitle {
-    font-size: 0.94rem;
-
-    margin-bottom: 0.45rem;
+    font-size: 0.88rem;
   }
 
   .cardText {
-    font-size: 0.74rem;
+    font-size: 0.69rem;
 
-    line-height: 1.48;
+    line-height: 1.5;
 
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.65rem;
   }
 
   .cardLink {
     min-height: 34px;
 
     padding:
-      0.45rem
-      0.7rem;
+      0 0.7rem;
 
-    font-size: 0.7rem;
+    font-size: 0.59rem;
   }
 }
+
+
+/* =========================================================
+   MOBILE MUITO PEQUENO
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .hubSection {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .cardItem {
+    grid-template-columns:
+      84px
+      minmax(0, 1fr);
+
+    gap: 0.75rem;
+  }
+
+  .cardTitle {
+    font-size: 0.82rem;
+  }
+
+  .cardText {
+    font-size: 0.65rem;
+  }
+
+  .cardLink {
+    min-height: 32px;
+
+    padding:
+      0 0.6rem;
+
+    font-size: 0.55rem;
+  }
+}
+
 
 /* =========================================================
    ACESSIBILIDADE
@@ -506,34 +1258,42 @@
 
 .cardLink:focus-visible {
   outline:
-    2px solid #c4a472;
+    2px solid #c7a96b;
 
   outline-offset: 4px;
-
-  border-radius: 3px;
 }
+
 
 /* =========================================================
    REDUÇÃO DE MOVIMENTO
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .cardItem,
   .cardImage img,
   .cardLink,
-  .cardItem::before {
+  .cardLink span,
+  .cardTitle,
+  .cardItem::before,
+  .cardItem::after,
+  .cardLink::after {
+    animation: none;
     transition: none;
   }
 
-  .cardItem:hover {
+  .cardItem:hover,
+  .cardItem:active {
     transform: none;
   }
 
-  .cardItem:hover .cardImage img {
+  .cardItem:hover .cardImage img,
+  .cardItem:active .cardImage img {
     transform: none;
   }
 
-  .cardLink:hover {
+  .cardLink:hover,
+  .cardLink:active {
     transform: none;
   }
 }
