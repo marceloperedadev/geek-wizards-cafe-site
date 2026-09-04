@@ -1,158 +1,226 @@
+
 /* =========================================================
    HUB CARDS — GEEK WIZARDS CAFÉ
 
    ARCANE PREMIUM
-   MOBILE FIRST
-   INTERAÇÃO TOUCH / MOBILE
+   EDITORIAL / IMMERSIVE / MOBILE FIRST
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
    ========================================================= */
 
 .hubSection {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
+  --gold: #c7a96b;
+  --gold-light: #e1c993;
+  --gold-soft: #d6ba83;
+  --gold-dark: #76582f;
 
-  padding: 4rem 1.25rem 4.5rem;
+  --purple: #8b5cf6;
+  --purple-deep: #32184f;
+
+  --black: #070609;
+  --black-soft: #0c090f;
+
+  --white: #f2ede5;
+  --muted: #9d96a2;
+
+  position: relative;
+
+  width: 100%;
 
   overflow: hidden;
 
+  padding:
+    5rem
+    1rem
+    5rem;
+
+  box-sizing: border-box;
+
   background:
     radial-gradient(
-      ellipse 65% 55% at 50% 0%,
-      rgba(92, 57, 125, 0.13),
-      transparent 70%
+      circle at 50% 10%,
+      rgba(139, 92, 246, 0.105),
+      transparent 34%
     ),
     radial-gradient(
-      ellipse 45% 55% at 5% 100%,
-      rgba(185, 146, 85, 0.045),
-      transparent 72%
-    ),
-    radial-gradient(
-      ellipse 40% 50% at 95% 80%,
-      rgba(139, 92, 246, 0.035),
-      transparent 75%
+      circle at 12% 70%,
+      rgba(199, 169, 107, 0.04),
+      transparent 28%
     ),
     linear-gradient(
       180deg,
-      #050506 0%,
-      #0b090c 48%,
-      #050506 100%
+      #09070c 0%,
+      #0a080d 48%,
+      #070609 100%
     );
 
   border-top:
     1px solid
-    rgba(185, 146, 85, 0.12);
+    rgba(199, 169, 107, 0.09);
 }
 
 
 /* =========================================================
-   GRADE ATMOSFÉRICA
+   ATMOSPHERIC GRID
    ========================================================= */
 
 .hubSection::after {
   content: '';
 
   position: absolute;
+
   inset: 0;
 
   pointer-events: none;
 
+  opacity: 0.16;
+
   background-image:
     linear-gradient(
-      rgba(255, 255, 255, 0.011) 1px,
+      rgba(255, 255, 255, 0.018) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.011) 1px,
+      rgba(255, 255, 255, 0.018) 1px,
       transparent 1px
     );
 
   background-size: 48px 48px;
 
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.55),
-      transparent 88%
-    );
-
   mask-image:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.55),
-      transparent 88%
+      transparent 0%,
+      black 15%,
+      black 82%,
+      transparent 100%
     );
-
-  z-index: 0;
 }
 
 
 /* =========================================================
-   BRILHO ARCANO
+   MAIN GLOW
    ========================================================= */
 
 .arcaneGlow {
   position: absolute;
 
-  top: -180px;
+  top: 15%;
   left: 50%;
 
-  width: min(720px, 110vw);
+  width: 420px;
   height: 420px;
 
-  transform: translateX(-50%);
+  transform:
+    translate(-50%, -50%);
 
   border-radius: 50%;
 
-  pointer-events: none;
-
   background:
     radial-gradient(
-      ellipse at center,
-      rgba(139, 92, 246, 0.14) 0%,
-      rgba(139, 92, 246, 0.075) 28%,
-      rgba(139, 92, 246, 0.025) 52%,
-      transparent 75%
+      circle,
+      rgba(139, 92, 246, 0.13),
+      rgba(139, 92, 246, 0.035) 42%,
+      transparent 72%
     );
 
-  filter: blur(35px);
+  filter: blur(22px);
 
-  z-index: 1;
+  pointer-events: none;
+
+  animation:
+    arcanePulse 8s ease-in-out infinite;
 }
 
 
 /* =========================================================
-   LINHA DOURADA
+   SECONDARY GLOW
+   ========================================================= */
+
+.arcaneGlowSecondary {
+  position: absolute;
+
+  right: -180px;
+  bottom: 0;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 169, 107, 0.045),
+      transparent 70%
+    );
+
+  filter: blur(30px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ARCANE LINE
    ========================================================= */
 
 .arcaneLine {
   position: absolute;
 
-  top: 0;
+  top: 3.9rem;
   left: 50%;
 
-  width: min(220px, 55vw);
+  width: 72px;
   height: 1px;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #8d6b3f,
-      #c6a866,
-      #8d6b3f,
+      var(--gold),
       transparent
     );
 
+  opacity: 0.8;
+}
+
+.arcaneLine::before,
+.arcaneLine::after {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 4px;
+  height: 4px;
+
+  transform:
+    translateY(-50%)
+    rotate(45deg);
+
+  background:
+    var(--gold);
+
   box-shadow:
-    0 0 14px
-    rgba(185, 146, 85, 0.28);
+    0 0 12px
+    rgba(199, 169, 107, 0.45);
+}
 
-  pointer-events: none;
+.arcaneLine::before {
+  left: 0;
+}
 
-  z-index: 5;
+.arcaneLine::after {
+  right: 0;
 }
 
 
@@ -162,166 +230,138 @@
 
 .hubContainer {
   position: relative;
-  z-index: 3;
+
+  z-index: 2;
 
   width: 100%;
-  max-width: 520px;
 
-  margin: 0 auto;
+  max-width: 1120px;
+
+  margin:
+    0 auto;
 }
 
 
 /* =========================================================
-   CABEÇALHO
+   HEADER
    ========================================================= */
 
 .sectionHeader {
-  position: relative;
+  max-width: 690px;
 
-  margin-bottom: 2rem;
+  margin:
+    0 auto
+    2.75rem;
 
   text-align: center;
 }
 
-
-/* =========================================================
-   EYEBROW
-   ========================================================= */
-
 .sectionEyebrow {
-  display: flex;
+  margin:
+    0 0
+    0.8rem;
 
-  align-items: center;
-  justify-content: center;
+  color:
+    var(--gold);
 
-  gap: 0.65rem;
+  font-size:
+    0.58rem;
 
-  margin: 0 0 0.65rem;
+  font-weight:
+    800;
 
-  color: #c7a96b;
+  line-height:
+    1.2;
 
-  font-size: 0.65rem;
-  font-weight: 800;
+  letter-spacing:
+    0.2em;
 
-  line-height: 1.4;
-
-  letter-spacing: 0.24em;
-
-  text-transform: uppercase;
-
-  text-shadow:
-    0 2px 12px
-    rgba(0, 0, 0, 0.65);
+  text-transform:
+    uppercase;
 }
 
-.sectionEyebrow::before,
-.sectionEyebrow::after {
+.sectionTitle {
+  margin: 0;
+
+  color:
+    var(--white);
+
+  font-size:
+    clamp(
+      2rem,
+      7vw,
+      3.65rem
+    );
+
+  font-weight:
+    700;
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -0.05em;
+
+  text-wrap:
+    balance;
+}
+
+.sectionDescription {
+  max-width:
+    570px;
+
+  margin:
+    1.15rem auto 0;
+
+  color:
+    var(--muted);
+
+  font-size:
+    0.84rem;
+
+  line-height:
+    1.75;
+
+  text-wrap:
+    balance;
+}
+
+.sectionHeader::after {
   content: '';
 
-  width: 24px;
+  display: block;
+
+  width: 36px;
   height: 1px;
 
-  flex: 0 0 auto;
+  margin:
+    1.45rem auto 0;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      #b99255
-    );
-}
-
-.sectionEyebrow::after {
-  background:
-    linear-gradient(
-      90deg,
-      #b99255,
+      var(--gold),
       transparent
     );
+
+  opacity:
+    0.65;
 }
 
 
 /* =========================================================
-   TÍTULO
-   ========================================================= */
-
-.sectionTitle {
-  margin: 0;
-
-  color: #f4eee3;
-
-  font-size:
-    clamp(
-      1.65rem,
-      7vw,
-      2.35rem
-    );
-
-  font-weight: 800;
-
-  line-height: 1.05;
-
-  letter-spacing: -0.045em;
-
-  text-transform: uppercase;
-
-  text-shadow:
-    0 2px 20px
-    rgba(0, 0, 0, 0.75);
-}
-
-
-/* =========================================================
-   DESCRIÇÃO
-   ========================================================= */
-
-.sectionDescription {
-  max-width: 450px;
-
-  margin:
-    0.85rem auto 0;
-
-  color: #c1bac2;
-
-  font-size: 0.82rem;
-
-  font-weight: 400;
-
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   ORNAMENTO
-   ========================================================= */
-
-.sectionHeader::after {
-  content: '✦';
-
-  display: block;
-
-  margin-top: 0.85rem;
-
-  color: #806038;
-
-  font-size: 0.62rem;
-
-  text-shadow:
-    0 0 10px
-    rgba(214, 184, 120, 0.3);
-}
-
-
-/* =========================================================
-   GRID
+   CARDS GRID
    ========================================================= */
 
 .cardsGrid {
-  display: flex;
+  display: grid;
 
-  flex-direction: column;
+  grid-template-columns:
+    1fr;
 
-  gap: 1rem;
+  gap:
+    1rem;
 }
 
 
@@ -335,278 +375,469 @@
   display: grid;
 
   grid-template-columns:
-    105px
+    118px
     minmax(0, 1fr);
 
-  gap: 1rem;
-
-  align-items: center;
-
-  width: 100%;
-
-  min-height: 165px;
-
-  padding: 0.8rem;
-
-  box-sizing: border-box;
+  min-width: 0;
 
   overflow: hidden;
-
-  isolation: isolate;
 
   background:
     linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.045),
-      rgba(139, 92, 246, 0.045)
+      rgba(255, 255, 255, 0.012)
     );
 
   border:
     1px solid
-    rgba(185, 146, 85, 0.20);
-
-  box-shadow:
-    0 14px 35px
-    rgba(0, 0, 0, 0.46),
-
-    inset 0 0 25px
-    rgba(139, 92, 246, 0.018);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    rgba(199, 169, 107, 0.17);
 
   clip-path:
     polygon(
-      10px 0,
-      calc(100% - 10px) 0,
-      100% 10px,
-      100% calc(100% - 10px),
-      calc(100% - 10px) 100%,
-      10px 100%,
-      0 calc(100% - 10px),
-      0 10px
+      0 14px,
+      14px 0,
+      100% 0,
+      100% calc(100% - 14px),
+      calc(100% - 14px) 100%,
+      0 100%
     );
 
+  isolation: isolate;
+
   transition:
-    transform 0.35s
-      cubic-bezier(0.16, 1, 0.3, 1),
-
+    transform 0.45s
+      cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease,
-
-    box-shadow 0.35s ease;
+    box-shadow 0.45s ease,
+    background 0.35s ease;
 }
-
-
-/* =========================================================
-   LINHA LATERAL DOURADA
-   ========================================================= */
 
 .cardItem::before {
   content: '';
 
   position: absolute;
 
-  top: 16px;
-  bottom: 16px;
+  top: 0;
+  left: 14px;
+  right: 14px;
 
-  left: 0;
+  height: 1px;
 
-  width: 2px;
+  z-index: 8;
 
   background:
     linear-gradient(
-      180deg,
+      90deg,
       transparent,
-      #c7a96b,
+      rgba(199, 169, 107, 0.7),
       transparent
     );
-
-  opacity: 0;
-
-  transition:
-    opacity 0.35s ease;
-
-  z-index: 6;
 }
-
-
-/* =========================================================
-   REFLEXO
-   ========================================================= */
 
 .cardItem::after {
   content: '';
 
   position: absolute;
 
-  top: 0;
-  left: -120%;
+  inset: 0;
 
-  width: 65%;
-  height: 100%;
-
-  pointer-events: none;
+  z-index: -1;
 
   background:
-    linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.055) 50%,
-      transparent 80%
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(139, 92, 246, 0.07),
+      transparent 38%
     );
 
-  transform: skewX(-18deg);
-
-  transition:
-    left 0.75s ease;
-
-  z-index: 5;
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   IMAGEM
+   RPG / MENU INDIVIDUAL
+   ========================================================= */
+
+.cardRpg {
+  --card-glow:
+    rgba(139, 92, 246, 0.12);
+}
+
+.cardMenu {
+  --card-glow:
+    rgba(199, 169, 107, 0.09);
+}
+
+
+/* =========================================================
+   IMAGE
    ========================================================= */
 
 .cardImage {
   position: relative;
 
-  width: 100%;
-
-  aspect-ratio: 1 / 1;
+  min-height:
+    190px;
 
   overflow: hidden;
 
-  isolation: isolate;
-
-  background: #0b090c;
-
-  border:
-    1px solid
-    rgba(185, 146, 85, 0.25);
-
-  clip-path:
-    polygon(
-      7px 0,
-      100% 0,
-      100% calc(100% - 7px),
-      calc(100% - 7px) 100%,
-      0 100%,
-      0 7px
-    );
+  background:
+    #0b080f;
 }
 
-
-/* =========================================================
-   IMAGEM
-   ========================================================= */
-
 .cardImage img {
-  display: block;
+  position: absolute;
+
+  inset: 0;
 
   width: 100%;
   height: 100%;
 
   object-fit: cover;
 
+  transform:
+    scale(1.04);
+
   filter:
-    brightness(0.82)
     saturate(0.82)
-    contrast(1.08);
+    contrast(1.05)
+    brightness(0.75);
 
   transition:
-    transform 0.55s
-      cubic-bezier(0.16, 1, 0.3, 1),
-
-    filter 0.55s ease;
+    transform 0.85s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s ease;
 }
 
 
 /* =========================================================
-   CONTEÚDO
+   IMAGE OVERLAY
+   ========================================================= */
+
+.imageOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 2, 5, 0.08),
+      rgba(5, 3, 8, 0.22) 42%,
+      rgba(5, 3, 8, 0.82) 100%
+    );
+
+  pointer-events: none;
+}
+
+.cardMenu .imageOverlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 4, 3, 0.08),
+      rgba(7, 5, 4, 0.2) 42%,
+      rgba(7, 5, 4, 0.82) 100%
+    );
+}
+
+
+/* =========================================================
+   IMAGE BORDER
+   ========================================================= */
+
+.imageBorder {
+  position: absolute;
+
+  inset: 8px;
+
+  border:
+    1px solid
+    rgba(217, 189, 132, 0.22);
+
+  pointer-events: none;
+
+  transition:
+    inset 0.55s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.imageBorder::before,
+.imageBorder::after {
+  content: '';
+
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  border-color:
+    var(--gold);
+
+  border-style:
+    solid;
+
+  opacity:
+    0.8;
+}
+
+.imageBorder::before {
+  top: -1px;
+  left: -1px;
+
+  border-width:
+    1px 0 0 1px;
+}
+
+.imageBorder::after {
+  right: -1px;
+  bottom: -1px;
+
+  border-width:
+    0 1px 1px 0;
+}
+
+
+/* =========================================================
+   IMAGE TOP INFO
+   ========================================================= */
+
+.cardTopInfo {
+  position: absolute;
+
+  top: 13px;
+  left: 14px;
+  right: 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 3;
+}
+
+.cardIndex {
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  font-size:
+    0.5rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.13em;
+}
+
+.cardMark {
+  color:
+    var(--gold-light);
+
+  font-size:
+    0.9rem;
+
+  text-shadow:
+    0 0 14px
+    rgba(199, 169, 107, 0.45);
+}
+
+
+/* =========================================================
+   IMAGE CAPTION
+   ========================================================= */
+
+.imageCaption {
+  position: absolute;
+
+  left: 14px;
+  bottom: 12px;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.38rem;
+
+  color:
+    rgba(239, 230, 215, 0.68);
+
+  font-size:
+    0.45rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.12em;
+
+  text-transform:
+    uppercase;
+}
+
+.imageCaption i {
+  display: block;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background:
+    var(--gold);
+
+  box-shadow:
+    0 0 8px
+    rgba(199, 169, 107, 0.5);
+}
+
+
+/* =========================================================
+   CARD CONTENT
    ========================================================= */
 
 .cardContent {
-  min-width: 0;
-
   display: flex;
 
   flex-direction: column;
 
-  align-items: flex-start;
+  justify-content: center;
 
-  text-align: left;
+  min-width: 0;
+
+  padding:
+    1rem
+    1rem
+    1rem
+    1.1rem;
 }
 
 
 /* =========================================================
-   EYEBROW DO CARD
+   CARD EYEBROW
    ========================================================= */
 
+.cardEyebrowRow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-bottom:
+    0.45rem;
+}
+
 .cardEyebrow {
-  margin: 0 0 0.35rem;
+  overflow: hidden;
 
-  color: #a78b65;
+  color:
+    var(--gold);
 
-  font-size: 0.56rem;
+  font-size:
+    0.48rem;
 
-  font-weight: 700;
+  font-weight:
+    800;
 
-  line-height: 1.3;
+  line-height:
+    1.2;
 
-  letter-spacing: 0.14em;
+  letter-spacing:
+    0.12em;
 
-  text-transform: uppercase;
+  text-overflow:
+    ellipsis;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+}
+
+.cardEyebrowLine {
+  width: 25px;
+  height: 1px;
+
+  flex:
+    0 0 auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(199, 169, 107, 0.6),
+      transparent
+    );
 }
 
 
 /* =========================================================
-   TÍTULO
+   TITLE
    ========================================================= */
 
 .cardTitle {
-  margin: 0 0 0.45rem;
+  margin: 0;
 
-  color: #eee7dc;
+  color:
+    var(--white);
 
-  font-size: 0.98rem;
+  font-size:
+    clamp(
+      1.25rem,
+      4vw,
+      1.65rem
+    );
 
-  font-weight: 750;
+  font-weight:
+    700;
 
-  line-height: 1.2;
+  line-height:
+    1;
 
-  letter-spacing: -0.015em;
+  letter-spacing:
+    -0.04em;
+}
 
-  text-shadow:
-    0 2px 12px
-    rgba(0, 0, 0, 0.7);
+.cardTitle span {
+  display: block;
 
-  transition:
-    color 0.3s ease;
+  color:
+    rgba(242, 237, 229, 0.58);
+
+  font-weight:
+    500;
 }
 
 
 /* =========================================================
-   TEXTO
+   DESCRIPTION
    ========================================================= */
 
 .cardText {
-  max-width: 330px;
+  max-width:
+    430px;
 
-  margin: 0 0 0.8rem;
+  margin:
+    0.7rem 0 0;
 
-  color: #bdb5bd;
+  color:
+    var(--muted);
 
-  font-size: 0.73rem;
+  font-size:
+    0.69rem;
 
-  font-weight: 400;
-
-  line-height: 1.55;
+  line-height:
+    1.6;
 }
 
 
 /* =========================================================
-   BOTÃO
+   CARD LINK
    ========================================================= */
 
 .cardLink {
@@ -615,113 +846,475 @@
   display: inline-flex;
 
   align-items: center;
+  justify-content: space-between;
 
-  justify-content: center;
+  width: 100%;
 
-  gap: 0.55rem;
+  max-width:
+    175px;
 
-  min-height: 38px;
+  margin-top:
+    0.9rem;
 
-  padding: 0 0.85rem;
+  padding:
+    0.6rem
+    0.65rem
+    0.6rem
+    0.75rem;
 
-  box-sizing: border-box;
+  box-sizing:
+    border-box;
 
-  color: #17120c;
+  color:
+    var(--gold-soft);
 
   background:
     linear-gradient(
-      135deg,
-      #d9bd84 0%,
-      #b99457 52%,
-      #d0ad69 100%
+      90deg,
+      rgba(199, 169, 107, 0.08),
+      rgba(199, 169, 107, 0.018)
     );
 
   border:
     1px solid
-    rgba(231, 205, 151, 0.85);
-
-  text-decoration: none;
-
-  font-size: 0.64rem;
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: 0.065em;
-
-  text-transform: uppercase;
-
-  overflow: hidden;
+    rgba(199, 169, 107, 0.2);
 
   clip-path:
     polygon(
+      0 5px,
       5px 0,
-      calc(100% - 5px) 0,
-      100% 5px,
+      100% 0,
       100% calc(100% - 5px),
       calc(100% - 5px) 100%,
-      5px 100%,
-      0 calc(100% - 5px),
-      0 5px
+      0 100%
     );
 
-  box-shadow:
-    0 7px 20px
-    rgba(0, 0, 0, 0.35);
+  text-decoration:
+    none;
+
+  font-size:
+    0.52rem;
+
+  font-weight:
+    800;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
 
   transition:
-    transform 0.3s
-      cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
 
-    box-shadow 0.3s ease,
+.cardLinkArrow {
+  color:
+    var(--gold);
 
-    filter 0.3s ease;
+  font-size:
+    0.82rem;
+
+  transition:
+    transform 0.35s
+      cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
 /* =========================================================
-   BRILHO DO BOTÃO
+   QUICK ACTION AREA
    ========================================================= */
 
-.cardLink::after {
+.actionArea {
+  position: relative;
+
+  margin-top:
+    1.5rem;
+}
+
+
+/* =========================================================
+   ACTION HEADER
+   ========================================================= */
+
+.actionHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap:
+    0.7rem;
+
+  margin-bottom:
+    0.75rem;
+
+  color:
+    rgba(199, 169, 107, 0.55);
+
+  font-size:
+    0.44rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.16em;
+
+  text-transform:
+    uppercase;
+}
+
+.actionHeaderLine {
+  width:
+    26px;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(199, 169, 107, 0.4)
+    );
+}
+
+.actionHeaderLine:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(199, 169, 107, 0.4),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quickActions {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.012);
+
+  border-top:
+    1px solid
+    rgba(199, 169, 107, 0.15);
+
+  border-bottom:
+    1px solid
+    rgba(199, 169, 107, 0.15);
+
+  clip-path:
+    polygon(
+      0 8px,
+      8px 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%
+    );
+}
+
+
+/* =========================================================
+   QUICK ACTION
+   ========================================================= */
+
+.quickAction {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  align-items: center;
+
+  min-width: 0;
+
+  min-height:
+    68px;
+
+  padding:
+    0.75rem
+    0.8rem;
+
+  box-sizing:
+    border-box;
+
+  color:
+    #9d96a2;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  text-decoration:
+    none;
+
+  font:
+    inherit;
+
+  text-align:
+    left;
+
+  cursor:
+    pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.quickAction + .quickAction {
+  border-left:
+    1px solid
+    rgba(199, 169, 107, 0.11);
+}
+
+
+/* =========================================================
+   ACTION NUMBER
+   ========================================================= */
+
+.quickActionNumber {
+  align-self:
+    start;
+
+  margin-top:
+    0.08rem;
+
+  margin-right:
+    0.65rem;
+
+  color:
+    rgba(199, 169, 107, 0.42);
+
+  font-size:
+    0.43rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* =========================================================
+   ACTION CONTENT
+   ========================================================= */
+
+.quickActionContent {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width:
+    0;
+}
+
+.quickActionLabel {
+  color:
+    rgba(199, 169, 107, 0.68);
+
+  font-size:
+    0.42rem;
+
+  font-weight:
+    800;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+}
+
+.quickActionTitle {
+  margin-top:
+    0.15rem;
+
+  overflow:
+    hidden;
+
+  color:
+    #c8c1ca;
+
+  font-size:
+    0.62rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.025em;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   ACTION ARROW
+   ========================================================= */
+
+.quickActionArrow {
+  margin-left:
+    0.4rem;
+
+  color:
+    #76582f;
+
+  font-size:
+    0.95rem;
+
+  line-height:
+    1;
+
+  transition:
+    color 0.3s ease,
+    transform 0.35s
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   ACTION BOTTOM LIGHT
+   ========================================================= */
+
+.quickAction::after {
   content: '';
 
   position: absolute;
 
-  top: 0;
-  left: -120%;
+  left: 18%;
+  right: 18%;
+  bottom: -1px;
 
-  width: 75%;
-  height: 100%;
+  height: 1px;
 
   background:
     linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.18) 50%,
-      transparent 80%
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
     );
 
-  transform: skewX(-18deg);
+  opacity:
+    0;
+
+  transform:
+    scaleX(0.35);
 
   transition:
-    left 0.7s ease;
-
-  pointer-events: none;
+    opacity 0.3s ease,
+    transform 0.4s
+      cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
 /* =========================================================
-   SETA
+   SHARE TOAST
    ========================================================= */
 
-.cardLink span {
-  font-size: 0.85rem;
+.shareToast {
+  position: absolute;
 
-  transition:
-    transform 0.3s
-      cubic-bezier(0.16, 1, 0.3, 1);
+  left: 50%;
+  bottom: -48px;
+
+  z-index: 10;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap:
+    0.45rem;
+
+  padding:
+    0.55rem
+    0.8rem;
+
+  transform:
+    translateX(-50%);
+
+  color:
+    #e4d6b7;
+
+  background:
+    rgba(12, 9, 15, 0.96);
+
+  border:
+    1px solid
+    rgba(199, 169, 107, 0.28);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.3);
+
+  font-size:
+    0.5rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  animation:
+    toastIn 0.3s
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shareToast span {
+  color:
+    var(--gold);
 }
 
 
@@ -733,244 +1326,93 @@
 
   .cardItem:hover {
     transform:
-      translateY(-4px);
+      translateY(-6px);
 
     border-color:
-      rgba(214, 184, 120, 0.48);
+      rgba(199, 169, 107, 0.34);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.014)
+      );
 
     box-shadow:
-      0 18px 42px
-      rgba(0, 0, 0, 0.58),
-
-      0 0 22px
-      rgba(139, 92, 246, 0.08),
-
-      0 0 8px
-      rgba(214, 184, 120, 0.08);
-  }
-
-  .cardItem:hover::before {
-    opacity: 1;
-  }
-
-  .cardItem:hover::after {
-    left: 130%;
+      0 22px 55px
+      rgba(0, 0, 0, 0.38),
+      0 0 42px
+      var(--card-glow);
   }
 
   .cardItem:hover .cardImage img {
-    transform: scale(1.07);
+    transform:
+      scale(1.1);
 
     filter:
-      brightness(0.98)
-      saturate(0.95)
-      contrast(1.08);
+      saturate(0.98)
+      contrast(1.06)
+      brightness(0.86);
   }
 
-  .cardItem:hover .cardTitle {
-    color: #f0dfb7;
+  .cardItem:hover .imageBorder {
+    inset:
+      6px;
+
+    border-color:
+      rgba(217, 189, 132, 0.4);
   }
 
-  .cardLink:hover {
-    transform:
-      translateY(-3px);
+  .cardItem:hover .cardLink {
+    color:
+      #f1dfb8;
 
-    box-shadow:
-      0 11px 28px
-      rgba(0, 0, 0, 0.48),
+    border-color:
+      rgba(199, 169, 107, 0.42);
 
-      0 0 20px
-      rgba(214, 184, 120, 0.14);
-  }
+    background:
+      linear-gradient(
+        90deg,
+        rgba(199, 169, 107, 0.14),
+        rgba(199, 169, 107, 0.035)
+      );
 
-  .cardLink:hover::after {
-    left: 130%;
-  }
-
-  .cardLink:hover span {
     transform:
       translateX(3px);
   }
-}
 
-
-/* =========================================================
-   INTERAÇÃO TOUCH
-   CELULAR
-   ========================================================= */
-
-@media (hover: none) and (pointer: coarse) {
-
-  .cardItem {
-    animation:
-      mobileCardBreath
-      6s
-      ease-in-out
-      infinite;
-  }
-
-  .cardItem:nth-child(2) {
-    animation-delay: 2.8s;
-  }
-
-  .cardItem::before {
-    animation:
-      mobileCardEdge
-      6s
-      ease-in-out
-      infinite;
-  }
-
-  .cardItem:nth-child(2)::before {
-    animation-delay: 2.8s;
-  }
-
-  .cardLink {
-    animation:
-      mobileButtonGlow
-      6s
-      ease-in-out
-      infinite;
-  }
-
-  .cardItem:nth-child(2) .cardLink {
-    animation-delay: 2.8s;
-  }
-
-  /*
-   * Resposta imediata ao toque
-   */
-
-  .cardItem:active {
+  .cardItem:hover .cardLinkArrow {
     transform:
-      scale(0.985);
-
-    border-color:
-      rgba(214, 184, 120, 0.62);
-
-    box-shadow:
-      0 10px 28px
-      rgba(0, 0, 0, 0.55),
-
-      0 0 25px
-      rgba(139, 92, 246, 0.12);
+      translateX(4px);
   }
 
-  .cardItem:active::before {
-    opacity: 1;
+  .quickAction:hover {
+    color:
+      #eadfca;
+
+    background:
+      rgba(139, 92, 246, 0.025);
   }
 
-  .cardItem:active .cardImage img {
+  .quickAction:hover::after {
+    opacity:
+      1;
+
     transform:
-      scale(1.045);
-
-    filter:
-      brightness(0.96)
-      saturate(0.94);
+      scaleX(1);
   }
 
-  .cardLink:active {
+  .quickAction:hover .quickActionTitle {
+    color:
+      #eee5d5;
+  }
+
+  .quickAction:hover .quickActionArrow {
+    color:
+      var(--gold);
+
     transform:
-      scale(0.96);
-
-    filter:
-      brightness(1.08);
-
-    box-shadow:
-      0 5px 16px
-      rgba(0, 0, 0, 0.45),
-
-      0 0 22px
-      rgba(214, 184, 120, 0.20);
-  }
-}
-
-
-/* =========================================================
-   ANIMAÇÃO — RESPIRAÇÃO DO CARD
-   ========================================================= */
-
-@keyframes mobileCardBreath {
-
-  0%,
-  58%,
-  100% {
-    border-color:
-      rgba(185, 146, 85, 0.20);
-
-    box-shadow:
-      0 14px 35px
-      rgba(0, 0, 0, 0.46),
-
-      inset 0 0 25px
-      rgba(139, 92, 246, 0.018);
-  }
-
-  68% {
-    border-color:
-      rgba(214, 184, 120, 0.38);
-
-    box-shadow:
-      0 14px 35px
-      rgba(0, 0, 0, 0.46),
-
-      0 0 22px
-      rgba(139, 92, 246, 0.075),
-
-      inset 0 0 25px
-      rgba(139, 92, 246, 0.035);
-  }
-}
-
-
-/* =========================================================
-   ANIMAÇÃO — LINHA LATERAL
-   ========================================================= */
-
-@keyframes mobileCardEdge {
-
-  0%,
-  58%,
-  100% {
-    opacity: 0;
-  }
-
-  68% {
-    opacity: 1;
-  }
-
-  76% {
-    opacity: 0.2;
-  }
-}
-
-
-/* =========================================================
-   ANIMAÇÃO — BOTÃO
-   ========================================================= */
-
-@keyframes mobileButtonGlow {
-
-  0%,
-  58%,
-  100% {
-    filter:
-      brightness(1);
-
-    box-shadow:
-      0 7px 20px
-      rgba(0, 0, 0, 0.35);
-  }
-
-  68% {
-    filter:
-      brightness(1.08);
-
-    box-shadow:
-      0 7px 20px
-      rgba(0, 0, 0, 0.35),
-
-      0 0 20px
-      rgba(214, 184, 120, 0.18);
+      translate(3px, -2px);
   }
 }
 
@@ -983,56 +1425,48 @@
 
   .hubSection {
     padding:
-      4.5rem
-      2rem
-      5rem;
-  }
-
-  .hubContainer {
-    max-width: 620px;
+      6rem
+      1.5rem
+      6.5rem;
   }
 
   .sectionHeader {
-    margin-bottom: 2.25rem;
-  }
-
-  .sectionDescription {
-    font-size: 0.85rem;
+    margin-bottom:
+      3.5rem;
   }
 
   .cardsGrid {
-    gap: 1.2rem;
+    gap:
+      1.25rem;
   }
 
   .cardItem {
     grid-template-columns:
-      145px
+      190px
       minmax(0, 1fr);
-
-    min-height: 195px;
-
-    gap: 1.25rem;
-
-    padding: 0.9rem;
   }
 
-  .cardEyebrow {
-    font-size: 0.58rem;
+  .cardImage {
+    min-height:
+      245px;
+  }
+
+  .cardContent {
+    padding:
+      1.4rem
+      1.5rem;
   }
 
   .cardTitle {
-    font-size: 1.08rem;
+    font-size:
+      1.7rem;
   }
 
   .cardText {
-    font-size: 0.8rem;
+    font-size:
+      0.76rem;
   }
 
-  .cardLink {
-    min-height: 40px;
-
-    font-size: 0.67rem;
-  }
 }
 
 
@@ -1044,101 +1478,112 @@
 
   .hubSection {
     padding:
-      5rem
-      3rem
-      5.5rem;
+      7rem
+      2rem
+      7.5rem;
   }
 
-  .hubContainer {
-    max-width: 1080px;
-  }
-
-  .sectionTitle {
-    font-size: 2.5rem;
-  }
-
-  .sectionDescription {
-    max-width: 560px;
-    font-size: 0.88rem;
+  .sectionHeader {
+    margin-bottom:
+      4rem;
   }
 
   .cardsGrid {
-    display: grid;
-
     grid-template-columns:
       repeat(
         2,
         minmax(0, 1fr)
       );
 
-    gap: 1.4rem;
+    gap:
+      1.5rem;
   }
 
   .cardItem {
-    grid-template-columns:
-      145px
-      minmax(0, 1fr);
+    display:
+      block;
 
-    min-height: 205px;
-
-    gap: 1.2rem;
+    min-height:
+      470px;
   }
+
+  .cardImage {
+    min-height:
+      300px;
+  }
+
+  .cardContent {
+    min-height:
+      170px;
+
+    padding:
+      1.25rem
+      1.45rem
+      1.4rem;
+  }
+
+  .cardTitle {
+    font-size:
+      1.8rem;
+  }
+
+  .cardText {
+    font-size:
+      0.75rem;
+  }
+
+  .cardLink {
+    max-width:
+      190px;
+  }
+
+  .quickActions {
+    margin-top:
+      0.1rem;
+  }
+
 }
 
 
 /* =========================================================
-   DESKTOP GRANDE
+   LARGE DESKTOP
    ========================================================= */
 
 @media (min-width: 1200px) {
 
   .hubSection {
-    padding:
-      5.5rem
-      3rem
-      6rem;
-  }
+    padding-top:
+      8rem;
 
-  .hubContainer {
-    max-width: 1120px;
+    padding-bottom:
+      8.5rem;
   }
 
   .cardsGrid {
-    gap: 1.6rem;
+    gap:
+      1.75rem;
   }
 
   .cardItem {
-    grid-template-columns:
-      165px
-      minmax(0, 1fr);
-
-    min-height: 225px;
-
-    gap: 1.45rem;
-
-    padding: 1rem;
+    min-height:
+      505px;
   }
 
-  .cardTitle {
-    font-size: 1.18rem;
-
-    margin-bottom: 0.55rem;
+  .cardImage {
+    min-height:
+      325px;
   }
 
-  .cardText {
-    font-size: 0.84rem;
-
-    margin-bottom: 1rem;
-  }
-
-  .cardLink {
-    min-height: 42px;
+  .cardContent {
+    min-height:
+      180px;
 
     padding:
-      0 1rem;
-
-    font-size: 0.68rem;
+      1.45rem
+      1.55rem
+      1.5rem;
   }
+
 }
 
 
@@ -1150,150 +1595,470 @@
 
   .hubSection {
     padding:
-      3.5rem
-      1rem
-      4rem;
+      4.5rem
+      0.8rem
+      5rem;
+  }
+
+  .arcaneLine {
+    top:
+      3.7rem;
+  }
+
+  .sectionHeader {
+    margin-bottom:
+      2.25rem;
   }
 
   .sectionEyebrow {
-    font-size: 0.6rem;
+    font-size:
+      0.53rem;
 
-    letter-spacing: 0.19em;
+    letter-spacing:
+      0.15em;
   }
 
   .sectionTitle {
-    font-size: 1.55rem;
+    font-size:
+      2rem;
   }
 
   .sectionDescription {
-    font-size: 0.76rem;
+    margin-top:
+      0.95rem;
+
+    font-size:
+      0.76rem;
+
+    line-height:
+      1.65;
   }
 
   .cardsGrid {
-    gap: 0.8rem;
+    gap:
+      0.85rem;
   }
 
   .cardItem {
     grid-template-columns:
-      92px
+      108px
       minmax(0, 1fr);
+  }
 
-    min-height: 150px;
+  .cardImage {
+    min-height:
+      175px;
+  }
 
-    gap: 0.85rem;
+  .imageBorder {
+    inset:
+      6px;
+  }
 
-    padding: 0.7rem;
+  .cardTopInfo {
+    top:
+      10px;
+
+    left:
+      10px;
+
+    right:
+      10px;
+  }
+
+  .cardIndex {
+    font-size:
+      0.43rem;
+  }
+
+  .cardMark {
+    font-size:
+      0.72rem;
+  }
+
+  .imageCaption {
+    left:
+      10px;
+
+    bottom:
+      9px;
+
+    gap:
+      0.25rem;
+
+    font-size:
+      0.38rem;
+
+    letter-spacing:
+      0.08em;
+  }
+
+  .cardContent {
+    padding:
+      0.85rem
+      0.75rem
+      0.85rem
+      0.85rem;
+  }
+
+  .cardEyebrowRow {
+    margin-bottom:
+      0.35rem;
   }
 
   .cardEyebrow {
-    font-size: 0.52rem;
+    font-size:
+      0.42rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing:
+      0.075em;
+  }
+
+  .cardEyebrowLine {
+    display:
+      none;
   }
 
   .cardTitle {
-    font-size: 0.88rem;
+    font-size:
+      1.08rem;
+
+    line-height:
+      1.02;
   }
 
   .cardText {
-    font-size: 0.69rem;
+    margin-top:
+      0.5rem;
 
-    line-height: 1.5;
+    font-size:
+      0.61rem;
 
-    margin-bottom: 0.65rem;
+    line-height:
+      1.5;
   }
 
   .cardLink {
-    min-height: 34px;
+    max-width:
+      145px;
+
+    margin-top:
+      0.7rem;
 
     padding:
-      0 0.7rem;
+      0.5rem
+      0.55rem
+      0.5rem
+      0.6rem;
 
-    font-size: 0.59rem;
+    font-size:
+      0.43rem;
+
+    letter-spacing:
+      0.065em;
   }
+
+  .cardLinkArrow {
+    font-size:
+      0.68rem;
+  }
+
+
+  /* ================================================
+     AÇÕES MOBILE
+     ================================================ */
+
+  .actionArea {
+    margin-top:
+      1.15rem;
+  }
+
+  .actionHeader {
+    gap:
+      0.45rem;
+
+    margin-bottom:
+      0.6rem;
+
+    font-size:
+      0.38rem;
+
+    letter-spacing:
+      0.1em;
+  }
+
+  .actionHeaderLine {
+    width:
+      18px;
+  }
+
+  .quickAction {
+    grid-template-columns:
+      1fr
+      auto;
+
+    min-height:
+      64px;
+
+    padding:
+      0.7rem
+      0.45rem;
+  }
+
+  .quickActionNumber {
+    display:
+      none;
+  }
+
+  .quickActionContent {
+    min-width:
+      0;
+  }
+
+  .quickActionLabel {
+    font-size:
+      0.36rem;
+
+    letter-spacing:
+      0.07em;
+  }
+
+  .quickActionTitle {
+    margin-top:
+      0.13rem;
+
+    font-size:
+      0.52rem;
+  }
+
+  .quickActionArrow {
+    margin-left:
+      0.25rem;
+
+    font-size:
+      0.72rem;
+  }
+
+  .shareToast {
+    bottom:
+      -42px;
+
+    font-size:
+      0.43rem;
+  }
+
 }
 
 
 /* =========================================================
-   MOBILE MUITO PEQUENO
+   VERY SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 360px) {
 
   .hubSection {
-    padding-left: 0.85rem;
-    padding-right: 0.85rem;
+    padding-left:
+      0.65rem;
+
+    padding-right:
+      0.65rem;
   }
 
   .cardItem {
     grid-template-columns:
-      84px
+      96px
       minmax(0, 1fr);
+  }
 
-    gap: 0.75rem;
+  .cardImage {
+    min-height:
+      160px;
+  }
+
+  .cardContent {
+    padding:
+      0.72rem
+      0.62rem
+      0.72rem
+      0.72rem;
   }
 
   .cardTitle {
-    font-size: 0.82rem;
+    font-size:
+      0.98rem;
   }
 
   .cardText {
-    font-size: 0.65rem;
+    font-size:
+      0.57rem;
   }
 
   .cardLink {
-    min-height: 32px;
+    max-width:
+      132px;
+
+    font-size:
+      0.4rem;
+  }
+
+  .quickAction {
+    min-height:
+      60px;
 
     padding:
-      0 0.6rem;
-
-    font-size: 0.55rem;
+      0.65rem
+      0.35rem;
   }
+
+  .quickActionTitle {
+    font-size:
+      0.48rem;
+  }
+
 }
 
 
 /* =========================================================
-   ACESSIBILIDADE
+   FOCUS
    ========================================================= */
 
-.cardLink:focus-visible {
+.cardLink:focus-visible,
+.quickAction:focus-visible {
   outline:
-    2px solid #c7a96b;
+    2px solid
+    var(--gold);
 
-  outline-offset: 4px;
+  outline-offset:
+    2px;
 }
 
 
 /* =========================================================
-   REDUÇÃO DE MOVIMENTO
+   ACTIVE TOUCH
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .cardItem {
+    animation:
+      cardBreath 7s ease-in-out infinite;
+  }
+
+  .cardItem:nth-child(2) {
+    animation-delay:
+      1.2s;
+  }
+
+  .cardLink:active {
+    transform:
+      scale(0.985);
+  }
+
+  .quickAction:active {
+    color:
+      #eadfca;
+
+    background:
+      rgba(139, 92, 246, 0.04);
+  }
+
+  .quickAction:active .quickActionArrow {
+    color:
+      var(--gold);
+
+    transform:
+      translate(2px, -1px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
+  .arcaneGlow,
+  .cardItem {
+    animation:
+      none;
+  }
+
   .cardItem,
   .cardImage img,
+  .imageBorder,
   .cardLink,
-  .cardLink span,
-  .cardTitle,
-  .cardItem::before,
-  .cardItem::after,
-  .cardLink::after {
-    animation: none;
-    transition: none;
+  .cardLinkArrow,
+  .quickAction,
+  .quickActionArrow,
+  .quickAction::after {
+    transition:
+      none;
+  }
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes arcanePulse {
+
+  0%,
+  100% {
+    opacity:
+      0.55;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
   }
 
-  .cardItem:hover,
-  .cardItem:active {
-    transform: none;
+  50% {
+    opacity:
+      0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.04);
   }
 
-  .cardItem:hover .cardImage img,
-  .cardItem:active .cardImage img {
-    transform: none;
+}
+
+
+@keyframes cardBreath {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
   }
 
-  .cardLink:hover,
-  .cardLink:active {
-    transform: none;
+  50% {
+    transform:
+      translateY(-2px);
   }
+
+}
+
+
+@keyframes toastIn {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, 8px);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, 0);
+  }
+
 }
