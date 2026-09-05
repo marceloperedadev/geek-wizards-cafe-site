@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -11,13 +10,11 @@ export function HubCards() {
 
   const getSiteUrl = () => {
     if (typeof window === 'undefined') return ''
-
     return window.location.origin
   }
 
   const getMenuUrl = () => {
     if (typeof window === 'undefined') return ''
-
     return `${window.location.origin}/cardapio`
   }
 
@@ -31,14 +28,12 @@ export function HubCards() {
       }
 
       const input = document.createElement('input')
-
       input.value = url
       input.setAttribute('readonly', '')
       input.style.position = 'fixed'
       input.style.opacity = '0'
 
       document.body.appendChild(input)
-
       input.select()
 
       const copied = document.execCommand('copy')
@@ -81,7 +76,7 @@ export function HubCards() {
         showMessage('Cardápio copiado')
       }
     } catch {
-      // Compartilhamento cancelado pelo usuário.
+      // Compartilhamento cancelado.
     }
   }
 
@@ -107,7 +102,7 @@ export function HubCards() {
         showMessage('Convite copiado')
       }
     } catch {
-      // Compartilhamento cancelado pelo usuário.
+      // Compartilhamento cancelado.
     }
   }
 
@@ -116,35 +111,12 @@ export function HubCards() {
       className={styles.hubSection}
       aria-labelledby="hub-title"
     >
-      {/* =====================================================
-          ATMOSFERA
-          ===================================================== */}
-
       <div
         className={styles.arcaneGlow}
         aria-hidden="true"
       />
 
-      <div
-        className={styles.arcaneGlowSecondary}
-        aria-hidden="true"
-      />
-
-      <div
-        className={styles.arcaneLine}
-        aria-hidden="true"
-      />
-
-      {/* =====================================================
-          CONTAINER
-          ===================================================== */}
-
       <div className={styles.hubContainer}>
-
-        {/* ===================================================
-            CABEÇALHO
-            =================================================== */}
-
         <header className={styles.sectionHeader}>
           <p className={styles.sectionEyebrow}>
             Experiências Geek Wizards
@@ -163,21 +135,9 @@ export function HubCards() {
           </p>
         </header>
 
-        {/* ===================================================
-            CARDS
-            =================================================== */}
-
         <div className={styles.cardsGrid}>
-
-          {/* =================================================
-              RPG
-              ================================================= */}
-
-          <article
-            className={`${styles.cardItem} ${styles.cardRpg}`}
-          >
+          <article className={styles.cardItem}>
             <div className={styles.cardImage}>
-
               <Image
                 src="/images/mesas-rpg.jpg"
                 alt="Mesa de RPG e jogos de tabuleiro na Geek Wizards Café"
@@ -186,59 +146,19 @@ export function HubCards() {
                 sizes="
                   (max-width: 639px) 100vw,
                   (max-width: 899px) 50vw,
-                  550px
+                  520px
                 "
               />
 
-              <div
-                className={styles.imageOverlay}
-                aria-hidden="true"
-              />
-
-              <div
-                className={styles.imageBorder}
-                aria-hidden="true"
-              />
-
-              <div className={styles.cardTopInfo}>
-                <span className={styles.cardIndex}>
-                  01
-                </span>
-
-                <span
-                  className={styles.cardMark}
-                  aria-hidden="true"
-                >
-                  ✦
-                </span>
-              </div>
-
-              <div className={styles.imageCaption}>
-                <span>
-                  Aventura
-                </span>
-
-                <i aria-hidden="true" />
-                
-                <span>
-                  Estratégia
-                </span>
-              </div>
-
+              <span className={styles.cardNumber}>
+                01
+              </span>
             </div>
 
             <div className={styles.cardContent}>
-
-              <div className={styles.cardEyebrowRow}>
-                <span className={styles.cardEyebrow}>
-                  Aventura & Estratégia
-                </span>
-
-                <span
-                  className={styles.cardEyebrowLine}
-                  aria-hidden="true"
-                />
-              </div>
+              <p className={styles.cardEyebrow}>
+                Aventura & Estratégia
+              </p>
 
               <h3 className={styles.cardTitle}>
                 Mesas de RPG
@@ -257,30 +177,14 @@ export function HubCards() {
                 className={styles.cardLink}
                 aria-label="Reservar uma mesa de RPG ou jogos"
               >
-                <span>
-                  Reservar Mesa
-                </span>
-
-                <span
-                  className={styles.cardLinkArrow}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
+                Reservar Mesa
+                <span aria-hidden="true">→</span>
               </a>
-
             </div>
           </article>
 
-          {/* =================================================
-              CARDÁPIO
-              ================================================= */}
-
-          <article
-            className={`${styles.cardItem} ${styles.cardMenu}`}
-          >
+          <article className={styles.cardItem}>
             <div className={styles.cardImage}>
-
               <Image
                 src="/images/cardapio-geek.jpg"
                 alt="Cafés, poções e doces temáticos da Geek Wizards Café"
@@ -289,59 +193,19 @@ export function HubCards() {
                 sizes="
                   (max-width: 639px) 100vw,
                   (max-width: 899px) 50vw,
-                  550px
+                  520px
                 "
               />
 
-              <div
-                className={styles.imageOverlay}
-                aria-hidden="true"
-              />
-
-              <div
-                className={styles.imageBorder}
-                aria-hidden="true"
-              />
-
-              <div className={styles.cardTopInfo}>
-                <span className={styles.cardIndex}>
-                  02
-                </span>
-
-                <span
-                  className={styles.cardMark}
-                  aria-hidden="true"
-                >
-                  ✧
-                </span>
-              </div>
-
-              <div className={styles.imageCaption}>
-                <span>
-                  Poções
-                </span>
-
-                <i aria-hidden="true" />
-
-                <span>
-                  Sabores
-                </span>
-              </div>
-
+              <span className={styles.cardNumber}>
+                02
+              </span>
             </div>
 
             <div className={styles.cardContent}>
-
-              <div className={styles.cardEyebrowRow}>
-                <span className={styles.cardEyebrow}>
-                  Poções & Sabores
-                </span>
-
-                <span
-                  className={styles.cardEyebrowLine}
-                  aria-hidden="true"
-                />
-              </div>
+              <p className={styles.cardEyebrow}>
+                Poções & Sabores
+              </p>
 
               <h3 className={styles.cardTitle}>
                 Menu Mágico
@@ -360,72 +224,63 @@ export function HubCards() {
                 className={styles.cardLink}
                 aria-label="Ver o cardápio da Geek Wizards Café"
               >
-                <span>
-                  Ver Cardápio
-                </span>
-
-                <span
-                  className={styles.cardLinkArrow}
-                  aria-hidden="true"
-                >
-                  →
-                </span>
+                Ver Cardápio
+                <span aria-hidden="true">→</span>
               </a>
-
             </div>
           </article>
-
         </div>
 
-        {/* ===================================================
-            AÇÕES
-            =================================================== */}
+        <div className={styles.shareSection}>
+          <div className={styles.shareHeader}>
+            <div>
+              <p className={styles.shareEyebrow}>
+                Compartilhe a experiência
+              </p>
 
-        <div className={styles.actionArea}>
+              <h3 className={styles.shareTitle}>
+                Chame sua guilda
+              </h3>
+            </div>
 
-          <div className={styles.actionHeader}>
-            <span className={styles.actionHeaderLine} />
-
-            <span>
-              Compartilhe a experiência
+            <span
+              className={styles.shareSymbol}
+              aria-hidden="true"
+            >
+              ✦
             </span>
-
-            <span className={styles.actionHeaderLine} />
           </div>
 
+          <p className={styles.shareDescription}>
+            Gostou da Geek Wizards? Convide seus amigos
+            para conhecer, jogar e viver essa experiência com você.
+          </p>
+
           <div className={styles.quickActions}>
-
-            {/* COMPARTILHAR CARDÁPIO */}
-
             <button
               type="button"
-              className={styles.quickAction}
+              className={`${styles.quickAction} ${styles.quickActionPrimary}`}
               onClick={handleShareMenu}
               aria-label="Compartilhar o cardápio da Geek Wizards Café"
             >
-              <span className={styles.quickActionNumber}>
-                01
+              <span className={styles.actionIcon}>
+                ↗
               </span>
 
-              <span className={styles.quickActionContent}>
-                <span className={styles.quickActionLabel}>
-                  Compartilhar
-                </span>
-
-                <span className={styles.quickActionTitle}>
-                  Cardápio
-                </span>
+              <span className={styles.actionContent}>
+                <strong>Compartilhar Cardápio</strong>
+                <small>
+                  Envie nossas poções e sabores
+                </small>
               </span>
 
               <span
-                className={styles.quickActionArrow}
+                className={styles.actionArrow}
                 aria-hidden="true"
               >
-                ↗
+                →
               </span>
             </button>
-
-            {/* CONVIDAR */}
 
             <button
               type="button"
@@ -433,29 +288,24 @@ export function HubCards() {
               onClick={handleInvite}
               aria-label="Convidar alguém para conhecer a Geek Wizards Café"
             >
-              <span className={styles.quickActionNumber}>
-                02
+              <span className={styles.actionIcon}>
+                +
               </span>
 
-              <span className={styles.quickActionContent}>
-                <span className={styles.quickActionLabel}>
-                  Convide
-                </span>
-
-                <span className={styles.quickActionTitle}>
-                  Alguém
-                </span>
+              <span className={styles.actionContent}>
+                <strong>Convidar um Amigo</strong>
+                <small>
+                  Chame sua party para a aventura
+                </small>
               </span>
 
               <span
-                className={styles.quickActionArrow}
+                className={styles.actionArrow}
                 aria-hidden="true"
               >
                 →
               </span>
             </button>
-
-            {/* INSTAGRAM */}
 
             <a
               href={SITE_CONFIG.social.instagram}
@@ -464,28 +314,24 @@ export function HubCards() {
               className={styles.quickAction}
               aria-label="Abrir o Instagram da Geek Wizards Café"
             >
-              <span className={styles.quickActionNumber}>
-                03
+              <span className={styles.actionIcon}>
+                ◎
               </span>
 
-              <span className={styles.quickActionContent}>
-                <span className={styles.quickActionLabel}>
-                  Siga no
-                </span>
-
-                <span className={styles.quickActionTitle}>
-                  Instagram
-                </span>
+              <span className={styles.actionContent}>
+                <strong>Instagram</strong>
+                <small>
+                  Veja novidades e eventos
+                </small>
               </span>
 
               <span
-                className={styles.quickActionArrow}
+                className={styles.actionArrow}
                 aria-hidden="true"
               >
                 ↗
               </span>
             </a>
-
           </div>
 
           {shareMessage && (
@@ -495,13 +341,10 @@ export function HubCards() {
               aria-live="polite"
             >
               <span aria-hidden="true">✦</span>
-
               {shareMessage}
             </div>
           )}
-
         </div>
-
       </div>
     </section>
   )

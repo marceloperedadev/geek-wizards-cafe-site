@@ -1,228 +1,90 @@
-
 /* =========================================================
    HUB CARDS — GEEK WIZARDS CAFÉ
-
-   ARCANE PREMIUM
-   EDITORIAL / IMMERSIVE / MOBILE FIRST
-   ========================================================= */
-
-
-/* =========================================================
-   ROOT
+   BIO SYSTEM / ARCANE PREMIUM
+   COMPACT / EDITORIAL / TIPOGRAFIA REFORÇADA
    ========================================================= */
 
 .hubSection {
-  --gold: #c7a96b;
-  --gold-light: #e1c993;
-  --gold-soft: #d6ba83;
-  --gold-dark: #76582f;
-
-  --purple: #8b5cf6;
-  --purple-deep: #32184f;
-
-  --black: #070609;
-  --black-soft: #0c090f;
-
-  --white: #f2ede5;
-  --muted: #9d96a2;
-
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  overflow: hidden;
-
-  padding:
-    5rem
-    1rem
-    5rem;
-
   box-sizing: border-box;
+  padding: 3.8rem 1rem 4.2rem;
+  overflow: hidden;
 
   background:
     radial-gradient(
-      circle at 50% 10%,
-      rgba(139, 92, 246, 0.105),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 12% 70%,
-      rgba(199, 169, 107, 0.04),
-      transparent 28%
+      ellipse 55% 45% at 80% 10%,
+      rgba(139, 92, 246, 0.065),
+      transparent 72%
     ),
     linear-gradient(
       180deg,
-      #09070c 0%,
-      #0a080d 48%,
-      #070609 100%
+      #050506 0%,
+      #08070a 50%,
+      #050506 100%
     );
 
-  border-top:
-    1px solid
-    rgba(199, 169, 107, 0.09);
+  border-top: 1px solid rgba(185, 146, 85, 0.1);
 }
 
-
-/* =========================================================
-   ATMOSPHERIC GRID
-   ========================================================= */
-
-.hubSection::after {
+.hubSection::before {
   content: '';
-
   position: absolute;
-
   inset: 0;
-
+  z-index: -2;
   pointer-events: none;
-
-  opacity: 0.16;
 
   background-image:
     linear-gradient(
-      rgba(255, 255, 255, 0.018) 1px,
+      rgba(255, 255, 255, 0.009) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.018) 1px,
+      rgba(255, 255, 255, 0.009) 1px,
       transparent 1px
     );
 
-  background-size: 48px 48px;
+  background-size: 52px 52px;
 
   mask-image:
     linear-gradient(
       to bottom,
-      transparent 0%,
-      black 15%,
-      black 82%,
-      transparent 100%
+      rgba(0, 0, 0, 0.55),
+      transparent 82%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55),
+      transparent 82%
     );
 }
-
-
-/* =========================================================
-   MAIN GLOW
-   ========================================================= */
 
 .arcaneGlow {
   position: absolute;
-
-  top: 15%;
+  top: -160px;
   left: 50%;
 
-  width: 420px;
-  height: 420px;
+  width: 520px;
+  height: 300px;
 
-  transform:
-    translate(-50%, -50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(139, 92, 246, 0.13),
-      rgba(139, 92, 246, 0.035) 42%,
-      transparent 72%
-    );
-
-  filter: blur(22px);
+  transform: translateX(-50%);
 
   pointer-events: none;
-
-  animation:
-    arcanePulse 8s ease-in-out infinite;
-}
-
-
-/* =========================================================
-   SECONDARY GLOW
-   ========================================================= */
-
-.arcaneGlowSecondary {
-  position: absolute;
-
-  right: -180px;
-  bottom: 0;
-
-  width: 420px;
-  height: 420px;
-
-  border-radius: 50%;
+  z-index: -1;
 
   background:
     radial-gradient(
-      circle,
-      rgba(199, 169, 107, 0.045),
+      ellipse,
+      rgba(139, 92, 246, 0.1),
       transparent 70%
     );
 
   filter: blur(30px);
-
-  pointer-events: none;
 }
-
-
-/* =========================================================
-   ARCANE LINE
-   ========================================================= */
-
-.arcaneLine {
-  position: absolute;
-
-  top: 3.9rem;
-  left: 50%;
-
-  width: 72px;
-  height: 1px;
-
-  transform:
-    translateX(-50%);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      transparent
-    );
-
-  opacity: 0.8;
-}
-
-.arcaneLine::before,
-.arcaneLine::after {
-  content: '';
-
-  position: absolute;
-
-  top: 50%;
-
-  width: 4px;
-  height: 4px;
-
-  transform:
-    translateY(-50%)
-    rotate(45deg);
-
-  background:
-    var(--gold);
-
-  box-shadow:
-    0 0 12px
-    rgba(199, 169, 107, 0.45);
-}
-
-.arcaneLine::before {
-  left: 0;
-}
-
-.arcaneLine::after {
-  right: 0;
-}
-
 
 /* =========================================================
    CONTAINER
@@ -230,471 +92,270 @@
 
 .hubContainer {
   position: relative;
-
   z-index: 2;
 
   width: 100%;
-
   max-width: 1120px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 }
-
 
 /* =========================================================
    HEADER
    ========================================================= */
 
 .sectionHeader {
-  max-width: 690px;
-
-  margin:
-    0 auto
-    2.75rem;
+  width: 100%;
+  margin: 0 0 2.1rem;
 
   text-align: center;
 }
 
 .sectionEyebrow {
-  margin:
-    0 0
-    0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 
-  color:
-    var(--gold);
+  margin: 0 0 0.65rem;
 
-  font-size:
-    0.58rem;
+  color: #b99255;
 
-  font-weight:
-    800;
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.4;
 
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.2em;
-
-  text-transform:
-    uppercase;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.sectionTitle {
-  margin: 0;
-
-  color:
-    var(--white);
-
-  font-size:
-    clamp(
-      2rem,
-      7vw,
-      3.65rem
-    );
-
-  font-weight:
-    700;
-
-  line-height:
-    0.98;
-
-  letter-spacing:
-    -0.05em;
-
-  text-wrap:
-    balance;
-}
-
-.sectionDescription {
-  max-width:
-    570px;
-
-  margin:
-    1.15rem auto 0;
-
-  color:
-    var(--muted);
-
-  font-size:
-    0.84rem;
-
-  line-height:
-    1.75;
-
-  text-wrap:
-    balance;
-}
-
-.sectionHeader::after {
+.sectionEyebrow::before,
+.sectionEyebrow::after {
   content: '';
 
-  display: block;
-
-  width: 36px;
+  width: 20px;
   height: 1px;
-
-  margin:
-    1.45rem auto 0;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      var(--gold),
+      rgba(185, 146, 85, 0.7)
+    );
+}
+
+.sectionEyebrow::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(185, 146, 85, 0.7),
+      transparent
+    );
+}
+
+.sectionTitle {
+  margin: 0;
+
+  color: #eee7da;
+
+  font-size: clamp(
+    1.9rem,
+    5vw,
+    2.6rem
+  );
+
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.7);
+}
+
+.sectionTitle::after {
+  content: '';
+
+  display: block;
+
+  width: 46px;
+  height: 1px;
+
+  margin: 0.85rem auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b99255,
+      #d4b678,
+      #b99255,
       transparent
     );
 
-  opacity:
-    0.65;
+  box-shadow:
+    0 0 12px
+    rgba(214, 184, 120, 0.14);
 }
 
+.sectionDescription {
+  max-width: 590px;
+
+  margin: 0.85rem auto 0;
+
+  color: #aaa2ad;
+
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.7;
+
+  text-wrap: balance;
+}
 
 /* =========================================================
-   CARDS GRID
+   MAIN CARDS
    ========================================================= */
 
 .cardsGrid {
   display: grid;
 
   grid-template-columns:
-    1fr;
+    repeat(2, minmax(0, 1fr));
 
-  gap:
-    1rem;
+  gap: 1.15rem;
 }
-
-
-/* =========================================================
-   CARD
-   ========================================================= */
 
 .cardItem {
   position: relative;
 
-  display: grid;
-
-  grid-template-columns:
-    118px
-    minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
 
   min-width: 0;
-
   overflow: hidden;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.045),
-      rgba(255, 255, 255, 0.012)
+      145deg,
+      rgba(20, 16, 24, 0.96),
+      rgba(8, 7, 10, 0.98)
     );
 
   border:
     1px solid
-    rgba(199, 169, 107, 0.17);
+    rgba(185, 146, 85, 0.19);
 
   clip-path:
     polygon(
-      0 14px,
-      14px 0,
-      100% 0,
-      100% calc(100% - 14px),
-      calc(100% - 14px) 100%,
-      0 100%
+      9px 0,
+      calc(100% - 9px) 0,
+      100% 9px,
+      100% calc(100% - 9px),
+      calc(100% - 9px) 100%,
+      9px 100%,
+      0 calc(100% - 9px),
+      0 9px
     );
 
-  isolation: isolate;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.025);
 
   transition:
-    transform 0.45s
-      cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.35s ease,
-    box-shadow 0.45s ease,
-    background 0.35s ease;
+    box-shadow 0.35s ease;
 }
 
-.cardItem::before {
-  content: '';
+.cardItem:hover {
+  transform: translateY(-4px);
 
-  position: absolute;
+  border-color:
+    rgba(214, 184, 120, 0.45);
 
-  top: 0;
-  left: 14px;
-  right: 14px;
-
-  height: 1px;
-
-  z-index: 8;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(199, 169, 107, 0.7),
-      transparent
-    );
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(139, 92, 246, 0.06);
 }
-
-.cardItem::after {
-  content: '';
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: -1;
-
-  background:
-    radial-gradient(
-      circle at 85% 10%,
-      rgba(139, 92, 246, 0.07),
-      transparent 38%
-    );
-
-  pointer-events: none;
-}
-
 
 /* =========================================================
-   RPG / MENU INDIVIDUAL
-   ========================================================= */
-
-.cardRpg {
-  --card-glow:
-    rgba(139, 92, 246, 0.12);
-}
-
-.cardMenu {
-  --card-glow:
-    rgba(199, 169, 107, 0.09);
-}
-
-
-/* =========================================================
-   IMAGE
+   CARD IMAGE
    ========================================================= */
 
 .cardImage {
   position: relative;
 
-  min-height:
-    190px;
+  width: 100%;
+
+  aspect-ratio: 16 / 8;
 
   overflow: hidden;
 
+  background: #09070b;
+}
+
+.cardImage::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
   background:
-    #0b080f;
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 6, 0.02) 20%,
+      rgba(5, 5, 6, 0.62) 100%
+    );
 }
 
 .cardImage img {
-  position: absolute;
-
-  inset: 0;
+  display: block;
 
   width: 100%;
   height: 100%;
 
   object-fit: cover;
 
-  transform:
-    scale(1.04);
+  filter:
+    brightness(0.76)
+    saturate(0.8)
+    contrast(1.06);
+
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease;
+}
+
+.cardItem:hover .cardImage img {
+  transform: scale(1.055);
 
   filter:
-    saturate(0.82)
-    contrast(1.05)
-    brightness(0.75);
-
-  transition:
-    transform 0.85s
-      cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.65s ease;
+    brightness(0.9)
+    saturate(0.92)
+    contrast(1.06);
 }
 
-
-/* =========================================================
-   IMAGE OVERLAY
-   ========================================================= */
-
-.imageOverlay {
+.cardNumber {
   position: absolute;
 
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(3, 2, 5, 0.08),
-      rgba(5, 3, 8, 0.22) 42%,
-      rgba(5, 3, 8, 0.82) 100%
-    );
-
-  pointer-events: none;
-}
-
-.cardMenu .imageOverlay {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(6, 4, 3, 0.08),
-      rgba(7, 5, 4, 0.2) 42%,
-      rgba(7, 5, 4, 0.82) 100%
-    );
-}
-
-
-/* =========================================================
-   IMAGE BORDER
-   ========================================================= */
-
-.imageBorder {
-  position: absolute;
-
-  inset: 8px;
-
-  border:
-    1px solid
-    rgba(217, 189, 132, 0.22);
-
-  pointer-events: none;
-
-  transition:
-    inset 0.55s
-      cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.35s ease;
-}
-
-.imageBorder::before,
-.imageBorder::after {
-  content: '';
-
-  position: absolute;
-
-  width: 9px;
-  height: 9px;
-
-  border-color:
-    var(--gold);
-
-  border-style:
-    solid;
-
-  opacity:
-    0.8;
-}
-
-.imageBorder::before {
-  top: -1px;
-  left: -1px;
-
-  border-width:
-    1px 0 0 1px;
-}
-
-.imageBorder::after {
-  right: -1px;
-  bottom: -1px;
-
-  border-width:
-    0 1px 1px 0;
-}
-
-
-/* =========================================================
-   IMAGE TOP INFO
-   ========================================================= */
-
-.cardTopInfo {
-  position: absolute;
-
-  top: 13px;
-  left: 14px;
-  right: 14px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
+  top: 0.7rem;
+  right: 0.75rem;
 
   z-index: 3;
-}
 
-.cardIndex {
-  color:
-    rgba(255, 255, 255, 0.78);
+  color: #dbc28e;
 
-  font-size:
-    0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
 
-  font-weight:
-    800;
-
-  letter-spacing:
-    0.13em;
-}
-
-.cardMark {
-  color:
-    var(--gold-light);
-
-  font-size:
-    0.9rem;
+  letter-spacing: 0.16em;
 
   text-shadow:
-    0 0 14px
-    rgba(199, 169, 107, 0.45);
+    0 2px 8px rgba(0, 0, 0, 0.9);
 }
-
-
-/* =========================================================
-   IMAGE CAPTION
-   ========================================================= */
-
-.imageCaption {
-  position: absolute;
-
-  left: 14px;
-  bottom: 12px;
-
-  z-index: 3;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.38rem;
-
-  color:
-    rgba(239, 230, 215, 0.68);
-
-  font-size:
-    0.45rem;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.12em;
-
-  text-transform:
-    uppercase;
-}
-
-.imageCaption i {
-  display: block;
-
-  width: 3px;
-  height: 3px;
-
-  border-radius: 50%;
-
-  background:
-    var(--gold);
-
-  box-shadow:
-    0 0 8px
-    rgba(199, 169, 107, 0.5);
-}
-
 
 /* =========================================================
    CARD CONTENT
@@ -702,300 +363,239 @@
 
 .cardContent {
   display: flex;
-
   flex-direction: column;
 
-  justify-content: center;
-
-  min-width: 0;
-
   padding:
-    1rem
-    1rem
-    1rem
-    1.1rem;
-}
-
-
-/* =========================================================
-   CARD EYEBROW
-   ========================================================= */
-
-.cardEyebrowRow {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.5rem;
-
-  margin-bottom:
-    0.45rem;
+    1.15rem
+    1.2rem
+    1.3rem;
 }
 
 .cardEyebrow {
-  overflow: hidden;
+  margin: 0 0 0.5rem;
 
-  color:
-    var(--gold);
+  color: #a3844f;
 
-  font-size:
-    0.48rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.4;
 
-  font-weight:
-    800;
+  letter-spacing: 0.17em;
 
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.12em;
-
-  text-overflow:
-    ellipsis;
-
-  text-transform:
-    uppercase;
-
-  white-space:
-    nowrap;
+  text-transform: uppercase;
 }
-
-.cardEyebrowLine {
-  width: 25px;
-  height: 1px;
-
-  flex:
-    0 0 auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(199, 169, 107, 0.6),
-      transparent
-    );
-}
-
-
-/* =========================================================
-   TITLE
-   ========================================================= */
 
 .cardTitle {
   margin: 0;
 
-  color:
-    var(--white);
+  color: #eee5d5;
 
-  font-size:
-    clamp(
-      1.25rem,
-      4vw,
-      1.65rem
-    );
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.08;
 
-  font-weight:
-    700;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .cardTitle span {
-  display: block;
-
-  color:
-    rgba(242, 237, 229, 0.58);
-
-  font-weight:
-    500;
+  color: #a68a58;
 }
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
 
 .cardText {
-  max-width:
-    430px;
+  max-width: 500px;
 
-  margin:
-    0.7rem 0 0;
+  margin: 0.65rem 0 0;
 
-  color:
-    var(--muted);
+  color: #aaa1ad;
 
-  font-size:
-    0.69rem;
-
-  line-height:
-    1.6;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.62;
 }
 
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  width: fit-content;
+
+  margin-top: 1rem;
+
+  color: #d5bd8a;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.cardLink:hover {
+  color: #f0dfb8;
+  gap: 0.8rem;
+}
+
+.cardLink span {
+  font-size: 1rem;
+}
 
 /* =========================================================
-   CARD LINK
+   SHARE SECTION
    ========================================================= */
 
-.cardLink {
+.shareSection {
   position: relative;
 
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-
-  max-width:
-    175px;
-
-  margin-top:
-    0.9rem;
+  margin-top: 1.5rem;
 
   padding:
-    0.6rem
-    0.65rem
-    0.6rem
-    0.75rem;
-
-  box-sizing:
-    border-box;
-
-  color:
-    var(--gold-soft);
+    1.4rem
+    1.5rem;
 
   background:
     linear-gradient(
-      90deg,
-      rgba(199, 169, 107, 0.08),
-      rgba(199, 169, 107, 0.018)
+      135deg,
+      rgba(18, 14, 23, 0.98),
+      rgba(8, 7, 10, 0.98)
     );
 
   border:
     1px solid
-    rgba(199, 169, 107, 0.2);
+    rgba(185, 146, 85, 0.27);
 
   clip-path:
     polygon(
-      0 5px,
-      5px 0,
-      100% 0,
-      100% calc(100% - 5px),
-      calc(100% - 5px) 100%,
-      0 100%
+      9px 0,
+      calc(100% - 9px) 0,
+      100% 9px,
+      100% calc(100% - 9px),
+      calc(100% - 9px) 100%,
+      9px 100%,
+      0 calc(100% - 9px),
+      0 9px
     );
 
-  text-decoration:
-    none;
-
-  font-size:
-    0.52rem;
-
-  font-weight:
-    800;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    0.1em;
-
-  text-transform:
-    uppercase;
-
-  transition:
-    color 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.025);
 }
 
-.cardLinkArrow {
-  color:
-    var(--gold);
+.shareSection::before {
+  content: '';
 
-  font-size:
-    0.82rem;
+  position: absolute;
 
-  transition:
-    transform 0.35s
-      cubic-bezier(0.22, 1, 0.36, 1);
-}
+  top: 0;
+  left: 0;
 
-
-/* =========================================================
-   QUICK ACTION AREA
-   ========================================================= */
-
-.actionArea {
-  position: relative;
-
-  margin-top:
-    1.5rem;
-}
-
-
-/* =========================================================
-   ACTION HEADER
-   ========================================================= */
-
-.actionHeader {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap:
-    0.7rem;
-
-  margin-bottom:
-    0.75rem;
-
-  color:
-    rgba(199, 169, 107, 0.55);
-
-  font-size:
-    0.44rem;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    0.16em;
-
-  text-transform:
-    uppercase;
-}
-
-.actionHeaderLine {
-  width:
-    26px;
-
-  height:
-    1px;
+  width: 2px;
+  height: 100%;
 
   background:
     linear-gradient(
-      90deg,
+      180deg,
       transparent,
-      rgba(199, 169, 107, 0.4)
-    );
-}
-
-.actionHeaderLine:last-child {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(199, 169, 107, 0.4),
+      #b99255,
       transparent
     );
+
+  opacity: 0.65;
 }
 
+/* =========================================================
+   SHARE HEADER
+   ========================================================= */
+
+.shareHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.shareEyebrow {
+  margin: 0 0 0.3rem;
+
+  color: #a3844f;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+  line-height: 1.4;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.shareTitle {
+  margin: 0;
+
+  color: #eee4d3;
+
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+
+  letter-spacing: -0.03em;
+}
+
+.shareSymbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 auto;
+
+  color: #d5b979;
+
+  border:
+    1px solid
+    rgba(185, 146, 85, 0.3);
+
+  background:
+    rgba(185, 146, 85, 0.045);
+
+  clip-path:
+    polygon(
+      6px 0,
+      calc(100% - 6px) 0,
+      100% 6px,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      6px 100%,
+      0 calc(100% - 6px),
+      0 6px
+    );
+
+  font-size: 0.9rem;
+}
+
+.shareDescription {
+  max-width: 700px;
+
+  margin:
+    0.65rem
+    0
+    1.15rem;
+
+  color: #aaa1ad;
+
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
 
 /* =========================================================
    QUICK ACTIONS
@@ -1005,1060 +605,594 @@
   display: grid;
 
   grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
+    repeat(3, minmax(0, 1fr));
 
-  width: 100%;
-
-  overflow: hidden;
-
-  background:
-    rgba(255, 255, 255, 0.012);
-
-  border-top:
-    1px solid
-    rgba(199, 169, 107, 0.15);
-
-  border-bottom:
-    1px solid
-    rgba(199, 169, 107, 0.15);
-
-  clip-path:
-    polygon(
-      0 8px,
-      8px 0,
-      100% 0,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      0 100%
-    );
+  gap: 0.7rem;
 }
-
-
-/* =========================================================
-   QUICK ACTION
-   ========================================================= */
 
 .quickAction {
   position: relative;
 
-  display: grid;
-
-  grid-template-columns:
-    auto
-    1fr
-    auto;
-
+  display: flex;
   align-items: center;
 
   min-width: 0;
-
-  min-height:
-    68px;
+  min-height: 76px;
 
   padding:
     0.75rem
-    0.8rem;
+    0.85rem;
 
-  box-sizing:
-    border-box;
-
-  color:
-    #9d96a2;
+  color: inherit;
 
   background:
-    transparent;
+    rgba(255, 255, 255, 0.018);
 
   border:
-    0;
-
-  text-decoration:
-    none;
-
-  font:
-    inherit;
-
-  text-align:
-    left;
-
-  cursor:
-    pointer;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-
-.quickAction + .quickAction {
-  border-left:
     1px solid
-    rgba(199, 169, 107, 0.11);
-}
+    rgba(185, 146, 85, 0.16);
 
-
-/* =========================================================
-   ACTION NUMBER
-   ========================================================= */
-
-.quickActionNumber {
-  align-self:
-    start;
-
-  margin-top:
-    0.08rem;
-
-  margin-right:
-    0.65rem;
-
-  color:
-    rgba(199, 169, 107, 0.42);
-
-  font-size:
-    0.43rem;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    0.08em;
-}
-
-
-/* =========================================================
-   ACTION CONTENT
-   ========================================================= */
-
-.quickActionContent {
-  display: flex;
-
-  flex-direction: column;
-
-  min-width:
-    0;
-}
-
-.quickActionLabel {
-  color:
-    rgba(199, 169, 107, 0.68);
-
-  font-size:
-    0.42rem;
-
-  font-weight:
-    800;
-
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.1em;
-
-  text-transform:
-    uppercase;
-}
-
-.quickActionTitle {
-  margin-top:
-    0.15rem;
-
-  overflow:
-    hidden;
-
-  color:
-    #c8c1ca;
-
-  font-size:
-    0.62rem;
-
-  font-weight:
-    700;
-
-  line-height:
-    1.2;
-
-  letter-spacing:
-    0.025em;
-
-  text-overflow:
-    ellipsis;
-
-  white-space:
-    nowrap;
-
-  transition:
-    color 0.3s ease;
-}
-
-
-/* =========================================================
-   ACTION ARROW
-   ========================================================= */
-
-.quickActionArrow {
-  margin-left:
-    0.4rem;
-
-  color:
-    #76582f;
-
-  font-size:
-    0.95rem;
-
-  line-height:
-    1;
-
-  transition:
-    color 0.3s ease,
-    transform 0.35s
-      cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-
-/* =========================================================
-   ACTION BOTTOM LIGHT
-   ========================================================= */
-
-.quickAction::after {
-  content: '';
-
-  position: absolute;
-
-  left: 18%;
-  right: 18%;
-  bottom: -1px;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      transparent
+  clip-path:
+    polygon(
+      6px 0,
+      calc(100% - 6px) 0,
+      100% 6px,
+      100% calc(100% - 6px),
+      calc(100% - 6px) 100%,
+      6px 100%,
+      0 calc(100% - 6px),
+      0 6px
     );
 
-  opacity:
-    0;
+  text-decoration: none;
 
-  transform:
-    scaleX(0.35);
+  cursor: pointer;
 
   transition:
-    opacity 0.3s ease,
-    transform 0.4s
-      cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+.quickAction:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(185, 146, 85, 0.045);
+
+  border-color:
+    rgba(214, 184, 120, 0.42);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.quickActionPrimary {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(185, 146, 85, 0.09),
+      rgba(185, 146, 85, 0.025)
+    );
+
+  border-color:
+    rgba(185, 146, 85, 0.32);
+}
+
+.actionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  margin-right: 0.7rem;
+
+  color: #d8bd83;
+
+  border:
+    1px solid
+    rgba(185, 146, 85, 0.28);
+
+  border-radius: 50%;
+
+  font-size: 0.9rem;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.quickAction:hover .actionIcon {
+  transform: scale(1.08);
+
+  border-color:
+    rgba(214, 184, 120, 0.6);
+}
+
+.actionContent {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  flex: 1;
+}
+
+.actionContent strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #e7dece;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.3;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.actionContent small {
+  display: block;
+
+  margin-top: 0.22rem;
+
+  overflow: hidden;
+
+  color: #938a98;
+
+  font-size: 0.65rem;
+  font-weight: 400;
+  line-height: 1.35;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.actionArrow {
+  flex: 0 0 auto;
+
+  margin-left: 0.55rem;
+
+  color: #8d7045;
+
+  font-size: 0.95rem;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.quickAction:hover .actionArrow {
+  color: #d7bc83;
+
+  transform: translateX(3px);
+}
 
 /* =========================================================
-   SHARE TOAST
+   TOAST
    ========================================================= */
 
 .shareToast {
   position: absolute;
 
-  left: 50%;
-  bottom: -48px;
+  right: 1.4rem;
+  bottom: 1.25rem;
 
-  z-index: 10;
-
-  display: inline-flex;
-
+  display: flex;
   align-items: center;
-
-  gap:
-    0.45rem;
+  gap: 0.5rem;
 
   padding:
     0.55rem
     0.8rem;
 
-  transform:
-    translateX(-50%);
-
-  color:
-    #e4d6b7;
+  color: #eadbbd;
 
   background:
     rgba(12, 9, 15, 0.96);
 
   border:
     1px solid
-    rgba(199, 169, 107, 0.28);
+    rgba(185, 146, 85, 0.35);
+
+  border-radius: 4px;
 
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.3);
+    0 10px 28px rgba(0, 0, 0, 0.55);
 
-  font-size:
-    0.5rem;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    0.08em;
-
-  text-transform:
-    uppercase;
-
-  white-space:
-    nowrap;
+  font-size: 0.65rem;
+  font-weight: 700;
 
   animation:
-    toastIn 0.3s
-      cubic-bezier(0.22, 1, 0.36, 1);
+    toastIn 0.25s ease both;
 }
 
 .shareToast span {
-  color:
-    var(--gold);
+  color: #c8a765;
 }
 
-
-/* =========================================================
-   DESKTOP HOVER
-   ========================================================= */
-
-@media (hover: hover) and (pointer: fine) {
-
-  .cardItem:hover {
-    transform:
-      translateY(-6px);
-
-    border-color:
-      rgba(199, 169, 107, 0.34);
-
-    background:
-      linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.014)
-      );
-
-    box-shadow:
-      0 22px 55px
-      rgba(0, 0, 0, 0.38),
-      0 0 42px
-      var(--card-glow);
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
 
-  .cardItem:hover .cardImage img {
-    transform:
-      scale(1.1);
-
-    filter:
-      saturate(0.98)
-      contrast(1.06)
-      brightness(0.86);
-  }
-
-  .cardItem:hover .imageBorder {
-    inset:
-      6px;
-
-    border-color:
-      rgba(217, 189, 132, 0.4);
-  }
-
-  .cardItem:hover .cardLink {
-    color:
-      #f1dfb8;
-
-    border-color:
-      rgba(199, 169, 107, 0.42);
-
-    background:
-      linear-gradient(
-        90deg,
-        rgba(199, 169, 107, 0.14),
-        rgba(199, 169, 107, 0.035)
-      );
-
-    transform:
-      translateX(3px);
-  }
-
-  .cardItem:hover .cardLinkArrow {
-    transform:
-      translateX(4px);
-  }
-
-  .quickAction:hover {
-    color:
-      #eadfca;
-
-    background:
-      rgba(139, 92, 246, 0.025);
-  }
-
-  .quickAction:hover::after {
-    opacity:
-      1;
-
-    transform:
-      scaleX(1);
-  }
-
-  .quickAction:hover .quickActionTitle {
-    color:
-      #eee5d5;
-  }
-
-  .quickAction:hover .quickActionArrow {
-    color:
-      var(--gold);
-
-    transform:
-      translate(3px, -2px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
 
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (min-width: 640px) {
-
   .hubSection {
     padding:
-      6rem
+      4rem
       1.5rem
-      6.5rem;
+      4.5rem;
   }
 
   .sectionHeader {
-    margin-bottom:
-      3.5rem;
+    margin-bottom: 2.25rem;
   }
 
-  .cardsGrid {
-    gap:
-      1.25rem;
-  }
-
-  .cardItem {
-    grid-template-columns:
-      190px
-      minmax(0, 1fr);
-  }
-
-  .cardImage {
-    min-height:
-      245px;
+  .sectionDescription {
+    font-size: 0.88rem;
   }
 
   .cardContent {
     padding:
-      1.4rem
-      1.5rem;
+      1.2rem
+      1.25rem
+      1.35rem;
   }
 
   .cardTitle {
-    font-size:
-      1.7rem;
+    font-size: 1.38rem;
   }
 
   .cardText {
-    font-size:
-      0.76rem;
+    font-size: 0.8rem;
   }
 
+  .shareSection {
+    padding:
+      1.45rem
+      1.5rem;
+  }
 }
-
 
 /* =========================================================
    DESKTOP
    ========================================================= */
 
 @media (min-width: 900px) {
-
   .hubSection {
     padding:
-      7rem
+      4.5rem
       2rem
-      7.5rem;
+      5rem;
   }
 
   .sectionHeader {
-    margin-bottom:
-      4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .sectionEyebrow {
+    font-size: 0.63rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.6rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.9rem;
   }
 
   .cardsGrid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-
-    gap:
-      1.5rem;
-  }
-
-  .cardItem {
-    display:
-      block;
-
-    min-height:
-      470px;
-  }
-
-  .cardImage {
-    min-height:
-      300px;
+    gap: 1.25rem;
   }
 
   .cardContent {
-    min-height:
-      170px;
-
     padding:
-      1.25rem
-      1.45rem
-      1.4rem;
+      1.3rem
+      1.35rem
+      1.45rem;
   }
 
   .cardTitle {
-    font-size:
-      1.8rem;
+    font-size: 1.4rem;
   }
 
   .cardText {
-    font-size:
-      0.75rem;
+    font-size: 0.82rem;
   }
 
   .cardLink {
-    max-width:
-      190px;
+    font-size: 0.68rem;
   }
 
-  .quickActions {
-    margin-top:
-      0.1rem;
+  .shareSection {
+    margin-top: 1.55rem;
+    padding:
+      1.5rem
+      1.6rem;
   }
 
+  .shareTitle {
+    font-size: 1.45rem;
+  }
+
+  .shareDescription {
+    font-size: 0.82rem;
+  }
+
+  .quickAction {
+    min-height: 78px;
+  }
 }
-
 
 /* =========================================================
    LARGE DESKTOP
    ========================================================= */
 
 @media (min-width: 1200px) {
-
   .hubSection {
-    padding-top:
-      8rem;
-
-    padding-bottom:
-      8.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5.3rem;
   }
 
   .cardsGrid {
-    gap:
-      1.75rem;
+    gap: 1.35rem;
   }
 
-  .cardItem {
-    min-height:
-      505px;
+  .cardItem:hover {
+    transform: translateY(-5px);
   }
 
-  .cardImage {
-    min-height:
-      325px;
+  .cardTitle {
+    font-size: 1.45rem;
   }
 
-  .cardContent {
-    min-height:
-      180px;
-
-    padding:
-      1.45rem
-      1.55rem
-      1.5rem;
+  .shareSection {
+    margin-top: 1.6rem;
   }
-
 }
-
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 420px) {
-
+@media (max-width: 639px) {
   .hubSection {
     padding:
-      4.5rem
-      0.8rem
-      5rem;
-  }
-
-  .arcaneLine {
-    top:
-      3.7rem;
+      3.2rem
+      0.75rem
+      3.5rem;
   }
 
   .sectionHeader {
-    margin-bottom:
-      2.25rem;
+    margin-bottom: 1.7rem;
   }
 
   .sectionEyebrow {
-    font-size:
-      0.53rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.18em;
+  }
 
-    letter-spacing:
-      0.15em;
+  .sectionEyebrow::before,
+  .sectionEyebrow::after {
+    width: 15px;
   }
 
   .sectionTitle {
-    font-size:
-      2rem;
+    font-size: 1.75rem;
   }
 
   .sectionDescription {
-    margin-top:
-      0.95rem;
+    max-width: 370px;
 
-    font-size:
-      0.76rem;
+    margin-top: 0.75rem;
 
-    line-height:
-      1.65;
+    font-size: 0.76rem;
+    line-height: 1.65;
   }
 
   .cardsGrid {
-    gap:
-      0.85rem;
-  }
+    grid-template-columns: 1fr;
 
-  .cardItem {
-    grid-template-columns:
-      108px
-      minmax(0, 1fr);
+    gap: 0.85rem;
   }
 
   .cardImage {
-    min-height:
-      175px;
-  }
-
-  .imageBorder {
-    inset:
-      6px;
-  }
-
-  .cardTopInfo {
-    top:
-      10px;
-
-    left:
-      10px;
-
-    right:
-      10px;
-  }
-
-  .cardIndex {
-    font-size:
-      0.43rem;
-  }
-
-  .cardMark {
-    font-size:
-      0.72rem;
-  }
-
-  .imageCaption {
-    left:
-      10px;
-
-    bottom:
-      9px;
-
-    gap:
-      0.25rem;
-
-    font-size:
-      0.38rem;
-
-    letter-spacing:
-      0.08em;
+    aspect-ratio: 16 / 7.5;
   }
 
   .cardContent {
     padding:
-      0.85rem
-      0.75rem
-      0.85rem
-      0.85rem;
-  }
-
-  .cardEyebrowRow {
-    margin-bottom:
-      0.35rem;
+      1rem
+      1rem
+      1.1rem;
   }
 
   .cardEyebrow {
-    font-size:
-      0.42rem;
-
-    letter-spacing:
-      0.075em;
-  }
-
-  .cardEyebrowLine {
-    display:
-      none;
+    font-size: 0.56rem;
   }
 
   .cardTitle {
-    font-size:
-      1.08rem;
-
-    line-height:
-      1.02;
+    font-size: 1.18rem;
   }
 
   .cardText {
-    margin-top:
-      0.5rem;
+    margin-top: 0.55rem;
 
-    font-size:
-      0.61rem;
-
-    line-height:
-      1.5;
+    font-size: 0.75rem;
+    line-height: 1.6;
   }
 
   .cardLink {
-    max-width:
-      145px;
+    margin-top: 0.85rem;
 
-    margin-top:
-      0.7rem;
+    font-size: 0.63rem;
+  }
+
+  .shareSection {
+    margin-top: 1rem;
 
     padding:
-      0.5rem
-      0.55rem
-      0.5rem
-      0.6rem;
-
-    font-size:
-      0.43rem;
-
-    letter-spacing:
-      0.065em;
+      1.1rem
+      1rem;
   }
 
-  .cardLinkArrow {
-    font-size:
-      0.68rem;
+  .shareEyebrow {
+    font-size: 0.55rem;
   }
 
-
-  /* ================================================
-     AÇÕES MOBILE
-     ================================================ */
-
-  .actionArea {
-    margin-top:
-      1.15rem;
+  .shareTitle {
+    font-size: 1.18rem;
   }
 
-  .actionHeader {
-    gap:
-      0.45rem;
+  .shareDescription {
+    margin:
+      0.6rem
+      0
+      0.95rem;
 
-    margin-bottom:
-      0.6rem;
-
-    font-size:
-      0.38rem;
-
-    letter-spacing:
-      0.1em;
+    font-size: 0.73rem;
+    line-height: 1.6;
   }
 
-  .actionHeaderLine {
-    width:
-      18px;
+  .shareSymbol {
+    width: 36px;
+    height: 36px;
+
+    font-size: 0.75rem;
+  }
+
+  .quickActions {
+    grid-template-columns: 1fr;
+
+    gap: 0.55rem;
   }
 
   .quickAction {
-    grid-template-columns:
-      1fr
-      auto;
-
-    min-height:
-      64px;
-
-    padding:
-      0.7rem
-      0.45rem;
-  }
-
-  .quickActionNumber {
-    display:
-      none;
-  }
-
-  .quickActionContent {
-    min-width:
-      0;
-  }
-
-  .quickActionLabel {
-    font-size:
-      0.36rem;
-
-    letter-spacing:
-      0.07em;
-  }
-
-  .quickActionTitle {
-    margin-top:
-      0.13rem;
-
-    font-size:
-      0.52rem;
-  }
-
-  .quickActionArrow {
-    margin-left:
-      0.25rem;
-
-    font-size:
-      0.72rem;
-  }
-
-  .shareToast {
-    bottom:
-      -42px;
-
-    font-size:
-      0.43rem;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-  .hubSection {
-    padding-left:
-      0.65rem;
-
-    padding-right:
-      0.65rem;
-  }
-
-  .cardItem {
-    grid-template-columns:
-      96px
-      minmax(0, 1fr);
-  }
-
-  .cardImage {
-    min-height:
-      160px;
-  }
-
-  .cardContent {
-    padding:
-      0.72rem
-      0.62rem
-      0.72rem
-      0.72rem;
-  }
-
-  .cardTitle {
-    font-size:
-      0.98rem;
-  }
-
-  .cardText {
-    font-size:
-      0.57rem;
-  }
-
-  .cardLink {
-    max-width:
-      132px;
-
-    font-size:
-      0.4rem;
-  }
-
-  .quickAction {
-    min-height:
-      60px;
+    min-height: 62px;
 
     padding:
       0.65rem
-      0.35rem;
+      0.7rem;
   }
 
-  .quickActionTitle {
-    font-size:
-      0.48rem;
+  .actionIcon {
+    width: 31px;
+    height: 31px;
+
+    margin-right: 0.65rem;
   }
 
+  .actionContent strong {
+    font-size: 0.72rem;
+  }
+
+  .actionContent small {
+    font-size: 0.6rem;
+  }
+
+  .actionArrow {
+    font-size: 0.85rem;
+  }
+
+  .shareToast {
+    right: 1rem;
+    bottom: 1rem;
+
+    font-size: 0.6rem;
+  }
 }
-
 
 /* =========================================================
-   FOCUS
+   VERY SMALL
    ========================================================= */
 
-.cardLink:focus-visible,
-.quickAction:focus-visible {
-  outline:
-    2px solid
-    var(--gold);
+@media (max-width: 360px) {
+  .hubSection {
+    padding:
+      3rem
+      0.6rem
+      3.2rem;
+  }
 
-  outline-offset:
-    2px;
+  .sectionTitle {
+    font-size: 1.62rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.72rem;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .cardText {
+    font-size: 0.71rem;
+  }
+
+  .shareSection {
+    padding:
+      1rem
+      0.9rem;
+  }
+
+  .shareTitle {
+    font-size: 1.08rem;
+  }
+
+  .shareDescription {
+    font-size: 0.69rem;
+  }
+
+  .actionContent strong {
+    font-size: 0.68rem;
+  }
+
+  .actionContent small {
+    font-size: 0.57rem;
+  }
 }
-
-
-/* =========================================================
-   ACTIVE TOUCH
-   ========================================================= */
-
-@media (hover: none) and (pointer: coarse) {
-
-  .cardItem {
-    animation:
-      cardBreath 7s ease-in-out infinite;
-  }
-
-  .cardItem:nth-child(2) {
-    animation-delay:
-      1.2s;
-  }
-
-  .cardLink:active {
-    transform:
-      scale(0.985);
-  }
-
-  .quickAction:active {
-    color:
-      #eadfca;
-
-    background:
-      rgba(139, 92, 246, 0.04);
-  }
-
-  .quickAction:active .quickActionArrow {
-    color:
-      var(--gold);
-
-    transform:
-      translate(2px, -1px);
-  }
-
-}
-
 
 /* =========================================================
    REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-  .arcaneGlow,
-  .cardItem {
-    animation:
-      none;
-  }
-
   .cardItem,
   .cardImage img,
-  .imageBorder,
   .cardLink,
-  .cardLinkArrow,
   .quickAction,
-  .quickActionArrow,
-  .quickAction::after {
-    transition:
-      none;
-  }
-}
-
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-
-@keyframes arcanePulse {
-
-  0%,
-  100% {
-    opacity:
-      0.55;
-
-    transform:
-      translate(-50%, -50%)
-      scale(0.96);
+  .actionIcon,
+  .actionArrow,
+  .shareToast {
+    transition: none !important;
+    animation: none !important;
   }
 
-  50% {
-    opacity:
-      0.82;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1.04);
+  .cardItem:hover,
+  .quickAction:hover {
+    transform: none !important;
   }
 
-}
-
-
-@keyframes cardBreath {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
+  .cardItem:hover .cardImage img {
+    transform: none !important;
   }
-
-  50% {
-    transform:
-      translateY(-2px);
-  }
-
-}
-
-
-@keyframes toastIn {
-
-  from {
-    opacity:
-      0;
-
-    transform:
-      translate(-50%, 8px);
-  }
-
-  to {
-    opacity:
-      1;
-
-    transform:
-      translate(-50%, 0);
-  }
-
 }
