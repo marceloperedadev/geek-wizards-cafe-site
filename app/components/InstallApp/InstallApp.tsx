@@ -10,6 +10,9 @@ type BeforeInstallPromptEvent = Event & {
   }>
 }
 
+const DISMISS_KEY = 'geek-wizards-install-dismissed'
+const DISMISS_DAYS = 7
+
 export function InstallApp() {
   const [installEvent, setInstallEvent] =
     useState<BeforeInstallPromptEvent | null>(null)
@@ -17,12 +20,43 @@ export function InstallApp() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const isStandalone =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as Navigator & {
+        standalone?: boolean
+      }).standalone === true
+
+    // Se já estiver instalado como app, não mostra
+    if (isStandalone) {
+      return
+    }
+
+    const dismissedAt = localStorage.getItem(DISMISS_KEY)
+
+    if (dismissedAt) {
+      const elapsed =
+        Date.now() - Number(dismissedAt)
+
+      const sevenDays =
+        DISMISS_DAYS * 24 * 60 * 60 * 1000
+
+      // Ainda está dentro do período de espera
+      if (elapsed < sevenDays) {
+        return
+      }
+
+      // Passou o período → permite mostrar novamente
+      localStorage.removeItem(DISMISS_KEY)
+    }
+
     const handleBeforeInstallPrompt = (event: Event) => {
       event.preventDefault()
 
-      setInstallEvent(event as BeforeInstallPromptEvent)
+      setInstallEvent(
+        event as BeforeInstallPromptEvent,
+      )
 
-      // Pequeno atraso para a mensagem não aparecer imediatamente
+      // Pequeno atraso para não aparecer imediatamente
       setTimeout(() => {
         setVisible(true)
       }, 1800)
@@ -31,17 +65,10 @@ export function InstallApp() {
     const handleAppInstalled = () => {
       setVisible(false)
       setInstallEvent(null)
-    }
 
-    const isStandalone =
-      window.matchMedia('(display-mode: standalone)').matches ||
-      (window.navigator as Navigator & {
-        standalone?: boolean
-      }).standalone === true
-
-    if (isStandalone) {
-      setVisible(false)
-      return
+      // Não salvamos "instalado".
+      // Assim, se o usuário desinstalar no futuro,
+      // o navegador poderá oferecer novamente.
     }
 
     window.addEventListener(
@@ -83,7 +110,14 @@ export function InstallApp() {
   }
 
   function fechar() {
+    // Guarda o momento em que o usuário recusou
+    localStorage.setItem(
+      DISMISS_KEY,
+      Date.now().toString(),
+    )
+
     setVisible(false)
+    setInstallEvent(null)
   }
 
   if (!visible || !installEvent) {
