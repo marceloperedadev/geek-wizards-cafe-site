@@ -1,4 +1,5 @@
-import type { Metadata } from 'next'
+
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -13,8 +14,21 @@ const inter = Inter({
 
 const SITE_URL = 'https://geek-wizards-cafe.vercel.app'
 const SITE_NAME = 'Geek Wizards Café'
+
 const SITE_DESCRIPTION =
   'Cafeteria temática e loja geek em Taubaté. Cafés mágicos, doces, jogos de tabuleiro, RPG e experiências para toda a guilda.'
+
+// =========================================================
+// VIEWPORT — PWA
+// =========================================================
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#050506',
+}
 
 // =========================================================
 // METADATA
@@ -29,6 +43,8 @@ export const metadata: Metadata = {
   },
 
   description: SITE_DESCRIPTION,
+
+  applicationName: SITE_NAME,
 
   keywords: [
     'Geek Wizards Café',
@@ -61,17 +77,20 @@ export const metadata: Metadata = {
   },
 
   // =======================================================
-  // OPEN GRAPH & TWITTER (CARD PREVIEWS)
+  // OPEN GRAPH
   // =======================================================
 
   openGraph: {
     title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+
     description:
       'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
+
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: 'pt_BR',
     type: 'website',
+
     images: [
       {
         url: '/images/geek-wizard.jpg',
@@ -82,11 +101,18 @@ export const metadata: Metadata = {
     ],
   },
 
+  // =======================================================
+  // TWITTER
+  // =======================================================
+
   twitter: {
     card: 'summary_large_image',
+
     title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+
     description:
       'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
+
     images: ['/images/geek-wizard.jpg'],
   },
 
@@ -97,6 +123,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -107,11 +134,46 @@ export const metadata: Metadata = {
   },
 
   // =======================================================
-  // ÍCONE
+  // ÍCONES / PWA
   // =======================================================
 
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      {
+        url: '/icons/favicon.ico',
+        type: 'image/x-icon',
+      },
+
+      {
+        url: '/icons/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+
+      {
+        url: '/icons/icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+
+    apple: [
+      {
+        url: '/icons/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+    ],
+  },
+
+  // =======================================================
+  // APPLE WEB APP
+  // =======================================================
+
+  appleWebApp: {
+    capable: true,
+    title: 'Geek Wizards',
+    statusBarStyle: 'black-translucent',
   },
 }
 
@@ -124,36 +186,63 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // =======================================================
+  // STRUCTURED DATA — GOOGLE / SCHEMA.ORG
+  // =======================================================
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CafeOrCoffeeShop',
+
     name: SITE_NAME,
+
     description: SITE_DESCRIPTION,
+
     url: SITE_URL,
+
     image: `${SITE_URL}/images/geek-wizard.jpg`,
+
     telephone: '+5512999999999',
+
     address: {
       '@type': 'PostalAddress',
+
       streetAddress: 'Rua Silva Jardim, 97',
+
       addressLocality: 'Taubaté',
+
       addressRegion: 'SP',
+
       postalCode: '12000-000',
+
       addressCountry: 'BR',
     },
+
     geo: {
       '@type': 'GeoCoordinates',
+
       latitude: -23.0264,
+
       longitude: -45.5552,
     },
+
     sameAs: [
       'https://www.instagram.com/geekwizardscafe/',
       'https://www.facebook.com/geekwizardscafe/',
     ],
-    servesCuisine: ['Café', 'Doces', 'Lanches'],
+
+    servesCuisine: [
+      'Café',
+      'Doces',
+      'Lanches',
+    ],
+
     priceRange: '$$',
+
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
+
         dayOfWeek: [
           'Monday',
           'Tuesday',
@@ -163,14 +252,19 @@ export default function RootLayout({
           'Saturday',
           'Sunday',
         ],
+
         opens: '10:00',
+
         closes: '22:00',
       },
     ],
   }
 
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html
+      lang="pt-BR"
+      className="scroll-smooth"
+    >
       <head>
         <script
           type="application/ld+json"
@@ -179,7 +273,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   )
 }
