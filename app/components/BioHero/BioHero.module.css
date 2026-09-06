@@ -17,10 +17,11 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   box-sizing: border-box;
 
-  padding: 2rem 1.25rem 3rem;
+  padding: 0; /* Zerado superior, inferior e laterais */
 
   overflow: hidden;
 
@@ -292,6 +293,9 @@
   max-width: 480px;
 
   margin: 0 auto;
+
+  padding: 0 1.25rem; /* Margem de segurança mantida nos elementos internos */
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -917,12 +921,13 @@
   .heroSection {
     min-height: 100vh;
 
-    padding:
-      4rem 3rem;
+    padding: 0; /* Zerado superior, inferior e laterais */
   }
 
   .heroContainer {
     max-width: 1050px;
+
+    padding: 0 3rem; /* Margem de segurança lateral para Desktop */
 
     display: grid;
 
@@ -1103,6 +1108,10 @@
 
 @media (max-width: 420px) {
   .heroSection {
+    padding: 0;
+  }
+
+  .heroContainer {
     padding-left: 1rem;
     padding-right: 1rem;
   }
