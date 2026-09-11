@@ -161,7 +161,7 @@
 }
 
 @media (max-width: 520px) {
-  .experienceSection, .visitSection { padding: 4.5rem 1.25rem; }
+  .experienceSection, .visitSection { padding: 3.25rem 1.25rem; }
   .experienceGrid { grid-template-columns: 1fr; }
   .experienceCard { min-height: auto; }
   .iconWrap { margin-bottom: 1.5rem; }

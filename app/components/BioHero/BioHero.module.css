@@ -1180,7 +1180,8 @@
 
 @media (max-width: 420px) {
   .heroSection {
-    padding: 0;
+    min-height: auto;
+    padding: 2.75rem 0 3rem;
   }
 
   .heroContainer {
@@ -1189,12 +1190,12 @@
   }
 
   .imageCard {
-    width: 190px;
-    height: 190px;
+    width: 164px;
+    height: 164px;
   }
 
   .infoWrapper {
-    margin-top: 1.9rem;
+    margin-top: 1.4rem;
   }
 
   .name {
@@ -1258,7 +1259,7 @@
   }
 
   .locationCard {
-    margin-top: 1.2rem;
+    margin-top: 0.9rem;
 
     padding:
       0.9rem
