@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { ArrowRight, Clock3, MapPin } from 'lucide-react'
 import styles from './BioHero.module.css'
 
 export function BioHero() {
@@ -8,7 +9,7 @@ export function BioHero() {
     name: 'Geek Wizards & Café',
     category: 'Cafeteria Temática & Loja Geek',
     description:
-      'Seu mundo mágico é aqui. Cafés temáticos, jogos, RPG e cultura geek em um só lugar.',
+      'Uma taverna contemporânea para provar cafés mágicos, reunir sua guilda e viver Taubaté de um jeito diferente.',
     badges: [
       'Cafés & Doces',
       'Jogos de Tabuleiro',
@@ -67,12 +68,18 @@ export function BioHero() {
           </p>
 
           <h1 className={styles.name}>
-            {DATA.name}
+            O café onde
+            <span> a magia acontece.</span>
           </h1>
 
           <p className={styles.role}>
             {DATA.description}
           </p>
+
+          <div className={styles.visitMeta}>
+            <span><MapPin size={14} aria-hidden="true" /> Taubaté, SP</span>
+            <span><Clock3 size={14} aria-hidden="true" /> Ter a dom · 14h às 22h</span>
+          </div>
 
           {/* DIFERENCIAIS */}
           <div
@@ -92,41 +99,46 @@ export function BioHero() {
           {/* AÇÕES */}
           <div className={styles.actionGroup}>
             <a
-              href={DATA.links.rpgGroup}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnPrimary}
-              aria-label="Entrar no grupo de RPG da Geek Wizards no WhatsApp"
-            >
-              Grupo de RPG no WhatsApp
-            </a>
-
-            <a
-              href={DATA.links.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnSecondary}
-              aria-label="Acessar o Facebook oficial da Geek Wizards Café"
-            >
-              Facebook Oficial
-            </a>
-
-            <a
               href={DATA.links.locationMaps}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnTertiary}
-              aria-label="Abrir localização da Geek Wizards Café no Google Maps"
+              className={styles.btnPrimary}
+              aria-label="Abrir a localização da Geek Wizards Café no Google Maps"
             >
-              Como Chegar
+              <MapPin size={17} aria-hidden="true" />
+              Planejar minha visita
+              <ArrowRight size={17} aria-hidden="true" />
+            </a>
+
+            <a
+              href="/cardapio"
+              className={styles.btnSecondary}
+              aria-label="Conhecer o cardápio da Geek Wizards Café"
+            >
+              Conhecer o cardápio
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+
+            <a
+              href={DATA.links.rpgGroup}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnTertiary}
+              aria-label="Entrar no grupo de RPG da Geek Wizards no WhatsApp"
+            >
+              Entrar na comunidade de RPG
             </a>
           </div>
 
           {/* ENDEREÇO */}
           <div className={styles.locationCard}>
-            <strong>Ponto de Encontro</strong>
-            {DATA.address}
+            <strong><MapPin size={15} aria-hidden="true" /> Ponto de encontro da guilda</strong>
+            <span>{DATA.address}</span>
           </div>
+
+          <p className={styles.heroNote}>
+            Chegue, escolha sua poção e fique à vontade. A aventura começa na primeira xícara.
+          </p>
         </div>
       </div>
     </section>
