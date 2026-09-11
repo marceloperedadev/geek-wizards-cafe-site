@@ -1,0 +1,170 @@
+.experienceSection,
+.visitSection {
+  position: relative;
+  padding: 7rem clamp(1.25rem, 5vw, 5rem);
+  background: #0b090c;
+  color: #f4eee3;
+}
+
+.experienceSection {
+  border-top: 1px solid rgba(214, 184, 120, 0.15);
+}
+
+.sectionIntro,
+.visitPanel {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.sectionIntro {
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+.kicker {
+  margin: 0 0 1rem;
+  color: #d6b878;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sectionIntro h2,
+.visitPanel h2 {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(2.1rem, 5vw, 4.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.sectionIntro > p:last-child,
+.visitText {
+  max-width: 610px;
+  margin: 1.35rem 0 0;
+  color: #aaa0aa;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(244, 238, 227, 0.12);
+  background: rgba(244, 238, 227, 0.12);
+}
+
+.experienceCard {
+  min-height: 240px;
+  padding: 1.5rem;
+  background: #100d12;
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 2.4rem;
+  border: 1px solid rgba(214, 184, 120, 0.38);
+  color: #d6b878;
+}
+
+.experienceCard h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+}
+
+.experienceCard p {
+  margin: 0;
+  color: #978e98;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.visitSection {
+  padding-top: 0;
+  background: #0b090c;
+}
+
+.visitPanel {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  background: #17121a;
+  border: 1px solid rgba(214, 184, 120, 0.32);
+}
+
+.visitActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  padding: 0 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.primaryAction {
+  background: #d6b878;
+  color: #161116;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(244, 238, 227, 0.25);
+  color: #f4eee3;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryAction:hover { background: rgba(244, 238, 227, 0.08); }
+
+.visitBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  color: #d6b878;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.visitBadge strong { color: #f4eee3; font-weight: 500; }
+
+@media (max-width: 850px) {
+  .experienceGrid { grid-template-columns: repeat(2, 1fr); }
+  .visitPanel { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .experienceSection, .visitSection { padding: 4.5rem 1.25rem; }
+  .experienceGrid { grid-template-columns: 1fr; }
+  .experienceCard { min-height: auto; }
+  .iconWrap { margin-bottom: 1.5rem; }
+  .visitBadge { margin-top: 1rem; }
+  .primaryAction, .secondaryAction { width: 100%; }
+}
