@@ -47,6 +47,13 @@ export function BioHero() {
         aria-hidden="true"
       />
 
+      <div className={styles.magicDust} aria-hidden="true">
+        <span className={styles.sparkleOne} />
+        <span className={styles.sparkleTwo} />
+        <span className={styles.sparkleThree} />
+        <span className={styles.sparkleFour} />
+      </div>
+
       {/* CONTEÚDO PRINCIPAL */}
       <div className={styles.heroContainer}>
         {/* LOGO */}

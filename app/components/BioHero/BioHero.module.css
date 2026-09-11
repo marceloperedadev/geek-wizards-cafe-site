@@ -229,6 +229,43 @@
   opacity: 1;
 }
 
+.magicDust {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.magicDust span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e9d39a;
+  box-shadow: 0 0 9px rgba(233, 211, 154, 0.9);
+  opacity: 0;
+  animation: quietSparkle 4.8s ease-in-out infinite;
+}
+
+.magicDust span::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(233, 211, 154, 0.7);
+  transform: rotate(45deg) scale(0.55);
+}
+
+.sparkleOne { top: 22%; left: 63%; animation-delay: 0.4s !important; }
+.sparkleTwo { top: 38%; left: 79%; width: 3px !important; height: 3px !important; animation-delay: 1.8s !important; }
+.sparkleThree { top: 67%; left: 71%; animation-delay: 2.7s !important; }
+.sparkleFour { top: 76%; left: 54%; width: 3px !important; height: 3px !important; animation-delay: 3.5s !important; }
+
+@keyframes quietSparkle {
+  0%, 100% { opacity: 0; transform: translateY(5px) scale(0.7); }
+  35%, 65% { opacity: 0.8; transform: translateY(0) scale(1); }
+}
+
 .magicGlow::before {
   content: '';
 
