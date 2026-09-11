@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowRight, Clock3, MapPin } from 'lucide-react'
+import { ArrowRight, Clock3, MapPin, MessageCircle } from 'lucide-react'
+import { SITE_CONFIG } from '@/app/constants/links'
 import styles from './BioHero.module.css'
 
 export function BioHero() {
@@ -118,7 +119,9 @@ export function BioHero() {
             </a>
 
             <a
-              href="/cardapio"
+              href={SITE_CONFIG.whatsapp.menu}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.btnSecondary}
               aria-label="Conhecer o cardápio da Geek Wizards Café"
             >
@@ -127,13 +130,14 @@ export function BioHero() {
             </a>
 
             <a
-              href={DATA.links.rpgGroup}
+              href={SITE_CONFIG.whatsapp.general}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnTertiary}
-              aria-label="Entrar no grupo de RPG da Geek Wizards no WhatsApp"
+              aria-label="Falar com a equipe da Geek Wizards Café pelo WhatsApp"
             >
-              Entrar na comunidade de RPG
+              <MessageCircle size={16} aria-hidden="true" />
+              Chamar no WhatsApp
             </a>
           </div>
 
