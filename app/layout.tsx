@@ -16,7 +16,7 @@ const SITE_URL = 'https://geek-wizards-cafe.vercel.app'
 const SITE_NAME = 'Geek Wizards Café'
 
 const SITE_DESCRIPTION =
-  'Cafeteria temática e loja geek em Taubaté. Cafés mágicos, doces, jogos de tabuleiro, RPG e experiências para toda a guilda.'
+  'Geek Wizards Café: uma cafeteria temática em Taubaté para viver cafés especiais, cultura geek, jogos, RPG, eventos e encontros memoráveis.'
 
 // =========================================================
 // VIEWPORT — PWA
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+    default: 'Geek Wizards Café | Uma experiência além do café',
     template: '%s | Geek Wizards Café',
   },
 
@@ -81,10 +81,10 @@ export const metadata: Metadata = {
   // =======================================================
 
   openGraph: {
-    title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+    title: 'Geek Wizards Café | Uma experiência além do café',
 
     description:
-      'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
+      'Conheça uma cafeteria temática em Taubaté feita para cafés especiais, jogos, RPG, eventos e encontros fora do comum.',
 
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -108,10 +108,10 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
 
-    title: 'Geek Wizards Café | Cafeteria Temática & Loja Geek',
+    title: 'Geek Wizards Café | Uma experiência além do café',
 
     description:
-      'Cafés mágicos, doces temáticos, RPG, jogos de tabuleiro e experiências geek em Taubaté.',
+      'Conheça uma cafeteria temática em Taubaté feita para cafés especiais, jogos, RPG, eventos e encontros fora do comum.',
 
     images: ['/images/geek-wizard.jpg'],
   },
