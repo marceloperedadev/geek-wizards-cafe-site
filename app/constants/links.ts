@@ -11,6 +11,10 @@ export const SITE_CONFIG = {
   location:
     'Rua Silva Jardim, 97 — Jardim das Nações, Taubaté - SP',
 
+  // Versão curta usada no rodapé
+  locationShort:
+    'Rua Silva Jardim, 97 — Jd. das Nações, Taubaté - SP',
+
   // =========================================================
   // WHATSAPP
   // =========================================================

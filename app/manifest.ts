@@ -22,11 +22,6 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/icons/favicon.png',
         sizes: '512x512',
         type: 'image/png',
-      },
-      {
-        src: '/icons/favicon.png',
-        sizes: '512x512',
-        type: 'image/png',
         purpose: 'maskable',
       },
     ],

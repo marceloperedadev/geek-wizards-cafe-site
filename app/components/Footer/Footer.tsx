@@ -1,26 +1,7 @@
-'use client'
-
+import { SITE_CONFIG } from '@/app/constants/links'
 import styles from './Footer.module.css'
 
 export function Footer() {
-  const CONFIG = {
-    name: 'Geek Wizards Café',
-
-    address:
-      'Rua Silva Jardim, 97 — Jd. das Nações, Taubaté - SP',
-
-    social: {
-      instagram:
-        'https://www.instagram.com/geekwizardscafe/',
-
-      facebook:
-        'https://www.facebook.com/geekwizardscafe',
-
-      rpgGroup:
-        'https://chat.whatsapp.com/L0BD7avJT6jAnv7oQtST4K',
-    },
-  }
-
   return (
     <footer className={styles.footerSection}>
 
@@ -40,7 +21,7 @@ export function Footer() {
 
           {/* INSTAGRAM */}
           <a
-            href={CONFIG.social.instagram}
+            href={SITE_CONFIG.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
@@ -56,7 +37,7 @@ export function Footer() {
 
           {/* FACEBOOK */}
           <a
-            href={CONFIG.social.facebook}
+            href={SITE_CONFIG.social.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
@@ -72,7 +53,7 @@ export function Footer() {
 
           {/* WHATSAPP / RPG */}
           <a
-            href={CONFIG.social.rpgGroup}
+            href={SITE_CONFIG.social.rpgGroup}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
@@ -90,12 +71,12 @@ export function Footer() {
 
         {/* LOCALIZAÇÃO */}
         <p className={styles.locationText}>
-          {CONFIG.address}
+          {SITE_CONFIG.locationShort}
         </p>
 
         {/* COPYRIGHT */}
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} {CONFIG.name}.
+          © {new Date().getFullYear()} {SITE_CONFIG.brandName}.
           Todos os direitos reservados.
         </p>
 

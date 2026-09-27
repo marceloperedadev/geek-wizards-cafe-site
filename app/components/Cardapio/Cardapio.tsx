@@ -14,24 +14,31 @@ import {
 } from 'lucide-react'
 import styles from './Cardapio.module.css'
 
-type Produto = {
+export type Produto = {
   id: number
   nome: string
   descricao: string
   preco: number
   imagem: string
-  categoria: string
+  categoria: Categoria
   destaque?: boolean
 }
 
-const CATEGORIAS = [
+export const CATEGORIAS = [
   'Todos',
   'Cafés',
   'Bebidas',
   'Doces',
   'Salgados',
   'Combos',
-]
+] as const
+
+export type Categoria = (typeof CATEGORIAS)[number]
+
+/** Formata um valor em reais no padrão pt-BR usado na interface. */
+export function formatarPreco(valor: number): string {
+  return valor.toFixed(2).replace('.', ',')
+}
 
 const PRODUTOS: Produto[] = [
   {
@@ -99,7 +106,8 @@ type ItemCarrinho = {
 }
 
 export function Cardapio() {
-  const [categoria, setCategoria] = useState('Todos')
+  const [categoria, setCategoria] =
+    useState<Categoria>('Todos')
   const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([])
   const [produtoSelecionado, setProdutoSelecionado] =
     useState<Produto | null>(null)
@@ -196,11 +204,9 @@ export function Cardapio() {
     const itens = carrinho
       .map(
         (item) =>
-          `${item.quantidade}x ${item.produto.nome} — R$ ${(
-            item.produto.preco * item.quantidade
-          )
-            .toFixed(2)
-            .replace('.', ',')}`,
+          `${item.quantidade}x ${item.produto.nome} — R$ ${formatarPreco(
+            item.produto.preco * item.quantidade,
+          )}`,
       )
       .join('\n')
 
@@ -210,9 +216,7 @@ export function Cardapio() {
 
 ${itens}
 
-💰 Total: R$ ${valorTotal
-      .toFixed(2)
-      .replace('.', ',')}
+💰 Total: R$ ${formatarPreco(valorTotal)}
 
 Pedido enviado pelo cardápio digital.`
 
@@ -386,9 +390,7 @@ Pedido enviado pelo cardápio digital.`
                     <strong
                       className={styles.price}
                     >
-                      R$ {produto.preco
-                        .toFixed(2)
-                        .replace('.', ',')}
+                      R$ {formatarPreco(produto.preco)}
                     </strong>
                   </div>
 
@@ -464,9 +466,7 @@ Pedido enviado pelo cardápio digital.`
           <span>
             <small>Seu pedido</small>
             <strong>
-              R$ {valorTotal
-                .toFixed(2)
-                .replace('.', ',')}
+              R$ {formatarPreco(valorTotal)}
             </strong>
           </span>
 
@@ -521,9 +521,7 @@ Pedido enviado pelo cardápio digital.`
 
                     <span>
                       R${' '}
-                      {item.produto.preco
-                        .toFixed(2)
-                        .replace('.', ',')}
+                      {formatarPreco(item.produto.preco)}
                     </span>
                   </div>
 
@@ -589,9 +587,7 @@ Pedido enviado pelo cardápio digital.`
               <span>Total do pedido</span>
 
               <strong>
-                R$ {valorTotal
-                  .toFixed(2)
-                  .replace('.', ',')}
+                R$ {formatarPreco(valorTotal)}
               </strong>
             </div>
 
@@ -659,9 +655,7 @@ Pedido enviado pelo cardápio digital.`
 
               <strong>
                 R${' '}
-                {produtoSelecionado.preco
-                  .toFixed(2)
-                  .replace('.', ',')}
+                {formatarPreco(produtoSelecionado.preco)}
               </strong>
 
               <button

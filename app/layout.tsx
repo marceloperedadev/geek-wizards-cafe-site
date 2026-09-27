@@ -1,6 +1,7 @@
 
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import { SITE_CONFIG } from '@/app/constants/links'
 import './globals.css'
 
 const inter = Inter({
@@ -12,8 +13,10 @@ const inter = Inter({
 // SITE
 // =========================================================
 
-const SITE_URL = 'https://geek-wizards-cafe.vercel.app'
-const SITE_NAME = 'Geek Wizards Café'
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  'https://geek-wizards-cafe.vercel.app'
+const SITE_NAME = SITE_CONFIG.brandName
 
 const SITE_DESCRIPTION =
   'Geek Wizards Café: uma cafeteria temática em Taubaté para viver cafés especiais, cultura geek, jogos, RPG, eventos e encontros memoráveis.'
@@ -140,31 +143,21 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icons/favicon.ico',
-        type: 'image/x-icon',
-      },
-
-      {
-        url: '/icons/icon-192.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-
-      {
-        url: '/icons/icon-512.png',
-        sizes: '512x512',
+        url: '/icons/favicon.png',
         type: 'image/png',
       },
     ],
 
     apple: [
       {
-        url: '/icons/icon-192.png',
+        url: '/icons/favicon.png',
         sizes: '192x192',
         type: 'image/png',
       },
     ],
   },
+
+  manifest: '/manifest.webmanifest',
 
   // =======================================================
   // APPLE WEB APP
@@ -227,8 +220,8 @@ export default function RootLayout({
     },
 
     sameAs: [
-      'https://www.instagram.com/geekwizardscafe/',
-      'https://www.facebook.com/geekwizardscafe/',
+      SITE_CONFIG.social.instagram,
+      SITE_CONFIG.social.facebook,
     ],
 
     servesCuisine: [
