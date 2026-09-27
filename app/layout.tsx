@@ -28,7 +28,6 @@ const SITE_DESCRIPTION =
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   viewportFit: 'cover',
   themeColor: '#050506',
 }
@@ -195,8 +194,6 @@ export default function RootLayout({
 
     image: `${SITE_URL}/images/geek-wizard.jpg`,
 
-    telephone: '+5512999999999',
-
     address: {
       '@type': 'PostalAddress',
 
@@ -206,17 +203,7 @@ export default function RootLayout({
 
       addressRegion: 'SP',
 
-      postalCode: '12000-000',
-
       addressCountry: 'BR',
-    },
-
-    geo: {
-      '@type': 'GeoCoordinates',
-
-      latitude: -23.0264,
-
-      longitude: -45.5552,
     },
 
     sameAs: [
@@ -232,25 +219,6 @@ export default function RootLayout({
 
     priceRange: '$$',
 
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
-        ],
-
-        opens: '10:00',
-
-        closes: '22:00',
-      },
-    ],
   }
 
   return (

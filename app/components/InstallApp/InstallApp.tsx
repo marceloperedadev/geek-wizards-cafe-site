@@ -159,8 +159,8 @@ export function InstallApp() {
       </div>
 
       <p className={styles.description}>
-        Instale nosso app e tenha acesso rápido ao
-        cardápio, eventos, RPG e novidades.
+        Acesse o cardápio e as informações da Geek Wizards
+        direto da tela inicial.
       </p>
 
       <div className={styles.actions}>

@@ -8,6 +8,42 @@ import path from 'node:path'
 
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public')
 
+/*
+ * O Next declara metadata como uniões (ex.: `string | OpenGraph`,
+ * `IconURL | Icon[] | Icons`). Estes helpers normalizam a forma sem
+ * espalhar `as unknown as` pelo arquivo — o runtime é o judge aqui.
+ */
+function ogShape(): {
+  type?: string
+  locale?: string
+  images?: unknown
+} {
+  return metadata.openGraph as never
+}
+
+function twitterShape(): { card?: string } {
+  return metadata.twitter as never
+}
+
+function iconsShape(): {
+  icon?: unknown
+  apple?: unknown
+} {
+  return metadata.icons as never
+}
+
+function robotsShape(): { index?: unknown } {
+  return metadata.robots as never
+}
+
+function listarUrls(valor: unknown): string[] {
+  if (!Array.isArray(valor)) return []
+
+  return valor.map((item) =>
+    typeof item === 'string' ? item : (item as { url: string }).url,
+  )
+}
+
 function publicFileExists(url: string): boolean {
   return existsSync(path.join(PUBLIC_DIR, url))
 }
@@ -69,47 +105,49 @@ describe('metadata da aplicação', () => {
   })
 
   it('declara Open Graph com imagem 1200x630', () => {
-    const og = metadata.openGraph
+    const og = ogShape()
 
-    expect(og?.type).toBe('website')
-    expect(og?.locale).toBe('pt_BR')
+    expect(og.type).toBe('website')
+    expect(og.locale).toBe('pt_BR')
 
-    const imagem = Array.isArray(og?.images) ? og.images[0] : undefined
+    const imagem = Array.isArray(og.images) ? og.images[0] : undefined
 
     expect(imagem?.width).toBe(1200)
     expect(imagem?.height).toBe(630)
   })
 
   it('usa summary_large_image no Twitter', () => {
-    expect(metadata.twitter?.card).toBe('summary_large_image')
+    const twitter = twitterShape()
+
+    expect(twitter.card).toBe('summary_large_image')
   })
 
   it('a imagem de compartilhamento existe em /public', () => {
-    const imagem = Array.isArray(metadata.openGraph?.images)
-      ? (metadata.openGraph.images[0] as { url: string }).url
+    const og = ogShape()
+
+    const imagem = Array.isArray(og.images)
+      ? (og.images[0] as { url: string }).url
       : '/images/geek-wizard.jpg'
 
     expect(publicFileExists(imagem)).toBe(true)
   })
 
   it('todos os ícones declarados no layout existem em /public', () => {
-    const icones = metadata.icons?.icon ?? []
+    const icons = iconsShape()
 
-    for (const icone of icones) {
-      const url = typeof icone === 'string' ? icone : icone.url
-
+    for (const url of listarUrls(icons.icon)) {
       expect(publicFileExists(url), `ícone ausente: ${url}`).toBe(true)
     }
 
-    for (const icone of metadata.icons?.apple ?? []) {
-      const url = typeof icone === 'string' ? icone : icone.url
-
+    for (const url of listarUrls(icons.apple)) {
       expect(publicFileExists(url), `apple icon ausente: ${url}`).toBe(true)
     }
   })
 
   it('permite indexação e declara o manifest', () => {
-    expect(metadata.robots?.index).toBe(true)
+    const robots = robotsShape()
+
+    expect(robots.index).toBe(true)
     expect(metadata.manifest).toBeTruthy()
   })
 
@@ -122,7 +160,8 @@ describe('metadata da aplicação', () => {
 describe('SITE_CONFIG', () => {
   it('usa links de WhatsApp no formato wa.me com DDI', () => {
     for (const url of Object.values(SITE_CONFIG.whatsapp)) {
-      expect(url).toMatch(/^https:\/\/wa\.me\/55\d{10}\?text=/)
+      // 55 (Brasil) + DDD com 2 dígitos + celular com 9 dígitos.
+      expect(url).toMatch(/^https:\/\/wa\.me\/55\d{11}\?text=/)
     }
   })
 

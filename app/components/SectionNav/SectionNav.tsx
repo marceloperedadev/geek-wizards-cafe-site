@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import {
   Compass,
+  Images,
   MapPin,
-  Sparkles,
   Swords,
 } from 'lucide-react'
 import styles from './SectionNav.module.css'
@@ -14,12 +14,11 @@ type Item = {
   label: string
   icon: typeof Compass
 }
-
 const ITENS: Item[] = [
-  { id: 'inicio', label: 'Início', icon: Sparkles },
-  { id: 'experiencias', label: 'Experiências', icon: Compass },
-  { id: 'aventuras', label: 'Aventuras', icon: Swords },
-  { id: 'visite', label: 'Visite', icon: MapPin },
+  { id: 'inicio', label: 'Início', icon: Compass },
+  { id: 'aventuras', label: 'Explorar', icon: Swords },
+  { id: 'galeria', label: 'Galeria', icon: Images },
+  { id: 'visite', label: 'Visita', icon: MapPin },
 ]
 
 export function SectionNav() {

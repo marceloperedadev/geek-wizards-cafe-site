@@ -1,159 +1,26 @@
-/* =========================================================
-   NAVEGAÇÃO DE SEÇÕES — FLUTUANTE
-   ========================================================= */
-
-.nav {
-  position: fixed;
-
-  z-index: 60;
-
-  /* Cantos da tela no desktop */
-  right: 1.5rem;
-  top: 50%;
-
-  transform: translate(1.5rem, -50%);
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-
-  padding: 0.5rem;
-
-  border-radius: 999px;
-
-  background: rgba(5, 5, 6, 0.72);
-
-  border: 1px solid rgba(214, 184, 120, 0.16);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 0.35s;
-}
-
-.nav.visivel {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-
-  transform: translate(0, -50%);
-}
-
+.nav { position: fixed; z-index: 70; top: 1rem; right: clamp(1rem, 4vw, 3rem); display: flex; align-items: center; gap: 0.2rem; padding: 0.3rem; border: 1px solid rgba(225, 201, 156, 0.16); border-radius: 999px; background: rgba(24, 19, 16, 0.94); box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18); opacity: 0; pointer-events: none; transform: translateY(-0.5rem); transition: opacity 160ms ease, transform 160ms ease; }
+.visivel { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .item,
-.itemAtivo {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-
-  min-height: 44px;
-
-  padding: 0 0.95rem;
-
-  border-radius: 999px;
-
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-
-  text-decoration: none;
-  white-space: nowrap;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
-}
-
-.item {
-  color: #9b93a0;
-}
-
-.item:hover {
-  color: #e0d8e2;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.itemAtivo {
-  color: #17120c;
-  background: linear-gradient(135deg, #d9bd84, #b99457);
-}
-
-.itemAtivo:hover {
-  color: #17120c;
-}
-
+.itemAtivo { display: inline-flex; min-height: 2.45rem; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.45rem 0.75rem; border-radius: 999px; color: #d3c7b4; font-size: 0.72rem; font-weight: 650; text-decoration: none; white-space: nowrap; transition: background-color 140ms ease, color 140ms ease; }
+.item:hover { background: rgba(255, 255, 255, 0.07); color: #fff9ef; }
+.itemAtivo { background: var(--color-gold-light); color: #261c13; }
+.itemAtivo:hover { color: #261c13; }
+.item svg,
+.itemAtivo svg { width: 0.95rem; height: 0.95rem; flex: 0 0 auto; }
 .item:focus-visible,
-.itemAtivo:focus-visible {
-  outline: 2px solid #c7a96b;
-  outline-offset: 2px;
-}
+.itemAtivo:focus-visible { outline: 2px solid var(--color-gold-light); outline-offset: 3px; }
 
-/* =========================================================
-   MOBILE — BARRA HORIZONTAL FIXA NO RODAPÉ
-   ========================================================= */
-
-@media (max-width: 899px) {
-  .nav {
-    right: 50%;
-    top: auto;
-    bottom: 0.75rem;
-
-    transform: translate(50%, 1.5rem);
-
-    flex-direction: row;
-    gap: 0.15rem;
-
-    padding: 0.35rem;
-
-    border-radius: 999px;
-
-    /* evita que o teclado do celular cubra a barra */
-    padding-bottom: calc(0.35rem + env(safe-area-inset-bottom, 0px));
-  }
-
-  .nav.visivel {
-    transform: translate(50%, 0);
-  }
-
+@media (max-width: 1023px) {
+  .nav { top: auto; right: 50%; bottom: calc(0.55rem + env(safe-area-inset-bottom, 0px)); width: min(calc(100% - 1.25rem), 28rem); justify-content: space-between; gap: 0.1rem; padding: 0.3rem; transform: translate(50%, 0.5rem); }
+  .visivel { transform: translate(50%, 0); }
   .item,
-  .itemAtivo {
-    flex-direction: column;
-    gap: 0.15rem;
-
-    min-width: 58px;
-    min-height: 48px;
-
-    padding: 0.35rem 0.4rem;
-
-    font-size: 0.58rem;
-    letter-spacing: 0.02em;
-  }
+  .itemAtivo { min-width: 0; min-height: 2.9rem; flex: 1 1 0; flex-direction: column; gap: 0.18rem; padding: 0.35rem 0.2rem; font-size: clamp(0.57rem, 2.4vw, 0.67rem); }
+  .item svg,
+  .itemAtivo svg { width: 1rem; height: 1rem; }
 }
-
-@media (max-width: 360px) {
-  .item,
-  .itemAtivo {
-    min-width: 50px;
-    font-size: 0.53rem;
-  }
-}
-
-/* =========================================================
-   ACESSIBILIDADE
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .nav,
   .item,
-  .itemAtivo {
-    transition: none;
-  }
+  .itemAtivo { transition: none; }
 }

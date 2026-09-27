@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Coffee } from 'lucide-react'
 import styles from './HubCards.module.css'
 import { SITE_CONFIG } from '@/app/constants/links'
 
@@ -19,6 +21,7 @@ export function HubCards() {
     useState<BeforeInstallPromptEvent | null>(null)
 
   const [isStandalone, setIsStandalone] = useState(false)
+  const showInstallAction = Boolean(installEvent && !isStandalone)
 
   /*
    * =========================================================
@@ -285,10 +288,10 @@ export function HubCards() {
           <article className={styles.cardItem}>
             <div className={styles.cardImage}>
               <Image
-                src="/images/mesas-rpg.jpg"
-                alt="Mesa de RPG e jogos de tabuleiro na Geek Wizards Café"
-                width={500}
-                height={500}
+                src="/images/Geek-hubCards.jpg"
+                alt="Miniaturas e dados de RPG sobre uma mesa de madeira"
+                width={1584}
+                height={792}
                 sizes="
                   (max-width: 639px) 100vw,
                   (max-width: 899px) 50vw,
@@ -307,8 +310,7 @@ export function HubCards() {
               </p>
 
               <h3 className={styles.cardTitle}>
-                Mesas de RPG
-                <span>& Jogos</span>
+                Mesas de RPG <span>& Jogos</span>
               </h3>
 
               <p className={styles.cardText}>
@@ -318,14 +320,14 @@ export function HubCards() {
 
               <a
                 href={
-                  SITE_CONFIG.whatsapp.reservations
+                  SITE_CONFIG.whatsapp.reservations ?? '/#visite'
                 }
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.cardLink}
                 aria-label="Reservar uma mesa de RPG ou jogos"
               >
-                Reservar Mesa
+                {SITE_CONFIG.whatsapp.reservations ? 'Reservar Mesa' : 'Informações para visita'}
 
                 <span aria-hidden="true">
                   →
@@ -339,19 +341,12 @@ export function HubCards() {
               ================================================= */}
 
           <article className={styles.cardItem}>
-            <div className={styles.cardImage}>
-              <Image
-                src="/images/cardapio-geek.jpg"
-                alt="Cafés, poções e doces temáticos da Geek Wizards Café"
-                width={500}
-                height={500}
-                sizes="
-                  (max-width: 639px) 100vw,
-                  (max-width: 899px) 50vw,
-                  520px
-                "
-              />
-
+            <div className={`${styles.cardImage} ${styles.menuCardImage}`}>
+              <div className={styles.menuCardArtwork} aria-hidden="true">
+                <span className={styles.menuCardKicker}>Caderno da casa · 02</span>
+                <strong>Sabores<br />da casa</strong>
+                <span className={styles.menuCardCaption}><Coffee size={15} /> Cafés, doces &amp; encontros</span>
+              </div>
               <span className={styles.cardNumber}>
                 02
               </span>
@@ -363,8 +358,7 @@ export function HubCards() {
               </p>
 
               <h3 className={styles.cardTitle}>
-                Menu Mágico
-                <span>& Delivery</span>
+                Cardápio <span>& pedidos à mesa</span>
               </h3>
 
               <p className={styles.cardText}>
@@ -372,10 +366,8 @@ export function HubCards() {
                 cafés especiais e doces temáticos.
               </p>
 
-              <a
-                href={SITE_CONFIG.whatsapp.menu}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/cardapio"
                 className={styles.cardLink}
                 aria-label="Ver o cardápio da Geek Wizards Café"
               >
@@ -384,7 +376,7 @@ export function HubCards() {
                 <span aria-hidden="true">
                   →
                 </span>
-              </a>
+              </Link>
             </div>
           </article>
         </div>
@@ -419,7 +411,7 @@ export function HubCards() {
             com você.
           </p>
 
-          <div className={styles.quickActions}>
+          <div className={`${styles.quickActions} ${showInstallAction ? styles.quickActionsFour : styles.quickActionsThree}`}>
             {/* =================================================
                 COMPARTILHAR CARDÁPIO
                 ================================================= */}
@@ -490,7 +482,7 @@ export function HubCards() {
                 DISPONIBILIZA A INSTALAÇÃO
                 ================================================= */}
 
-            {installEvent && !isStandalone && (
+            {showInstallAction && (
               <button
                 type="button"
                 className={`${styles.quickAction} ${styles.quickActionInstall}`}

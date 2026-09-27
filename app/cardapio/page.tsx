@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { Cardapio } from '@/app/components/Cardapio/Cardapio'
 import { SITE_CONFIG } from '@/app/constants/links'
+import { connection } from 'next/server'
+import { getPublicCatalog } from '@/lib/catalog'
 
 export const metadata: Metadata = {
   title: 'Cardápio Mágico',
@@ -13,7 +15,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function CardapioPage() {
+export default async function CardapioPage() {
+  await connection()
+  const catalog = await getPublicCatalog()
+
   return (
     <>
       <a href="#cardapio-conteudo" className="skipLink">
@@ -32,18 +37,27 @@ export default function CardapioPage() {
           Voltar para a home
         </Link>
 
-        <a
-          href={SITE_CONFIG.whatsapp.menu}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pageBarCta"
-        >
-          Falar com a equipe
-        </a>
+        {SITE_CONFIG.whatsapp.menu ? (
+          <a
+            href={SITE_CONFIG.whatsapp.menu}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pageBarCta"
+          >
+            Falar com a equipe
+          </a>
+        ) : (
+          <Link href="/#visite" className="pageBarCta">
+            Informações para visita
+          </Link>
+        )}
       </div>
 
       <div id="cardapio-conteudo">
-        <Cardapio />
+        <Cardapio
+          initialProducts={catalog.products}
+          initialCategories={catalog.categories.map((category) => category.name)}
+        />
       </div>
     </>
   )

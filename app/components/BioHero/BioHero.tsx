@@ -8,9 +8,9 @@ import styles from './BioHero.module.css'
 
 export function BioHero() {
   const DATA = {
-    category: SITE_CONFIG.role,
+    category: 'Cafeteria temática & loja geek',
     description:
-      'Uma taverna contemporânea para provar cafés mágicos, reunir sua guilda e viver Taubaté de um jeito diferente.',
+      'Cafés, doces, jogos de tabuleiro e mesas de RPG para compartilhar uma pausa diferente em Taubaté.',
     badges: [
       'Cafés & Doces',
       'Jogos de Tabuleiro',
@@ -80,7 +80,7 @@ export function BioHero() {
 
           <div className={styles.visitMeta}>
             <span><MapPin size={14} aria-hidden="true" /> Taubaté, SP</span>
-            <span><Clock3 size={14} aria-hidden="true" /> Ter a dom · 14h às 22h</span>
+            <span><Clock3 size={14} aria-hidden="true" /> {SITE_CONFIG.hours}</span>
           </div>
 
           {/* DIFERENCIAIS */}
@@ -98,44 +98,45 @@ export function BioHero() {
             ))}
           </div>
 
-          {/* AÇÕES */}
-          <div className={styles.actionGroup}>
-            <a
-              href={SITE_CONFIG.social.maps}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnPrimary}
-              aria-label="Abrir a localização da Geek Wizards Café no Google Maps"
-            >
-              <MapPin size={17} aria-hidden="true" />
-              Planejar minha visita
-              <ArrowRight size={17} aria-hidden="true" />
-            </a>
-
-            <Link
-              href="/cardapio"
-              className={styles.btnSecondary}
-              aria-label="Conhecer o cardápio da Geek Wizards Café"
-            >
-              Conhecer o cardápio
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-
-            <a
-              href={SITE_CONFIG.whatsapp.menu}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnTertiary}
-              aria-label="Falar com a equipe pelo WhatsApp para fazer um pedido"
-            >
-              Fazer um pedido
-            </a>
-          </div>
-
           {/* ENDEREÇO */}
           <div className={styles.locationCard}>
             <strong><MapPin size={15} aria-hidden="true" /> Ponto de encontro da guilda</strong>
             <span>{DATA.address}</span>
+          </div>
+
+          {/* AÇÕES */}
+          <div className={styles.actionGroup}>
+            <Link
+              href="/cardapio"
+              className={styles.btnPrimary}
+              aria-label="Ver o cardápio da Geek Wizards Café"
+            >
+              Ver cardápio
+              <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+
+            <a
+              href={SITE_CONFIG.social.maps}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnSecondary}
+              aria-label="Encontrar a Geek Wizards Café no Google Maps"
+            >
+              <MapPin size={17} aria-hidden="true" />
+              Conhecer o espaço
+            </a>
+
+            {SITE_CONFIG.whatsapp.order && (
+              <a
+                href={SITE_CONFIG.whatsapp.order}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnTertiary}
+                aria-label="Iniciar um pedido pelo WhatsApp"
+              >
+                Pedir pelo WhatsApp
+              </a>
+            )}
           </div>
 
           <p className={styles.heroNote}>

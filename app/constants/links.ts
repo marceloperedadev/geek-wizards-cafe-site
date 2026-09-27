@@ -1,3 +1,18 @@
+const WHATSAPP_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '').replace(/\D/g, '')
+const WHATSAPP_VALID =
+  /^55\d{10,11}$/.test(WHATSAPP_NUMBER) &&
+  !/^(\d)\1+$/.test(WHATSAPP_NUMBER.slice(4))
+
+const whatsappUrl = (message: string): string =>
+  WHATSAPP_VALID
+    ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+    : ''
+
+export const WHATSAPP_CONFIG = {
+  configured: WHATSAPP_VALID,
+  createUrl: whatsappUrl,
+} as const
+
 export const SITE_CONFIG = {
   // =========================================================
   // ESTABELECIMENTO
@@ -15,22 +30,22 @@ export const SITE_CONFIG = {
   locationShort:
     'Rua Silva Jardim, 97 — Jd. das Nações, Taubaté - SP',
 
+  hours: 'Ter a dom · 14h às 22h',
+
   // =========================================================
   // WHATSAPP
   // =========================================================
 
   whatsapp: {
-    // Atendimento geral
-    general:
-      'https://wa.me/5512999999999?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Geek%20Wizards%20Caf%C3%A9.',
+    // Atendimento geral. URLs ficam vazias até configurar o número real.
+    general: whatsappUrl('Olá! Gostaria de saber mais sobre a Geek Wizards Café.'),
 
     // Reservas de RPG e jogos
-    reservations:
-      'https://wa.me/5512999999999?text=Ol%C3%A1!%20Quero%20reservar%20uma%20mesa%20de%20RPG%20ou%20jogos!',
+    reservations: whatsappUrl('Olá! Quero reservar uma mesa de RPG ou jogos!'),
 
     // Cardápio e pedidos
-    menu:
-      'https://wa.me/5512999999999?text=Ol%C3%A1!%20Gostaria%20de%20ver%20o%20Card%C3%A1pio%20M%C3%A1gico!',
+    menu: whatsappUrl('Olá! Gostaria de consultar o cardápio da Geek Wizards Café.'),
+    order: whatsappUrl('Olá! Gostaria de fazer um pedido da Geek Wizards Café.'),
   },
 
   // =========================================================

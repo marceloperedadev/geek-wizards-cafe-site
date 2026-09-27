@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "categories": [
+    { "id": "cafes", "name": "Cafés", "active": true, "sortOrder": 0 },
+    { "id": "bebidas", "name": "Bebidas", "active": true, "sortOrder": 1 },
+    { "id": "doces", "name": "Doces", "active": true, "sortOrder": 2 },
+    { "id": "salgados", "name": "Salgados", "active": true, "sortOrder": 3 },
+    { "id": "combos", "name": "Combos", "active": true, "sortOrder": 4 }
+  ],
+  "products": [
+    { "id": 1, "name": "Café Arcano", "description": "Café especial preparado com um toque mágico da casa.", "priceCents": 1290, "categoryId": "cafes", "imageUrl": null, "symbol": "☕", "active": true, "featured": true, "sortOrder": 0 },
+    { "id": 2, "name": "Poção Roxa", "description": "Bebida refrescante e misteriosa, perfeita para aventureiros.", "priceCents": 1590, "categoryId": "bebidas", "imageUrl": null, "symbol": "✧", "active": true, "featured": true, "sortOrder": 1 },
+    { "id": 3, "name": "Bolo do Mago", "description": "Fatia generosa de bolo artesanal preparada na casa.", "priceCents": 1490, "categoryId": "doces", "imageUrl": null, "symbol": "✦", "active": true, "featured": false, "sortOrder": 2 },
+    { "id": 4, "name": "Cookie Encantado", "description": "Cookie artesanal com chocolate e uma dose de magia.", "priceCents": 990, "categoryId": "doces", "imageUrl": null, "symbol": "❋", "active": true, "featured": false, "sortOrder": 3 },
+    { "id": 5, "name": "Torrada do Aventureiro", "description": "Torrada crocante com recheio especial da casa.", "priceCents": 1690, "categoryId": "salgados", "imageUrl": null, "symbol": "❧", "active": true, "featured": false, "sortOrder": 4 },
+    { "id": 6, "name": "Combo do Mago", "description": "Café Arcano + Cookie Encantado.", "priceCents": 2090, "categoryId": "combos", "imageUrl": null, "symbol": "♜", "active": true, "featured": true, "sortOrder": 5 }
+  ]
+}

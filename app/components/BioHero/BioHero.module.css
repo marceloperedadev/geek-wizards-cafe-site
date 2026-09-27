@@ -1,1544 +1,206 @@
-/* =========================================================
-   BIO HERO — GEEK WIZARDS CAFÉ
-   PREMIUM / ARCANE / REFLEXO MÁGICO
-   PERSONAGEM EMERGINDO DA ESCURIDÃO
-   ========================================================= */
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
 .heroSection {
   position: relative;
   isolation: isolate;
-
-  width: 100%;
-  min-height: 100svh;
-
-  display: flex;
+  display: grid;
+  min-height: min(52rem, 100svh);
   align-items: center;
-  justify-content: center;
-
-  box-sizing: border-box;
-
-  padding: 0; /* Zerado superior, inferior e laterais */
-
   overflow: hidden;
-
+  padding: clamp(4.5rem, 9vw, 7rem) clamp(1.25rem, 5vw, 5rem) 5rem;
   background:
-    radial-gradient(
-      ellipse 55% 70% at 82% 44%,
-      rgba(92, 57, 125, 0.13),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 40% 50% at 15% 82%,
-      rgba(185, 146, 85, 0.055),
-      transparent 72%
-    ),
-    linear-gradient(
-      180deg,
-      #050506 0%,
-      #0b090c 48%,
-      #050506 100%
-    );
+    radial-gradient(ellipse at 77% 40%, rgba(82, 60, 78, 0.26), transparent 43%),
+    linear-gradient(118deg, #17120e 8%, #1e1812 50%, #15110f 100%);
 }
-
-/* =========================================================
-   LINHA SUPERIOR
-   ========================================================= */
 
 .heroSection::before {
-  content: '';
-
   position: absolute;
-  top: 0;
-  left: 50%;
-
-  width: min(220px, 55vw);
-  height: 1px;
-
-  transform: translateX(-50%);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #8d6b3f,
-      #c6a866,
-      #8d6b3f,
-      transparent
-    );
-
-  box-shadow:
-    0 0 14px rgba(185, 146, 85, 0.28);
-
-  pointer-events: none;
-
-  z-index: 6;
-}
-
-/* =========================================================
-   GRADE ATMOSFÉRICA
-   ========================================================= */
-
-.heroSection::after {
-  content: '';
-
-  position: absolute;
+  z-index: -1;
   inset: 0;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.012) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.012) 1px,
-      transparent 1px
-    );
-
-  background-size: 48px 48px;
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      transparent 82%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      transparent 82%
-    );
-
-  z-index: 1;
+  background: linear-gradient(90deg, rgba(18, 14, 11, 0.98) 0%, rgba(18, 14, 11, 0.8) 48%, rgba(18, 14, 11, 0.16) 100%);
+  content: '';
 }
-
-/* =========================================================
-   PERSONAGEM DE FUNDO
-   ========================================================= */
 
 .characterBackground {
   position: absolute;
-
-  z-index: 0;
-
-  right: -4%;
-  bottom: -3%;
-
-  width: min(900px, 100vw);
-  height: min(930px, 97vh);
-
-  opacity: 0.40;
-
+  z-index: -2;
+  right: max(0px, calc((100vw - 90rem) / 2));
+  bottom: 0;
+  width: min(47vw, 42rem);
+  height: 96%;
+  opacity: 0.42;
   pointer-events: none;
-
-  filter:
-    brightness(0.70)
-    saturate(0.78)
-    contrast(1.18);
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse 61% 71% at 68% 43%,
-      rgba(0, 0, 0, 0.98) 0%,
-      rgba(0, 0, 0, 0.94) 27%,
-      rgba(0, 0, 0, 0.78) 44%,
-      rgba(0, 0, 0, 0.50) 59%,
-      rgba(0, 0, 0, 0.25) 72%,
-      rgba(0, 0, 0, 0.08) 84%,
-      transparent 100%
-    );
-
-  mask-image:
-    radial-gradient(
-      ellipse 61% 71% at 68% 43%,
-      rgba(0, 0, 0, 0.98) 0%,
-      rgba(0, 0, 0, 0.94) 27%,
-      rgba(0, 0, 0, 0.78) 44%,
-      rgba(0, 0, 0, 0.50) 59%,
-      rgba(0, 0, 0, 0.25) 72%,
-      rgba(0, 0, 0, 0.08) 84%,
-      transparent 100%
-    );
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
 
-.characterBackground img {
-  object-fit: contain;
-  object-position: 69% 40%;
-}
-
-.characterBackground::after {
-  content: '';
-
-  position: absolute;
-  inset: -5%;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse 54% 62% at 68% 43%,
-      rgba(5, 5, 6, 0) 0%,
-      rgba(5, 5, 6, 0.04) 28%,
-      rgba(5, 5, 6, 0.15) 46%,
-      rgba(5, 5, 6, 0.38) 62%,
-      rgba(5, 5, 6, 0.68) 78%,
-      rgba(5, 5, 6, 0.92) 91%,
-      #050506 100%
-    );
-}
-
-/* =========================================================
-   REFLEXO OVAL
-   ========================================================= */
-
-.magicGlow {
-  position: absolute;
-
-  z-index: 0;
-
-  right: -4%;
-  bottom: 17%;
-
-  width: 620px;
-  height: 760px;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(139, 92, 246, 0.18) 0%,
-      rgba(139, 92, 246, 0.11) 23%,
-      rgba(139, 92, 246, 0.055) 42%,
-      rgba(139, 92, 246, 0.018) 62%,
-      transparent 78%
-    );
-
-  filter: blur(35px);
-
-  opacity: 1;
-}
-
-.magicDust {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.magicDust span {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #e9d39a;
-  box-shadow: 0 0 9px rgba(233, 211, 154, 0.9);
-  opacity: 0;
-  animation: quietSparkle 4.8s ease-in-out infinite;
-}
-
-.magicDust span::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border: 1px solid rgba(233, 211, 154, 0.7);
-  transform: rotate(45deg) scale(0.55);
-}
-
-.sparkleOne { top: 22%; left: 63%; animation-delay: 0.4s !important; }
-.sparkleTwo { top: 38%; left: 79%; width: 3px !important; height: 3px !important; animation-delay: 1.8s !important; }
-.sparkleThree { top: 67%; left: 71%; animation-delay: 2.7s !important; }
-.sparkleFour { top: 76%; left: 54%; width: 3px !important; height: 3px !important; animation-delay: 3.5s !important; }
-
-@keyframes quietSparkle {
-  0%, 100% { opacity: 0; transform: translateY(5px) scale(0.7); }
-  35%, 65% { opacity: 0.8; transform: translateY(0) scale(1); }
-}
-
-.magicGlow::before {
-  content: '';
-
-  position: absolute;
-
-  top: 8%;
-  left: 27%;
-
-  width: 310px;
-  height: 310px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(195, 151, 226, 0.15) 0%,
-      rgba(168, 85, 247, 0.10) 25%,
-      rgba(168, 85, 247, 0.045) 52%,
-      transparent 74%
-    );
-
-  filter: blur(28px);
-}
-
-.magicGlow::after {
-  content: '';
-
-  position: absolute;
-
-  top: 13%;
-  left: 40%;
-
-  width: 190px;
-  height: 250px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(224, 201, 239, 0.085) 0%,
-      rgba(168, 85, 247, 0.055) 30%,
-      transparent 72%
-    );
-
-  filter: blur(24px);
-
-  transform: rotate(-12deg);
-}
-
-/* =========================================================
-   CONTAINER PRINCIPAL
-   ========================================================= */
+.characterBackground img { object-fit: contain; object-position: right bottom; }
+.magicGlow,
+.magicDust { display: none; }
 
 .heroContainer {
-  position: relative;
-
-  z-index: 2;
-
-  width: 100%;
-  max-width: 560px;
-
-  margin: 0 auto;
-
-  padding: 0 1.25rem 4.5rem; /* espaço para o indicador de rolagem */
-
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
   align-items: center;
-
-  text-align: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
 }
-
-/* =========================================================
-   LOGO
-   ========================================================= */
 
 .imageCard {
   position: relative;
-
-  width: 168px;
-  height: 168px;
-
-  padding: 5px;
-
-  box-sizing: border-box;
-
+  width: min(100%, 24rem);
+  aspect-ratio: 1;
+  justify-self: center;
+  overflow: hidden;
+  border: 1px solid rgba(229, 200, 141, 0.26);
   border-radius: 50%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #d8bc83,
-      #806038 45%,
-      #d1ad68 70%,
-      #70522d
-    );
-
-  box-shadow:
-    0 0 0 1px rgba(214, 184, 120, 0.35),
-    0 14px 45px rgba(0, 0, 0, 0.7),
-    0 0 35px rgba(139, 92, 246, 0.10);
-
-  transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s ease;
+  background: #100d0a;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.36);
 }
 
 .imageCard::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border: 0.65rem solid rgba(18, 14, 11, 0.32);
+  border-radius: inherit;
   content: '';
-
-  position: absolute;
-  inset: -9px;
-
-  border-radius: 50%;
-
-  border: 1px solid rgba(190, 154, 91, 0.25);
-
-  transform: rotate(8deg);
-
   pointer-events: none;
 }
 
-.imageCard::after {
-  content: '✦';
-
-  position: absolute;
-
-  top: -13px;
-  right: 12px;
-
-  color: #d6b878;
-
-  font-size: 0.8rem;
-
-  text-shadow:
-    0 0 12px rgba(214, 184, 120, 0.7);
-
-  pointer-events: none;
-}
-
-.imageCard:hover {
-  transform:
-    translateY(-5px)
-    scale(1.025);
-
-  box-shadow:
-    0 0 0 1px rgba(214, 184, 120, 0.5),
-    0 20px 55px rgba(0, 0, 0, 0.8),
-    0 0 40px rgba(139, 92, 246, 0.18);
-}
-
-.imageCard img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-  border: 3px solid #0b090b;
-}
-
-/* =========================================================
-   INFORMAÇÕES
-   ========================================================= */
-
-.infoWrapper {
-  width: 100%;
-
-  margin-top: 2rem;
-}
+.imageCard::after { display: none; }
+.imageCard img { width: 100%; height: 100%; object-fit: cover; }
+.infoWrapper { max-width: 39rem; }
 
 .eyebrow {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.7rem;
-
-  margin: 0 0 0.7rem;
-
-  color: #c7a96b;
-
-  font-size: 0.65rem;
-
+  margin: 0 0 1.1rem;
+  color: var(--color-gold-light);
+  font-size: 0.72rem;
   font-weight: 700;
-
-  letter-spacing: 0.24em;
-
+  letter-spacing: 0.16em;
+  line-height: 1.6;
   text-transform: uppercase;
-}
-
-.eyebrow::before,
-.eyebrow::after {
-  content: '';
-
-  width: 22px;
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #b99255
-    );
-}
-
-.eyebrow::after {
-  background:
-    linear-gradient(
-      90deg,
-      #b99255,
-      transparent
-    );
 }
 
 .name {
+  max-width: 12ch;
   margin: 0;
-
-  color: #f4eee3;
-
-  font-size:
-    clamp(
-      2rem,
-      8vw,
-      3rem
-    );
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -0.045em;
-
-  text-transform: uppercase;
-
-  text-shadow:
-    0 2px 20px rgba(0, 0, 0, 0.75);
+  color: #fbf5ea;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3.5rem, 7.2vw, 6.5rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  text-wrap: balance;
 }
 
-.name span {
-  display: block;
-  color: #d6b878;
-}
+.name span { display: block; color: var(--color-gold-light); }
 
 .role {
-  max-width: 470px;
-
-  margin: 1rem auto 1rem;
-
-  color: #c1bac2;
-
-  font-size: 0.9rem;
-
+  max-width: 34rem;
+  margin: 1.45rem 0 0;
+  color: #d6cbbb;
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
   line-height: 1.65;
-
-  font-weight: 400;
 }
 
 .visitMeta {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem 1.2rem;
-  margin: 0 0 1.5rem;
-  color: #bcb3bd;
-  font-size: 0.72rem;
-  letter-spacing: 0.03em;
+  gap: 0.65rem 1.35rem;
+  margin-top: 1.25rem;
+  color: #c1b49f;
+  font-size: 0.82rem;
 }
 
-.visitMeta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
+.visitMeta span,
+.locationCard strong { display: inline-flex; align-items: center; gap: 0.45rem; }
+.visitMeta svg,
+.locationCard svg { flex: 0 0 auto; color: var(--color-gold); }
 
-.visitMeta svg {
-  color: #d6b878;
-}
+.bioBadgeList { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.badge { padding: 0.42rem 0.68rem; border: 1px solid var(--color-line); border-radius: 999px; color: #d7c9b5; font-size: 0.72rem; }
+.locationCard { display: grid; gap: 0.35rem; margin-top: 1.3rem; color: #d8cdbb; font-size: 0.83rem; line-height: 1.5; }
+.locationCard strong { color: var(--color-paper); font-size: 0.82rem; }
 
-/* =========================================================
-   BADGES
-   ========================================================= */
-
-.bioBadgeList {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  gap: 0.45rem;
-
-  margin-bottom: 1.8rem;
-}
-
-.badge {
-  padding: 0.4rem 0.7rem;
-
-  border: 1px solid rgba(
-    185,
-    146,
-    85,
-    0.25
-  );
-
-  border-radius: 999px;
-
-  background:
-    rgba(255, 255, 255, 0.035);
-
-  color: #d0c8d0;
-
-  font-size: 0.68rem;
-
-  font-weight: 500;
-
-  backdrop-filter: blur(8px);
-
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.badge:hover {
-  border-color:
-    rgba(214, 184, 120, 0.5);
-
-  background:
-    rgba(185, 146, 85, 0.08);
-
-  transform:
-    translateY(-2px);
-}
-
-/* =========================================================
-   BOTÕES
-   ========================================================= */
-
-.actionGroup {
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 0.7rem;
-}
-
+.actionGroup { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.65rem; }
 .btnPrimary,
 .btnSecondary,
 .btnTertiary {
   position: relative;
-
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-
-  width: 100%;
-
-  min-height: 58px;
-
-  padding: 0 1.35rem;
-
-  box-sizing: border-box;
-
-  text-decoration: none;
-
-  font-size: 0.75rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.085em;
-
-  text-transform: uppercase;
-
+  gap: 0.55rem;
+  min-height: 3.1rem;
+  padding: 0.75rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
   overflow: hidden;
-
-  clip-path:
-    polygon(
-      8px 0,
-      calc(100% - 8px) 0,
-      100% 8px,
-      100% calc(100% - 8px),
-      calc(100% - 8px) 100%,
-      8px 100%,
-      0 calc(100% - 8px),
-      0 8px
-    );
-
-  transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
-    background 0.35s ease,
-    color 0.35s ease;
-}
-
-/* =========================================================
-   EFEITO INTERNO DOS BOTÕES
-   ========================================================= */
-
-.btnPrimary::before,
-.btnSecondary::before,
-.btnTertiary::before {
-  content: '';
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(168, 85, 247, 0.14),
-      transparent 55%
-    );
-
-  opacity: 0.7;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.5s ease;
+  clip-path: polygon(0.55rem 0, calc(100% - 0.55rem) 0, 100% 0.55rem, 100% calc(100% - 0.55rem), calc(100% - 0.55rem) 100%, 0.55rem 100%, 0 calc(100% - 0.55rem), 0 0.55rem);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
 .btnPrimary::after,
 .btnSecondary::after,
-.btnTertiary::after {
-  content: '';
+.btnTertiary::after { position: absolute; inset: 0; background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%); content: ''; pointer-events: none; transform: translateX(-125%) skewX(-18deg); transition: transform 360ms ease; }
+.btnPrimary:hover::after,
+.btnSecondary:hover::after,
+.btnTertiary:hover::after { transform: translateX(125%) skewX(-18deg); }
+.btnPrimary { background: linear-gradient(130deg, #f0dcae, #d1ad6d 68%, #bd9254); color: #241b12; }
+.btnSecondary,
+.btnTertiary { border-color: rgba(229, 200, 141, 0.36); background: linear-gradient(130deg, rgba(48, 38, 45, 0.96), rgba(23, 18, 14, 0.96)); color: var(--color-paper); }
+.btnPrimary:hover,
+.btnSecondary:hover,
+.btnTertiary:hover { transform: translateY(-2px); }
+.btnPrimary:hover { background: #f0dcae; }
+.btnSecondary:hover,
+.btnTertiary:hover { border-color: var(--color-gold-light); background: rgba(209, 173, 109, 0.11); }
 
-  position: absolute;
+.heroNote { max-width: 33rem; margin: 1.05rem 0 0; color: #b9ac98; font-size: 0.79rem; line-height: 1.55; }
+.scrollCue { position: absolute; right: max(1.25rem, calc((100vw - var(--content-width)) / 2)); bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.55rem; color: #c8b99f; font-size: 0.75rem; text-decoration: none; }
+.scrollCue span { color: var(--color-gold-light); }
+.scrollCue em { font-style: normal; }
+.sparkleOne,
+.sparkleTwo,
+.sparkleThree,
+.sparkleFour { display: none; }
 
-  top: 0;
-  left: -120%;
-
-  width: 80%;
-  height: 100%;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.07) 50%,
-      transparent 80%
-    );
-
-  transform: skewX(-18deg);
-
-  transition:
-    left 0.7s ease;
+@media (max-width: 860px) {
+  .heroSection { min-height: auto; padding: 5rem 1.25rem 4rem; }
+  .characterBackground { right: -8rem; width: min(78vw, 35rem); height: 76%; opacity: 0.2; }
+  .heroContainer { grid-template-columns: minmax(0, 1fr); gap: 2rem; max-width: 38rem; text-align: center; }
+  .imageCard { width: clamp(12rem, 46vw, 18rem); }
+  .infoWrapper { margin-inline: auto; }
+  .name { max-width: 12ch; margin-inline: auto; font-size: clamp(3.3rem, 10vw, 5.4rem); }
+  .visitMeta,
+  .bioBadgeList,
+  .actionGroup { justify-content: center; }
+  .locationCard { justify-items: center; }
+  .scrollCue { right: 50%; transform: translateX(50%); }
 }
 
-/* =========================================================
-   BOTÃO PRINCIPAL
-   ========================================================= */
-
-.btnPrimary {
-  color: #17120c;
-
-  background:
-    linear-gradient(
-      135deg,
-      #d9bd84 0%,
-      #b99457 50%,
-      #d0ad69 100%
-    );
-
-  border:
-    1px solid rgba(
-      231,
-      205,
-      151,
-      0.85
-    );
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.45),
-    0 0 18px rgba(139, 92, 246, 0.08);
-}
-
-.btnPrimary:hover {
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 14px 35px rgba(0, 0, 0, 0.55),
-    0 0 28px rgba(139, 92, 246, 0.16),
-    0 0 8px rgba(214, 184, 120, 0.25);
-
-  border-color:
-    rgba(236, 214, 166, 1);
-}
-
-.btnPrimary:hover::before {
-  opacity: 1;
-
-  transform:
-    scale(1.15);
-}
-
-.btnPrimary:hover::after {
-  left: 130%;
-}
-
-/* =========================================================
-   BOTÃO SECUNDÁRIO
-   ========================================================= */
-
-.btnSecondary {
-  color: #e0d8e2;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.10),
-      rgba(255, 255, 255, 0.035)
-    );
-
-  border:
-    1px solid rgba(
-      168,
-      85,
-      247,
-      0.30
-    );
-
-  box-shadow:
-    inset 0 0 25px rgba(139, 92, 246, 0.035),
-    0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.btnSecondary:hover {
-  transform:
-    translateY(-3px);
-
-  color: #f4edfa;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.20),
-      rgba(168, 85, 247, 0.06)
-    );
-
-  border-color:
-    rgba(180, 120, 240, 0.55);
-
-  box-shadow:
-    inset 0 0 30px rgba(139, 92, 246, 0.08),
-    0 12px 30px rgba(0, 0, 0, 0.45),
-    0 0 24px rgba(139, 92, 246, 0.16);
-}
-
-.btnSecondary:hover::before {
-  opacity: 1;
-
-  transform:
-    scale(1.15);
-}
-
-.btnSecondary:hover::after {
-  left: 130%;
-}
-
-/* =========================================================
-   BOTÃO TERCEÁRIO
-   ========================================================= */
-
-.btnTertiary {
-  color: #c2bac3;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.035),
-      rgba(139, 92, 246, 0.035)
-    );
-
-  border:
-    1px solid rgba(
-      255,
-      255,
-      255,
-      0.12
-    );
-
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.22);
-}
-
-.btnTertiary:hover {
-  transform:
-    translateY(-3px);
-
-  color: #e0d3e9;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.10),
-      rgba(255, 255, 255, 0.025)
-    );
-
-  border-color:
-    rgba(168, 85, 247, 0.35);
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(139, 92, 246, 0.10);
-}
-
-.btnTertiary:hover::before {
-  opacity: 1;
-
-  transform:
-    scale(1.15);
-}
-
-.btnTertiary:hover::after {
-  left: 130%;
-}
-
-/* =========================================================
-   LOCALIZAÇÃO
-   ========================================================= */
-.heroNote {
-  max-width: 430px;
-  margin: 1rem auto 0;
-  color: #8f8790;
-  font-size: 0.72rem;
-  line-height: 1.6;
-}
-
-.locationCard {
-
-  width: 100%;
-
-  max-width: 520px;
-
-  margin-top: 1.4rem;
-
-  padding: 1rem 1.15rem;
-
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 0.35rem;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(139, 92, 246, 0.045)
-    );
-
-  border:
-    1px solid rgba(
-      214,
-      184,
-      120,
-      0.24
-    );
-
-  color: #d5ced5;
-
-  font-size: 0.78rem;
-
-  line-height: 1.55;
-
-  text-align: center;
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.25),
-    inset 0 0 20px rgba(139, 92, 246, 0.025);
-
-  backdrop-filter: blur(10px);
-}
-
-.locationCard strong {
-  display: block;
-
-  color: #e2c886;
-
-  font-size: 0.72rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-
-  line-height: 1.3;
-
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   FOCO / ACESSIBILIDADE
-   ========================================================= */
-
-.btnPrimary:focus-visible,
-.btnSecondary:focus-visible,
-.btnTertiary:focus-visible {
-  outline:
-    2px solid #c7a96b;
-
-  outline-offset: 4px;
-}
-
-/* =========================================================
-   INDICADOR DE ROLAGEM
-   ========================================================= */
-
-.scrollCue {
-  position: absolute;
-
-  z-index: 3;
-
-  bottom: 1.75rem;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-
-  min-height: 44px;
-  padding: 0.4rem 0.9rem;
-
-  border-radius: 999px;
-
-  background: rgba(5, 5, 6, 0.42);
-
-  border: 1px solid rgba(214, 184, 120, 0.16);
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  color: #c7a96b;
-
-  text-decoration: none;
-
-  transition:
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    color 0.3s ease;
-}
-
-.scrollCue span {
-  font-size: 0.7rem;
-  line-height: 1;
-  animation: cuePulse 2.6s ease-in-out infinite;
-}
-
-.scrollCue em {
-  font-style: normal;
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #9b93a0;
-}
-
-.scrollCue:hover {
-  color: #e2c886;
-  border-color: rgba(214, 184, 120, 0.4);
-  transform: translateX(-50%) translateY(-2px);
-}
-
-.scrollCue:focus-visible {
-  outline: 2px solid #c7a96b;
-  outline-offset: 3px;
-}
-
-@keyframes cuePulse {
-  0%, 100% { opacity: 0.45; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(3px); }
-}
-
-/* Em telas curtas o hero pode ocupar a viewport inteira:
-   o indicador sairia sobre o conteúdo. */
-@media (max-width: 899px), (max-height: 780px) {
-  .scrollCue {
-    display: none;
-  }
-}
-
-/* =========================================================
-   DESKTOP
-   ========================================================= */
-
-@media (min-width: 900px) {
-  .heroSection {
-    min-height: 100vh;
-
-    padding: 0; /* Zerado superior, inferior e laterais */
-  }
-
-  .heroContainer {
-    max-width: 1050px;
-
-    padding: 0 3rem 3.5rem;
-
-    display: grid;
-
-    grid-template-columns:
-      330px
-      minmax(0, 1fr);
-
-    gap: 5rem;
-
-    align-items: center;
-
-    text-align: left;
-  }
-
-  .imageCard {
-    width: 290px;
-    height: 290px;
-
-    margin: 0 auto;
-  }
-
-  .infoWrapper {
-    margin-top: 0;
-  }
-
-  .role {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .bioBadgeList {
-    justify-content: flex-start;
-  }
-
-  .actionGroup {
-    max-width: 520px;
-  }
-
-  .locationCard {
-    max-width: 520px;
-
-    text-align: left;
-  }
-
-  .characterBackground {
-    right: -1%;
-    bottom: -4%;
-
-    width: 800px;
-    height: 890px;
-
-    opacity: 0.43;
-
-    filter:
-      brightness(0.72)
-      saturate(0.80)
-      contrast(1.18);
-
-    -webkit-mask-image:
-      radial-gradient(
-        ellipse 60% 71% at 68% 42%,
-        rgba(0, 0, 0, 0.98) 0%,
-        rgba(0, 0, 0, 0.94) 27%,
-        rgba(0, 0, 0, 0.78) 44%,
-        rgba(0, 0, 0, 0.50) 59%,
-        rgba(0, 0, 0, 0.25) 72%,
-        rgba(0, 0, 0, 0.08) 85%,
-        transparent 100%
-      );
-
-    mask-image:
-      radial-gradient(
-        ellipse 60% 71% at 68% 42%,
-        rgba(0, 0, 0, 0.98) 0%,
-        rgba(0, 0, 0, 0.94) 27%,
-        rgba(0, 0, 0, 0.78) 44%,
-        rgba(0, 0, 0, 0.50) 59%,
-        rgba(0, 0, 0, 0.25) 72%,
-        rgba(0, 0, 0, 0.08) 85%,
-        transparent 100%
-      );
-  }
-
-  .characterBackground img {
-    object-position: 70% 40%;
-  }
-
-  .magicGlow {
-    right: -2%;
-    bottom: 15%;
-
-    width: 650px;
-    height: 780px;
-  }
-}
-
-/* =========================================================
-   DESKTOP GRANDE
-   ========================================================= */
-
-@media (min-width: 1200px) {
-  .heroContainer {
-    grid-template-columns:
-      360px
-      1fr;
-
-    gap: 6rem;
-  }
-
-  .imageCard {
-    width: 320px;
-    height: 320px;
-  }
-
-  .name {
-    font-size: 3.4rem;
-  }
-
-  .role {
-    font-size: 0.95rem;
-  }
-
-  .characterBackground {
-    right: -2%;
-    bottom: -5%;
-
-    width: 900px;
-    height: 950px;
-
-    opacity: 0.46;
-
-    filter:
-      brightness(0.74)
-      saturate(0.82)
-      contrast(1.17);
-
-    -webkit-mask-image:
-      radial-gradient(
-        ellipse 59% 70% at 68% 41%,
-        rgba(0, 0, 0, 0.98) 0%,
-        rgba(0, 0, 0, 0.94) 26%,
-        rgba(0, 0, 0, 0.78) 43%,
-        rgba(0, 0, 0, 0.49) 58%,
-        rgba(0, 0, 0, 0.23) 72%,
-        rgba(0, 0, 0, 0.07) 85%,
-        transparent 100%
-      );
-
-    mask-image:
-      radial-gradient(
-        ellipse 59% 70% at 68% 41%,
-        rgba(0, 0, 0, 0.98) 0%,
-        rgba(0, 0, 0, 0.94) 26%,
-        rgba(0, 0, 0, 0.78) 43%,
-        rgba(0, 0, 0, 0.49) 58%,
-        rgba(0, 0, 0, 0.23) 72%,
-        rgba(0, 0, 0, 0.07) 85%,
-        transparent 100%
-      );
-  }
-
-  .characterBackground img {
-    object-position: 71% 39%;
-  }
-
-  .magicGlow {
-    right: -3%;
-    bottom: 13%;
-
-    width: 720px;
-    height: 820px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 420px) {
-  .heroSection {
-    padding: 0;
-  }
-
-  .heroContainer {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 3rem;
-  }
-
-  .imageCard {
-    width: 190px;
-    height: 190px;
-  }
-
-  .infoWrapper {
-    margin-top: 1.9rem;
-  }
-
-  .name {
-    font-size: 1.9rem;
-  }
-
-  .role {
-    font-size: 0.84rem;
-
-    margin-top: 0.9rem;
-  }
-
-  .bioBadgeList {
-    gap: 0.35rem;
-
-    margin-bottom: 1.5rem;
-  }
-
-  .badge {
-    font-size: 0.63rem;
-
-    padding:
-      0.35rem
-      0.6rem;
-  }
-
+@media (max-width: 480px) {
+  .heroSection { padding: 3.75rem 1.1rem 4rem; }
+  .heroContainer { gap: 1.45rem; }
+  .imageCard { width: clamp(10.5rem, 52vw, 14rem); }
+  .name { font-size: clamp(3rem, 13vw, 4rem); }
+  .role { margin-top: 1rem; font-size: 0.98rem; }
+  .visitMeta { gap: 0.55rem 0.9rem; font-size: 0.75rem; }
+  .badge { font-size: 0.68rem; }
+  .actionGroup { display: grid; grid-template-columns: 1fr; width: min(100%, 22rem); margin-inline: auto; }
   .btnPrimary,
   .btnSecondary,
-  .btnTertiary {
-    min-height: 54px;
-
-    padding:
-      0 1rem;
-
-    font-size: 0.68rem;
-
-    letter-spacing: 0.06em;
-  }
-
-  /* =======================================================
-     BRILHO AUTOMÁTICO
-     ======================================================= */
-
-  .btnPrimary {
-    animation:
-      mobilePrimaryGlow 4s ease-in-out infinite;
-  }
-
-  .btnSecondary {
-    animation:
-      mobileSecondaryGlow 4s ease-in-out infinite;
-
-    animation-delay: 1.2s;
-  }
-
-  .btnTertiary {
-    animation:
-      mobileTertiaryGlow 4s ease-in-out infinite;
-
-    animation-delay: 2.4s;
-  }
-
-  .locationCard {
-    margin-top: 1.2rem;
-
-    padding:
-      0.9rem
-      0.85rem;
-
-    font-size: 0.7rem;
-
-    line-height: 1.5;
-  }
-
-  .locationCard strong {
-    font-size: 0.68rem;
-
-    letter-spacing: 0.11em;
-  }
-
-  .characterBackground {
-    right: -24%;
-    bottom: -1%;
-
-    width: 135vw;
-    height: 76vh;
-
-    opacity: 0.28;
-
-    filter:
-      brightness(0.64)
-      saturate(0.74)
-      contrast(1.16);
-
-    -webkit-mask-image:
-      radial-gradient(
-        ellipse 65% 72% at 71% 41%,
-        rgba(0, 0, 0, 0.96) 0%,
-        rgba(0, 0, 0, 0.82) 35%,
-        rgba(0, 0, 0, 0.46) 60%,
-        rgba(0, 0, 0, 0.14) 80%,
-        rgba(0, 0, 0, 0.03) 91%,
-        transparent 100%
-      );
-
-    mask-image:
-      radial-gradient(
-        ellipse 65% 72% at 71% 41%,
-        rgba(0, 0, 0, 0.96) 0%,
-        rgba(0, 0, 0, 0.82) 35%,
-        rgba(0, 0, 0, 0.46) 60%,
-        rgba(0, 0, 0, 0.14) 80%,
-        rgba(0, 0, 0, 0.03) 91%,
-        transparent 100%
-      );
-  }
-
-  .characterBackground img {
-    object-position: 73% 39%;
-  }
-
-  .characterBackground::after {
-    background:
-      radial-gradient(
-        ellipse 52% 60% at 71% 40%,
-        rgba(5, 5, 6, 0) 0%,
-        rgba(5, 5, 6, 0.08) 30%,
-        rgba(5, 5, 6, 0.28) 51%,
-        rgba(5, 5, 6, 0.58) 69%,
-        rgba(5, 5, 6, 0.84) 85%,
-        #050506 100%
-      );
-  }
-
-  .magicGlow {
-    right: -38%;
-    bottom: 15%;
-
-    width: 500px;
-    height: 590px;
-
-    opacity: 0.82;
-
-    filter: blur(30px);
-  }
-
-  .magicGlow::before {
-    top: 8%;
-    left: 24%;
-
-    width: 230px;
-    height: 230px;
-  }
-
-  .magicGlow::after {
-    top: 9%;
-    left: 37%;
-
-    width: 150px;
-    height: 210px;
-  }
+  .btnTertiary { width: 100%; min-height: 3rem; }
+  .scrollCue { bottom: 0.9rem; }
 }
-
-/* =========================================================
-   CELULARES MUITO ESTREITOS
-   ========================================================= */
-
-@media (max-width: 360px) {
-  .imageCard {
-    width: 178px;
-    height: 178px;
-  }
-}
-
-/* =========================================================
-   BRILHO AUTOMÁTICO — MOBILE
-   ========================================================= */
-
-@keyframes mobilePrimaryGlow {
-  0%,
-  65%,
-  100% {
-    filter: brightness(1);
-
-    box-shadow:
-      0 8px 25px rgba(0, 0, 0, 0.45),
-      0 0 18px rgba(139, 92, 246, 0.08);
-  }
-
-  82% {
-    filter: brightness(1.10);
-
-    box-shadow:
-      0 8px 25px rgba(0, 0, 0, 0.45),
-      0 0 24px rgba(214, 184, 120, 0.28),
-      0 0 42px rgba(214, 184, 120, 0.10);
-  }
-}
-
-@keyframes mobileSecondaryGlow {
-  0%,
-  65%,
-  100% {
-    filter: brightness(1);
-
-    box-shadow:
-      inset 0 0 25px rgba(139, 92, 246, 0.035),
-      0 6px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  82% {
-    filter: brightness(1.10);
-
-    box-shadow:
-      inset 0 0 25px rgba(139, 92, 246, 0.055),
-      0 6px 20px rgba(0, 0, 0, 0.25),
-      0 0 25px rgba(139, 92, 246, 0.20),
-      0 0 42px rgba(139, 92, 246, 0.08);
-  }
-}
-
-@keyframes mobileTertiaryGlow {
-  0%,
-  65%,
-  100% {
-    filter: brightness(1);
-
-    box-shadow:
-      0 6px 20px rgba(0, 0, 0, 0.22);
-  }
-
-  82% {
-    filter: brightness(1.08);
-
-    box-shadow:
-      0 6px 20px rgba(0, 0, 0, 0.22),
-      0 0 22px rgba(139, 92, 246, 0.15);
-  }
-}
-
-/* =========================================================
-   REDUÇÃO DE MOVIMENTO
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .imageCard,
-  .badge,
-  .scrollCue,
   .btnPrimary,
   .btnSecondary,
-  .btnTertiary {
-    transition: none;
-    animation: none;
-  }
-
-  .scrollCue span {
-    animation: none;
-  }
-
+  .btnTertiary,
   .btnPrimary::after,
   .btnSecondary::after,
-  .btnTertiary::after {
-    display: none;
-  }
+  .btnTertiary::after { transition: none; }
 }

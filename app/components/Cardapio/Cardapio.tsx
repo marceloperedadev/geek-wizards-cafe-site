@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import {
   ShoppingBag,
@@ -12,6 +12,7 @@ import {
   MapPin,
   Send,
 } from 'lucide-react'
+import { WHATSAPP_CONFIG } from '@/app/constants/links'
 import styles from './Cardapio.module.css'
 
 export type Produto = {
@@ -19,107 +20,99 @@ export type Produto = {
   nome: string
   descricao: string
   preco: number
-  imagem: string
+  simbolo: string
   categoria: Categoria
+  imagemUrl: string | null
   destaque?: boolean
 }
 
-export const CATEGORIAS = [
-  'Todos',
-  'Cafés',
-  'Bebidas',
-  'Doces',
-  'Salgados',
-  'Combos',
-] as const
+export type Categoria = string
 
-export type Categoria = (typeof CATEGORIAS)[number]
-
-/** Formata um valor em reais no padrão pt-BR usado na interface. */
+/** Formats a price in the menu's pt-BR display format. */
 export function formatarPreco(valor: number): string {
   return valor.toFixed(2).replace('.', ',')
 }
-
-const PRODUTOS: Produto[] = [
-  {
-    id: 1,
-    nome: 'Café Arcano',
-    descricao:
-      'Café especial preparado com um toque mágico da casa.',
-    preco: 12.9,
-    imagem: '/images/cafe.jpg',
-    categoria: 'Cafés',
-    destaque: true,
-  },
-  {
-    id: 2,
-    nome: 'Poção Roxa',
-    descricao:
-      'Bebida refrescante e misteriosa, perfeita para aventureiros.',
-    preco: 15.9,
-    imagem: '/images/pocao.jpg',
-    categoria: 'Bebidas',
-    destaque: true,
-  },
-  {
-    id: 3,
-    nome: 'Bolo do Mago',
-    descricao:
-      'Fatia generosa de bolo artesanal preparada na casa.',
-    preco: 14.9,
-    imagem: '/images/bolo.jpg',
-    categoria: 'Doces',
-  },
-  {
-    id: 4,
-    nome: 'Cookie Encantado',
-    descricao:
-      'Cookie artesanal com chocolate e uma dose de magia.',
-    preco: 9.9,
-    imagem: '/images/cookie.jpg',
-    categoria: 'Doces',
-  },
-  {
-    id: 5,
-    nome: 'Torrada do Aventureiro',
-    descricao:
-      'Torrada crocante com recheio especial da casa.',
-    preco: 16.9,
-    imagem: '/images/torrada.jpg',
-    categoria: 'Salgados',
-  },
-  {
-    id: 6,
-    nome: 'Combo do Mago',
-    descricao:
-      'Café Arcano + Cookie Encantado.',
-    preco: 20.9,
-    imagem: '/images/combo.jpg',
-    categoria: 'Combos',
-    destaque: true,
-  },
-]
 
 type ItemCarrinho = {
   produto: Produto
   quantidade: number
 }
 
-export function Cardapio() {
+export function Cardapio({ initialProducts, initialCategories }: { initialProducts: Produto[]; initialCategories: string[] }) {
   const [categoria, setCategoria] =
     useState<Categoria>('Todos')
   const [carrinho, setCarrinho] = useState<ItemCarrinho[]>([])
   const [produtoSelecionado, setProdutoSelecionado] =
     useState<Produto | null>(null)
   const [mesa, setMesa] = useState('')
+  const [pedidoVisivel, setPedidoVisivel] = useState(false)
+  const modalRef = useRef<HTMLDivElement>(null)
+  const modalCloseRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const pedido = document.getElementById('pedido')
+    if (!pedido) return
+
+    const observador = new IntersectionObserver(
+      ([entrada]) => setPedidoVisivel(entrada.isIntersecting),
+      { threshold: 0.15 },
+    )
+    observador.observe(pedido)
+    return () => observador.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!produtoSelecionado) return
+
+    const previousFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null
+    const previousOverflow = document.body.style.overflow
+
+    document.body.style.overflow = 'hidden'
+    modalCloseRef.current?.focus()
+
+    const handleModalKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setProdutoSelecionado(null)
+        return
+      }
+
+      if (event.key !== 'Tab' || !modalRef.current) return
+
+      const focusable = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      )
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last?.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleModalKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleModalKeyDown)
+      previousFocus?.focus()
+    }
+  }, [produtoSelecionado])
 
   const produtosFiltrados = useMemo(() => {
-    if (categoria === 'Todos') return PRODUTOS
+    if (categoria === 'Todos') return initialProducts
 
-    return PRODUTOS.filter(
+    return initialProducts.filter(
       (produto) => produto.categoria === categoria,
     )
-  }, [categoria])
+  }, [categoria, initialProducts])
 
   const quantidadeTotal = carrinho.reduce(
     (total, item) => total + item.quantidade,
@@ -191,6 +184,8 @@ export function Cardapio() {
   }
 
   function enviarPedido() {
+    if (!WHATSAPP_CONFIG.configured) return
+
     if (!mesa) {
       alert('Informe o número da sua mesa.')
       return
@@ -220,13 +215,10 @@ ${itens}
 
 Pedido enviado pelo cardápio digital.`
 
-    const telefone = '5512999999999'
+    const url = WHATSAPP_CONFIG.createUrl(mensagem)
+    if (!url) return
 
-    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(
-      mensagem,
-    )}`
-
-    window.open(url, '_blank')
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -302,7 +294,7 @@ Pedido enviado pelo cardápio digital.`
         className={styles.categories}
         aria-label="Categorias do cardápio"
       >
-        {CATEGORIAS.map((item) => (
+        {['Todos', ...initialCategories].map((item) => (
           <button
             key={item}
             type="button"
@@ -311,6 +303,7 @@ Pedido enviado pelo cardápio digital.`
                 ? styles.categoryActive
                 : styles.category
             }
+            aria-pressed={categoria === item}
             onClick={() => setCategoria(item)}
           >
             {item}
@@ -348,17 +341,26 @@ Pedido enviado pelo cardápio digital.`
                 <button
                   type="button"
                   className={styles.productImage}
+                  data-category={produto.categoria}
                   onClick={() =>
                     setProdutoSelecionado(produto)
                   }
                   aria-label={`Ver ${produto.nome}`}
                 >
-                  <Image
-                    src={produto.imagem}
-                    alt={produto.nome}
-                    fill
-                    sizes="(max-width: 700px) 50vw, 280px"
-                  />
+                  {produto.imagemUrl ? (
+                    <Image
+                      src={produto.imagemUrl}
+                      alt=""
+                      fill
+                      sizes="(max-width: 620px) 45vw, (max-width: 900px) 45vw, 30vw"
+                      unoptimized
+                      className={styles.productPhoto}
+                    />
+                  ) : (
+                    <span className={styles.productArtwork} aria-hidden="true">
+                      {produto.simbolo}
+                    </span>
+                  )}
 
                   {produto.destaque && (
                     <span
@@ -409,6 +411,7 @@ Pedido enviado pelo cardápio digital.`
                             )
                           }
                           aria-label="Diminuir quantidade"
+                          className={styles.quantityButton}
                         >
                           <Minus size={16} />
                         </button>
@@ -421,6 +424,7 @@ Pedido enviado pelo cardápio digital.`
                             adicionarProduto(produto)
                           }
                           aria-label="Aumentar quantidade"
+                          className={styles.quantityButton}
                         >
                           <Plus size={16} />
                         </button>
@@ -446,7 +450,7 @@ Pedido enviado pelo cardápio digital.`
       </section>
 
       {/* BARRA DO PEDIDO */}
-      {carrinho.length > 0 && (
+      {carrinho.length > 0 && !pedidoVisivel && (
         <button
           type="button"
           className={styles.cartBar}
@@ -528,6 +532,7 @@ Pedido enviado pelo cardápio digital.`
                   <div className={styles.orderControls}>
                     <button
                       type="button"
+                      aria-label={`Diminuir ${item.produto.nome}`}
                       onClick={() =>
                         diminuirProduto(
                           item.produto.id,
@@ -541,6 +546,7 @@ Pedido enviado pelo cardápio digital.`
 
                     <button
                       type="button"
+                      aria-label={`Aumentar ${item.produto.nome}`}
                       onClick={() =>
                         adicionarProduto(
                           item.produto,
@@ -553,6 +559,7 @@ Pedido enviado pelo cardápio digital.`
                     <button
                       type="button"
                       className={styles.removeButton}
+                      aria-label={`Remover ${item.produto.nome} do pedido`}
                       onClick={() =>
                         removerProduto(
                           item.produto.id,
@@ -595,14 +602,18 @@ Pedido enviado pelo cardápio digital.`
               type="button"
               className={styles.sendButton}
               onClick={enviarPedido}
+              disabled={!WHATSAPP_CONFIG.configured}
             >
               <Send size={18} />
-              Enviar pedido pelo WhatsApp
+              {WHATSAPP_CONFIG.configured
+                ? 'Enviar pedido pelo WhatsApp'
+                : 'Contato de pedidos não configurado'}
             </button>
 
             <p className={styles.orderNote}>
-              Seu pedido será encaminhado para nossa
-              equipe. Aguarde a confirmação do garçom.
+              {WHATSAPP_CONFIG.configured
+                ? 'Seu pedido será encaminhado para nossa equipe. Aguarde a confirmação do garçom.'
+                : 'O contato para pedidos ainda não foi configurado.'}
             </p>
           </>
         )}
@@ -618,6 +629,10 @@ Pedido enviado pelo cardápio digital.`
         >
           <div
             className={styles.modal}
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="product-modal-title"
             onClick={(event) =>
               event.stopPropagation()
             }
@@ -625,6 +640,7 @@ Pedido enviado pelo cardápio digital.`
             <button
               type="button"
               className={styles.modalClose}
+              ref={modalCloseRef}
               onClick={() =>
                 setProdutoSelecionado(null)
               }
@@ -634,12 +650,20 @@ Pedido enviado pelo cardápio digital.`
             </button>
 
             <div className={styles.modalImage}>
-              <Image
-                src={produtoSelecionado.imagem}
-                alt={produtoSelecionado.nome}
-                fill
-                sizes="500px"
-              />
+              {produtoSelecionado.imagemUrl ? (
+                <Image
+                  src={produtoSelecionado.imagemUrl}
+                  alt=""
+                  fill
+                  sizes="(max-width: 620px) 90vw, 29rem"
+                  unoptimized
+                  className={styles.productPhoto}
+                />
+              ) : (
+                <span className={styles.modalArtwork} aria-hidden="true">
+                  {produtoSelecionado.simbolo}
+                </span>
+              )}
             </div>
 
             <div className={styles.modalContent}>
@@ -647,7 +671,7 @@ Pedido enviado pelo cardápio digital.`
                 {produtoSelecionado.categoria}
               </span>
 
-              <h3>{produtoSelecionado.nome}</h3>
+              <h3 id="product-modal-title">{produtoSelecionado.nome}</h3>
 
               <p>
                 {produtoSelecionado.descricao}
