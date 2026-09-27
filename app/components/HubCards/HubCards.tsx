@@ -250,6 +250,7 @@ export function HubCards() {
   return (
     <section
       className={styles.hubSection}
+      id="aventuras"
       aria-labelledby="hub-title"
     >
       <div

@@ -331,7 +331,8 @@
 
   margin: 0 auto;
 
-  padding: 0 1.25rem; /* Margem de segurança mantida nos elementos internos */
+  padding: 0 1.25rem 4.5rem; /* espaço para o indicador de rolagem */
+
   box-sizing: border-box;
 
   display: flex;
@@ -986,6 +987,86 @@
 }
 
 /* =========================================================
+   INDICADOR DE ROLAGEM
+   ========================================================= */
+
+.scrollCue {
+  position: absolute;
+
+  z-index: 3;
+
+  bottom: 1.75rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+
+  border-radius: 999px;
+
+  background: rgba(5, 5, 6, 0.42);
+
+  border: 1px solid rgba(214, 184, 120, 0.16);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: #c7a96b;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.scrollCue span {
+  font-size: 0.7rem;
+  line-height: 1;
+  animation: cuePulse 2.6s ease-in-out infinite;
+}
+
+.scrollCue em {
+  font-style: normal;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9b93a0;
+}
+
+.scrollCue:hover {
+  color: #e2c886;
+  border-color: rgba(214, 184, 120, 0.4);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.scrollCue:focus-visible {
+  outline: 2px solid #c7a96b;
+  outline-offset: 3px;
+}
+
+@keyframes cuePulse {
+  0%, 100% { opacity: 0.45; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(3px); }
+}
+
+/* Em telas curtas o hero pode ocupar a viewport inteira:
+   o indicador sairia sobre o conteúdo. */
+@media (max-width: 899px), (max-height: 780px) {
+  .scrollCue {
+    display: none;
+  }
+}
+
+/* =========================================================
    DESKTOP
    ========================================================= */
 
@@ -999,7 +1080,7 @@
   .heroContainer {
     max-width: 1050px;
 
-    padding: 0 3rem; /* Margem de segurança lateral para Desktop */
+    padding: 0 3rem 3.5rem;
 
     display: grid;
 
@@ -1186,6 +1267,7 @@
   .heroContainer {
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 3rem;
   }
 
   .imageCard {
@@ -1442,10 +1524,15 @@
 @media (prefers-reduced-motion: reduce) {
   .imageCard,
   .badge,
+  .scrollCue,
   .btnPrimary,
   .btnSecondary,
   .btnTertiary {
     transition: none;
+    animation: none;
+  }
+
+  .scrollCue span {
     animation: none;
   }
 

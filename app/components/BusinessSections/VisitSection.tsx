@@ -5,7 +5,11 @@ import styles from './BusinessSections.module.css'
 
 export function VisitSection() {
   return (
-    <section className={styles.visitSection} aria-labelledby="visit-title">
+    <section
+      className={styles.visitSection}
+      id="visite"
+      aria-labelledby="visit-title"
+    >
       <SectionContainer>
         <div className={styles.visitPanel}>
           <div>

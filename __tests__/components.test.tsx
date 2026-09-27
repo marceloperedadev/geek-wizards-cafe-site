@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { existsSync } from 'node:fs'
+import path from 'node:path'
 import { Footer } from '@/app/components/Footer/Footer'
+import { BioHero } from '@/app/components/BioHero/BioHero'
 import { ExperienceSection } from '@/app/components/BusinessSections/ExperienceSection'
 import { VisitSection } from '@/app/components/BusinessSections/VisitSection'
 import { SITE_CONFIG } from '@/app/constants/links'
@@ -46,6 +49,44 @@ describe('Footer', () => {
     expect(hrefs).toContain(SITE_CONFIG.social.instagram)
     expect(hrefs).toContain(SITE_CONFIG.social.facebook)
     expect(hrefs).toContain(SITE_CONFIG.social.rpgGroup)
+  })
+})
+
+describe('navegação interna', () => {
+  it('a rota /cardapio existe no projeto', () => {
+    // A home aponta para /cardapio no CTA principal. Se a rota sumir,
+    // o caminho de conversão morre silenciosamente.
+    expect(
+      existsSync(
+        path.resolve(__dirname, '..', 'app', 'cardapio', 'page.tsx'),
+      ),
+    ).toBe(true)
+  })
+
+  it('o link do cardápio no BioHero aponta para a rota real', () => {
+    const { container } = render(<BioHero />)
+
+    const link = Array.from(container.querySelectorAll('a')).find(
+      (a) => a.textContent?.toLowerCase().includes('cardápio'),
+    )
+
+    expect(link?.getAttribute('href')).toBe('/cardapio')
+  })
+
+  it('o hero tem âncora de retorno para a navegação', () => {
+    const { container } = render(<BioHero />)
+
+    expect(
+      container.querySelector('section'),
+    ).toHaveAttribute('id', 'inicio')
+  })
+
+  it('a seção de experiências é endereçável por âncora', () => {
+    const { container } = render(<ExperienceSection />)
+
+    expect(
+      container.querySelector('section'),
+    ).toHaveAttribute('id', 'experiencias')
   })
 })
 

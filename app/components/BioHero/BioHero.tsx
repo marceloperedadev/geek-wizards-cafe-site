@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight, Clock3, MapPin } from 'lucide-react'
+import { SITE_CONFIG } from '@/app/constants/links'
 import styles from './BioHero.module.css'
 
 export function BioHero() {
   const DATA = {
-    name: 'Geek Wizards & Café',
-    category: 'Cafeteria Temática & Loja Geek',
+    category: SITE_CONFIG.role,
     description:
       'Uma taverna contemporânea para provar cafés mágicos, reunir sua guilda e viver Taubaté de um jeito diferente.',
     badges: [
@@ -16,20 +17,14 @@ export function BioHero() {
       'Mesas de RPG',
       'Artigos Geek',
     ],
-    address:
-      'Rua Silva Jardim, 97 — Jardim das Nações, Taubaté - SP',
-    links: {
-      rpgGroup:
-        'https://chat.whatsapp.com/L0BD7avJT6jAnv7oQtST4K',
-      facebook:
-        'https://www.facebook.com/geekwizardscafe',
-      locationMaps:
-        'https://maps.google.com/?q=Rua+Silva+Jardim+97+Jardim+das+Nacoes+Taubate',
-    },
+    address: SITE_CONFIG.location,
   }
 
   return (
-    <section className={styles.heroSection}>
+    <section
+    className={styles.heroSection}
+    id="inicio"
+  >
       {/* PERSONAGEM — ATMOSFERA DE FUNDO */}
       <div className={styles.characterBackground}>
         <Image
@@ -106,7 +101,7 @@ export function BioHero() {
           {/* AÇÕES */}
           <div className={styles.actionGroup}>
             <a
-              href={DATA.links.locationMaps}
+              href={SITE_CONFIG.social.maps}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnPrimary}
@@ -117,23 +112,23 @@ export function BioHero() {
               <ArrowRight size={17} aria-hidden="true" />
             </a>
 
-            <a
+            <Link
               href="/cardapio"
               className={styles.btnSecondary}
               aria-label="Conhecer o cardápio da Geek Wizards Café"
             >
               Conhecer o cardápio
               <ArrowRight size={16} aria-hidden="true" />
-            </a>
+            </Link>
 
             <a
-              href={DATA.links.rpgGroup}
+              href={SITE_CONFIG.whatsapp.menu}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnTertiary}
-              aria-label="Entrar no grupo de RPG da Geek Wizards no WhatsApp"
+              aria-label="Falar com a equipe pelo WhatsApp para fazer um pedido"
             >
-              Entrar na comunidade de RPG
+              Fazer um pedido
             </a>
           </div>
 
@@ -148,6 +143,15 @@ export function BioHero() {
           </p>
         </div>
       </div>
+
+      <a
+        href="#experiencias"
+        className={styles.scrollCue}
+        aria-label="Rolar para as experiências da Geek Wizards Café"
+      >
+        <span aria-hidden="true">✦</span>
+        <em>Descubra a casa</em>
+      </a>
     </section>
   )
 }

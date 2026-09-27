@@ -18,7 +18,11 @@ const experiences: Experience[] = [
 
 export function ExperienceSection() {
   return (
-    <section className={styles.experienceSection} aria-labelledby="experience-title">
+    <section
+      className={styles.experienceSection}
+      id="experiencias"
+      aria-labelledby="experience-title"
+    >
       <SectionContainer>
         <div className={styles.sectionIntro}>
           <p className={styles.kicker}>Muito além de uma cafeteria</p>
